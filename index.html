@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ModHubX - Modded Mobile Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      --neon-green: #00ff9f;
+      --neon-blue: #00cfff;
+      --neon-purple: #a855f7;
+      --text-light: #e0e0e0;
+      --card-bg: #1a1a2e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: var(--neon-green);
+    }
+
+    .search-bar {
+      margin: 1rem auto;
+      max-width: 400px;
+      display: flex;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      background: #2e2e4d;
+      color: white;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .game-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .game-card:hover {
+      transform: scale(1.03);
+    }
+
+    .game-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .game-card h3 {
+      margin-top: 0.5rem;
+      color: var(--neon-blue);
+    }
+
+    .game-card p {
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: var(--neon-purple);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: var(--neon-blue);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+      background: #111;
+    }
+
+    footer a {
+      color: var(--neon-green);
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .search-bar input {
+        font-size: 0.9rem;
+      }
+
+      .cta-button {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ModHubX</h1>
+    <p>Unlock Premium Modded Games for Android & iOS</p>
+    <div class="search-bar">
+      <input type="text" placeholder="Search modded games..." />
+    </div>
+  </header>
+
+  <section class="games-grid">
+    <div class="game-card">
+      <img src="clash-royale.jpg" alt="Clash Royale MOD" />
+      <h3>Clash Royale MOD</h3>
+      <p>Unlimited gems & unlocked cards</p>
+      <div class="stats">
+        <span>⭐ 4.8/5</span>
+        <span>1.2M+ installs</span>
+      </div>
+      <a href="#" class="cta-button">Download Now</a>
+    </div>
+
+    <div class="game-card">
+      <img src="brawl-stars.jpg" alt="Brawl Stars MOD" />
+      <h3>Brawl Stars MOD</h3>
+      <p>All skins unlocked, infinite coins</p>
+      <div class="stats">
+        <span>⭐ 4.7/5</span>
+        <span>980K+ installs</span>
+      </div>
+      <a href="#" class="cta-button">Download Now</a>
+    </div>
+
+    <div class="game-card">
+      <img src="subway-surfers.jpg" alt="Subway Surfers MOD" />
+      <h3>Subway Surfers MOD</h3>
+      <p>Unlimited keys & characters</p>
+      <div class="stats">
+        <span>⭐ 4.9/5</span>
+        <span>2.3M+ installs</span>
+      </div>
+      <a href="#" class="cta-button">Download Now</a>
+    </div>
+
+    <div class="game-card">
+      <img src="royal-match.jpg" alt="Royal Match MOD" />
+      <h3>Royal Match MOD</h3>
+      <p>Infinite lives & boosters</p>
+      <div class="stats">
+        <span>⭐ 4.6/5</span>
+        <span>870K+ installs</span>
+      </div>
+      <a href="#" class="cta-button">Download Now</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      <a href="#">About</a> |
+      <a href="#">Contact</a> |
+      <a href="#">Terms</a> |
+      <a href="#">Privacy</a>
+    </p>
+  </footer>
+</body>
+</html>
