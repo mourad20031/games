@@ -52,6 +52,7 @@
         }
         
         /* MODERN SQUARE LOGO STYLE */
+        /* Note: This class is only used for images in the Trending section. */
         .game-image {
             aspect-ratio: 1 / 1;
             object-fit: cover;
@@ -61,7 +62,8 @@
             margin-bottom: 1rem;
         }
         
-        /* Modern "Coming Soon" Placeholder Style - KEPT FOR MODAL FALLBACK */
+        /* Modern "Coming Soon" Placeholder Style */
+        /* Used for all placeholder logos to clearly indicate availability status. */
         .coming-soon-image {
             display: flex;
             align-items: center;
@@ -164,7 +166,7 @@
                     <h2 class="text-xl md:text-2xl font-extrabold text-white mb-2">Trending Games</h2>
                     <p class="text-sm text-gray-400 max-w-2xl mx-auto">See what games everyone is downloading right now.</p>
                 </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 gap-4">
                         
                     <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Clash Royale Mod">
                         <img src="https://i.postimg.cc/yxYq9xXV/unnamed.png" alt="Clash Royale Mod" class="game-image">
@@ -195,7 +197,7 @@
                     <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Minecraft Mod APK">
                         <img src="https://i.postimg.cc/1tndxdcZ/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.avif" alt="Minecraft Mod" class="game-image">
                         <div class="p-4 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-white mb-2 truncate">Minecraft Mod</h3>
+                            <h3 class="text-sm font-bold text-white mb-2 truncate">Minecraft PE Mod</h3>
                             <div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div>
                             <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 35.7M</div>
                             <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Minecraft Mod APK','This mod unlocks all premium skins, textures, and worlds. Enjoy god mode and unlimited inventory items.','#YOUR_DOWNLOAD_LINK_HERE_4')">Download Now</button>
@@ -212,6 +214,19 @@
                         </div>
                     </div>
 
+                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Baseball9 Mod">
+                        <img src="https://i.postimg.cc/W3B7f88p/Baseball9.png" alt="Baseball9 Mod" class="game-image">
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-white mb-2 truncate">Baseball9 Mod</h3>
+                            <div class="flex items-center text-xs mb-3 text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-gray-400 ml-2">5.0</span>
+                            </div>
+                            <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 12.6M</div>
+                            <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Baseball9 Mod APK','Unlimited money and diamonds. Recruit legendary players and build your perfect baseball team to win the World Series.','#YOUR_DOWNLOAD_LINK_HERE_B9')">Download Now</button>
+                        </div>
+                    </div>
+                    
                     <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Hollow Knight Silksong Mod">
                         <img src="https://i.postimg.cc/nzJFMqRM/640px-Silksong-cover.jpg" alt="Hollow Knight Silksong Mod" class="game-image">
                         <div class="p-4 flex flex-col flex-grow">
@@ -234,37 +249,24 @@
 
             <div id="games-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                 
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Baseball9 Mod">
-                    <img src="https://i.postimg.cc/W3B7f88p/Baseball9.png" alt="Baseball9 Mod" class="game-image">
-                    <div class="p-4 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-white mb-2 truncate">Baseball9 Mod</h3>
-                        <div class="flex items-center text-xs mb-3 text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-400 ml-2">5.0</span>
-                        </div>
-                        <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 12.6M</div>
-                        <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Baseball9 Mod APK','Unlimited money and diamonds. Recruit legendary players and build your perfect baseball team to win the World Series.','#YOUR_DOWNLOAD_LINK_HERE_B9')">Download Now</button>
-                    </div>
-                </div>
-
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Clash of Clans Mod APK">
-                    <img src="https://i.postimg.cc/q79K7bQf/clash-of-clans.png" alt="Clash of Clans" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Clash of Clans Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 22.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Clash of Clans Mod APK','Build your village, raise a clan, and compete in epic Clan Wars! This mod provides unlimited Gems, Gold, and Elixir.','#YOUR_DOWNLOAD_LINK_HERE_2')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Asphalt 9 Legends Mod APK">
-                    <img src="https://i.postimg.cc/HnW2H0zP/asphalt9.png" alt="Asphalt 9" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Asphalt 9 Legends</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 8.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Asphalt 9 Legends Mod APK','Get behind the wheel of high-end supercars and race through stunning real-world locations. Our mod unlocks all cars and provides unlimited credits.','#YOUR_DOWNLOAD_LINK_HERE_3')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Among Us Mod APK">
-                    <img src="https://i.postimg.cc/3wMv92Bq/amongus.png" alt="Among Us" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Among Us Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.7</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 15.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Among Us Mod APK','Always be the impostor, see ghosts, and unlock all skins, hats, and pets. This mod gives you the ultimate advantage.','#YOUR_DOWNLOAD_LINK_HERE_5')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Roblox Mod APK">
-                    <img src="https://i.postimg.cc/k471qF3P/roblox.png" alt="Roblox" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Roblox Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.6</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 40.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Roblox Mod APK','Get unlimited Robux, wallhack abilities, and fly mode in any game. This mod menu gives you the power to explore the Roblox universe like never before.','#YOUR_DOWNLOAD_LINK_HERE_6')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Township Mod">
-                    <img src="https://i.postimg.cc/CLzL88fT/township.png" alt="Township Mod" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow">
                         <h3 class="text-sm font-bold text-white mb-2 truncate">Township Mod</h3>
                         <div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div>
@@ -274,7 +276,7 @@
                 </div>
 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Block Blast Mod">
-                    <img src="https://i.postimg.cc/L8g94FvS/block-blast.png" alt="Block Blast Mod" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow">
                         <h3 class="text-sm font-bold text-white mb-2 truncate">Block Blast Mod</h3>
                         <div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.8</span></div>
@@ -284,7 +286,7 @@
                 </div>
 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Pizza Ready Mod">
-                    <img src="https://i.postimg.cc/W3h1cW2k/pizza-ready.png" alt="Pizza Ready Mod" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow">
                         <h3 class="text-sm font-bold text-white mb-2 truncate">Pizza Ready Mod</h3>
                         <div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div>
@@ -294,7 +296,7 @@
                 </div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Shadow Fight 3 Mod">
-                    <img src="https://i.postimg.cc/Qd0w1VbK/sf3.png" alt="Shadow Fight 3 Mod" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow">
                         <h3 class="text-sm font-bold text-white mb-2 truncate">Shadow Fight 3 Mod</h3>
                         <div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.7</span></div>
@@ -304,7 +306,7 @@
                 </div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="DLS 22 Mod">
-                    <img src="https://i.postimg.cc/85zH8wNf/dls22.png" alt="DLS 22 Mod" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow">
                         <h3 class="text-sm font-bold text-white mb-2 truncate">DLS 22 Mod</h3>
                         <div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div>
@@ -314,19 +316,19 @@
                 </div>
 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Hill Climb Racing Mod APK">
-                    <img src="https://i.postimg.cc/9Xs118V3/hill-climb.png" alt="Hill Climb Racing" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Hill Climb Racing Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 28.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Hill Climb Racing Mod APK','Unlimited coins and gems to upgrade your vehicles to the max. Unlock all stages and vehicles instantly.','#YOUR_DOWNLOAD_LINK_HERE_13')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Temple Run 2 Mod APK">
-                    <img src="https://i.postimg.cc/3RxP17B1/temple-run-2.png" alt="Temple Run 2" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Temple Run 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.7</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 19.4M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Temple Run 2 Mod APK','Unlimited coins and gems. Unlock all characters and power-ups for the ultimate endless running experience.','#YOUR_DOWNLOAD_LINK_HERE_14')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Plants vs. Zombies 2 Mod APK">
-                    <img src="https://i.postimg.cc/j5Bq99mK/pvz2.png" alt="Plants vs. Zombies 2" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">PvZ 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 14.8M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Plants vs. Zombies 2 Mod APK','Unlimited coins, gems, and mints. All plants are unlocked and max level. Defend your lawn against zombies through time!','#YOUR_DOWNLOAD_LINK_HERE_15')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Madout 2 BCO Mod">
-                    <img src="https://i.postimg.cc/PqK8J9M8/madout2.png" alt="Madout 2 BCO Mod" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow">
                         <h3 class="text-sm font-bold text-white mb-2 truncate">Madout 2 BCO Mod</h3>
                         <div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div>
@@ -336,39 +338,39 @@
                 </div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Gardenscapes Mod APK">
-                    <img src="https://i.postimg.cc/Dwm45b7M/gardenscapes.png" alt="Gardenscapes" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Gardenscapes Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.6</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 11.5M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Gardenscapes Mod APK','Unlimited stars and coins. Restore a beautiful garden to its former glory without waiting or paying for resources.','#YOUR_DOWNLOAD_LINK_HERE_22')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Homescapes Mod APK">
-                    <img src="https://i.postimg.cc/Qd9Xp7Gv/homescapes.png" alt="Homescapes" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Homescapes Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.6</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 13.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Homescapes Mod APK','Unlimited stars and coins. Help Austin the butler bring warmth and comfort back to his wonderful family\'s mansion.','#YOUR_DOWNLOAD_LINK_HERE_23')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Pokemon GO Mod APK">
-                    <img src="https://i.postimg.cc/gJ5xR1S9/pokemon-go.png" alt="Pokemon GO" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Pokemon GO Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 29.9M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Pokemon GO Mod APK','GPS Joystick, auto-walk, and enhanced throw. Catch \'em all from the comfort of your home.','#YOUR_DOWNLOAD_LINK_HERE_24')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="My Talking Tom 2 Mod APK">
-                    <img src="https://i.postimg.cc/zfK0T7y8/talking-tom-2.png" alt="My Talking Tom 2" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">My Talking Tom 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 16.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'My Talking Tom 2 Mod APK','Unlimited coins and stars. Play with Tom, feed him, and take care of your very own virtual pet without any limits.','#YOUR_DOWNLOAD_LINK_HERE_25')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Ludo King Mod APK">
-                    <img src="https://i.postimg.cc/85zK62c2/ludo-king.png" alt="Ludo King" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Ludo King Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.5</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 10.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Ludo King Mod APK','Always get a six, and see your opponent\'s dice rolls. Become the undisputed king of Ludo.','#YOUR_DOWNLOAD_LINK_HERE_26')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Garena AOV Mod APK">
-                    <img src="https://i.postimg.cc/FK41b4sH/garena-aov.png" alt="Garena AOV" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Garena AOV Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 9.9M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Garena AOV Mod APK','Map hack and drone view. Experience the ultimate 5v5 MOBA experience with full map awareness.','#YOUR_DOWNLOAD_LINK_HERE_27')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Dead Trigger 2 Mod APK">
-                    <img src="https://i.postimg.cc/Qd9Xp7Gv/homescapes.png" alt="Dead Trigger 2" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Dead Trigger 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.8</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 11.8M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Dead Trigger 2 Mod APK','Unlimited ammo and god mode. Survive the zombie apocalypse in this award-winning first-person shooter.','#YOUR_DOWNLOAD_LINK_HERE_28')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="eFootball PES Mod APK">
-                    <img src="https://i.postimg.cc/0j0D9p2X/efootball-pes.png" alt="eFootball PES" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">eFootball PES Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 15.5M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'eFootball PES Mod APK','Unlimited myClub coins and GP. Build your dream team with legendary players and compete online.','#YOUR_DOWNLOAD_LINK_HERE_29')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="MARVEL Contest of Champions Mod APK">
-                    <img src="https://i.postimg.cc/L5n0S4jG/marvel-contest-of-champions.png" alt="MARVEL Contest of Champions" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">MCoC Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.7</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 8.9M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'MARVEL Contest of Champions Mod APK','God mode, one-hit kill, and unlimited mana. Assemble a mighty team of heroes and villains in the ultimate cosmic showdown.','#YOUR_DOWNLOAD_LINK_HERE_30')">Download Now</button></div></div>
             </div>
 
@@ -475,11 +477,18 @@
             const gameCard = buttonElement.closest('.game-card');
             let imgSrc;
             const imgElement = gameCard.querySelector('.game-image');
-            if (imgElement) {
+            
+            // Check if the card uses a specific image
+            if (imgElement && imgElement.src) {
                 imgSrc = imgElement.src;
-            } else { 
-                // Fallback to a generic placeholder for the modal if somehow the image is missing
-                imgSrc = 'https://placehold.co/400x400/1a1a1a/9ca3af?text=Image+Unavailable'; 
+            } 
+            // Check if the card uses the "Coming Soon" div
+            else if (gameCard.querySelector('.coming-soon-image')) {
+                 imgSrc = 'https://placehold.co/400x400/1a1a1a/9ca3af?text=COMING+SOON'; 
+            } 
+            // Fallback for any other case
+            else {
+                 imgSrc = 'https://placehold.co/400x400/1a1a1a/9ca3af?text=Image+Unavailable';
             }
 
             gameModal.querySelector('#modal-title').textContent = title;
