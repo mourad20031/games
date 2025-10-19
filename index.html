@@ -54,14 +54,6 @@
             object-fit: cover;
             width: 100%;
         }
-        /* Slider styles */
-        .slider-slide {
-            display: none;
-            transition: opacity 0.5s ease-in-out;
-        }
-        .slider-slide.active {
-            display: block;
-        }
         /* Hide scrollbar for Chrome, Safari and Opera */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
@@ -103,46 +95,13 @@
     <!-- Main Content -->
     <main>
         
-        <!-- Hero Slider -->
-        <section id="slider-container" class="relative w-full h-64 sm:h-80 md:h-96 overflow-hidden">
-            <div class="relative h-full">
-                <!-- Slide 1 -->
-                <div class="slider-slide active h-full">
-                    <img src="https://placehold.co/1200x400/1a1a1a/7fff00?text=GTA+San+Andreas" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-center p-4">
-                        <h2 class="text-2xl md:text-4xl font-extrabold text-white mb-4">GTA San Andreas Mod</h2>
-                        <p class="text-xs md:text-base text-gray-300 mb-6 max-w-2xl">Unlimited money, all weapons, and high-res graphics.</p>
-                        <a href="#YOUR_DOWNLOAD_LINK_HERE_9" class="btn-download py-2 px-6 rounded-lg text-base">Download Now</a>
-                    </div>
-                </div>
-                <!-- Slide 2 -->
-                <div class="slider-slide h-full">
-                     <img src="https://i.postimg.cc/QdcXjGHn/Gemini-Generated-Image-scoo1qscoo1qscoo.png" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-center p-4">
-                        <h2 class="text-2xl md:text-4xl font-extrabold text-white mb-4">PUBG Mobile Mod</h2>
-                        <p class="text-xs md:text-base text-gray-300 mb-6 max-w-2xl">Wallhack, aimbot, and unlimited UC.</p>
-                        <a href="#YOUR_DOWNLOAD_LINK_HERE_10" class="btn-download py-2 px-6 rounded-lg text-base">Download Now</a>
-                    </div>
-                </div>
-                <!-- Slide 3 -->
-                <div class="slider-slide h-full">
-                     <img src="https://placehold.co/1200x400/1a1a1a/00ff00?text=Clash+of+Clans" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-center p-4">
-                        <h2 class="text-2xl md:text-4xl font-extrabold text-white mb-4">Clash of Clans Mod</h2>
-                        <p class="text-xs md:text-base text-gray-300 mb-6 max-w-2xl">Unlimited Gems, Gold, and Elixir.</p>
-                        <a href="#YOUR_DOWNLOAD_LINK_HERE_2" class="btn-download py-2 px-6 rounded-lg text-base">Download Now</a>
-                    </div>
-                </div>
+        <!-- Hero Section -->
+        <section id="hero-section" class="relative w-full h-64 sm:h-80 md:h-96 overflow-hidden">
+            <img src="https://i.postimg.cc/Jh66H0F5/Untitled-design-1.jpg" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center p-4">
+                 <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Welcome to ModGames</h2>
+                 <p class="text-md md:text-lg text-gray-300 max-w-2xl">Your one-stop destination for the latest modded games.</p>
             </div>
-            <!-- Slider Navigation -->
-            <button id="prev-slide" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition z-10">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button id="next-slide" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition z-10">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            <!-- Slider Dots -->
-            <div id="slider-dots" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10"></div>
         </section>
 
         <!-- Search Section -->
@@ -165,7 +124,7 @@
                     <p class="text-sm text-gray-400 max-w-2xl mx-auto">See what games everyone is downloading right now.</p>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                     <!-- 10 Trending Game Cards -->
+                        <!-- 10 Trending Game Cards -->
                     <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="GTA San Andreas Mod APK">
                         <img src="https://placehold.co/400x400/1a1a1a/7fff00?text=GTA+SA" alt="GTA San Andreas" class="game-image">
                         <div class="p-4 flex flex-col flex-grow">
@@ -249,7 +208,7 @@
 
             <!-- Games Grid -->
             <div id="games-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                 <!-- 21 Game Cards -->
+                    <!-- 21 Game Cards -->
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Clash of Clans Mod APK"><img src="https://placehold.co/400x400/1a1a1a/00ff00?text=Clash+of+Clans" alt="Clash of Clans" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Clash of Clans Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 22.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Clash of Clans Mod APK','Build your village, raise a clan, and compete in epic Clan Wars! This mod provides unlimited Gems, Gold, and Elixir.','#YOUR_DOWNLOAD_LINK_HERE_2')">Download Now</button></div></div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Asphalt 9 Legends Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ff00ff?text=Asphalt+9" alt="Asphalt 9" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Asphalt 9 Legends</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 8.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Asphalt 9 Legends Mod APK','Get behind the wheel of high-end supercars and race through stunning real-world locations. Our mod unlocks all cars and provides unlimited credits.','#YOUR_DOWNLOAD_LINK_HERE_3')">Download Now</button></div></div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Minecraft PE Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ffa500?text=Minecraft+PE" alt="Minecraft PE" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Minecraft PE Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 35.7M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Minecraft PE Mod APK','This mod unlocks all premium skins, textures, and worlds. Enjoy god mode and unlimited inventory items.','#YOUR_DOWNLOAD_LINK_HERE_4')">Download Now</button></div></div>
@@ -507,73 +466,9 @@
             }
         });
         
-        // --- Slider Logic ---
-        const slides = document.querySelectorAll('.slider-slide');
-        const prevBtn = document.getElementById('prev-slide');
-        const nextBtn = document.getElementById('next-slide');
-        const dotsContainer = document.getElementById('slider-dots');
-        let currentSlide = 0;
-        let slideInterval;
-
-        function createDots() {
-            slides.forEach((_, i) => {
-                const dot = document.createElement('button');
-                dot.classList.add('w-3', 'h-3', 'rounded-full', 'transition');
-                dot.classList.add(i === 0 ? 'bg-green-400' : 'bg-gray-500');
-                dot.addEventListener('click', () => {
-                    goToSlide(i);
-                    resetInterval();
-                });
-                dotsContainer.appendChild(dot);
-            });
-        }
-        
-        function updateDots() {
-            const dots = dotsContainer.children;
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].classList.toggle('bg-green-400', i === currentSlide);
-                dots[i].classList.toggle('bg-gray-500', i !== currentSlide);
-            }
-        }
-
-        function goToSlide(n) {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-            updateDots();
-        }
-
-        function nextSlide() {
-            goToSlide(currentSlide + 1);
-        }
-
-        function prevSlide() {
-            goToSlide(currentSlide - 1);
-        }
-        
-        function startInterval() {
-             slideInterval = setInterval(nextSlide, 5000);
-        }
-        
-        function resetInterval() {
-            clearInterval(slideInterval);
-            startInterval();
-        }
-
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-            resetInterval();
-        });
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
-            resetInterval();
-        });
-        
         // Initial setup on page load
-        createDots();
-        startInterval();
         setupSeeMore();
     </script>
 </body>
 </html>
-
+f
