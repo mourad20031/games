@@ -54,6 +54,27 @@
             object-fit: cover;
             width: 100%;
         }
+        /* New custom style for the 'See More' button gradient effect */
+        .btn-see-more {
+            background-image: linear-gradient(90deg, #22c55e, #10b981); /* Green Gradient */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+        }
+        .btn-see-more:hover {
+            background-image: linear-gradient(90deg, #10b981, #22c55e);
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.6);
+            transform: translateY(-2px);
+        }
+        .btn-see-less {
+            background-image: linear-gradient(90deg, #ef4444, #dc2626); /* Red Gradient */
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+        }
+        .btn-see-less:hover {
+            background-image: linear-gradient(90deg, #dc2626, #ef4444);
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.6);
+            transform: translateY(-2px);
+        }
+
         /* Hide scrollbar for Chrome, Safari and Opera */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
@@ -100,11 +121,10 @@
             </div>
         </section>
 
-        <section id="search-section" class="py-10 bg-[#161616]">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-xl md:text-2xl font-extrabold text-white mb-4">Find Your Favorite Modded Game</h2>
-                <div class="relative max-w-xl mx-auto">
-                    <input type="text" id="mainSearchInput" placeholder="Search for games like 'Minecraft'..." class="search-bar text-white rounded-full py-2 pl-5 pr-10 focus:outline-none focus:ring-2 focus:ring-green-400 w-full text-base">
+        <section id="search-section" class="pt-8 pb-4 bg-[#161616]">
+            <div class="container mx-auto px-4">
+                <div class="relative w-full max-w-xs md:max-w-md">
+                    <input type="text" id="mainSearchInput" placeholder="Search for games..." class="search-bar text-white rounded-full py-2 pl-5 pr-10 focus:outline-none focus:ring-2 focus:ring-green-400 w-full text-base">
                     <i class="fas fa-search text-gray-400 absolute right-4 top-1/2 -translate-y-1/2 text-base"></i>
                 </div>
             </div>
@@ -228,7 +248,7 @@
             </div>
             
             <div id="see-more-container" class="text-center mt-8">
-                <button id="see-more-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition">
+                <button id="see-more-btn" class="btn-see-more text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transition duration-300 ease-in-out">
                     See More
                 </button>
             </div>
@@ -423,8 +443,8 @@
             });
             
             seeMoreBtn.textContent = 'See More';
-            seeMoreBtn.classList.remove('bg-red-600', 'hover:bg-red-500');
-            seeMoreBtn.classList.add('bg-gray-700', 'hover:bg-gray-600');
+            seeMoreBtn.classList.remove('btn-see-less'); // Remove red class
+            seeMoreBtn.classList.add('btn-see-more'); // Add green class
             seeMoreBtn.dataset.state = 'collapsed';
         }
 
@@ -434,8 +454,8 @@
             if (isCollapsed) {
                 gamesInGrid.forEach(card => card.style.display = 'flex');
                 seeMoreBtn.textContent = 'See Less';
-                seeMoreBtn.classList.remove('bg-gray-700', 'hover:bg-gray-600');
-                seeMoreBtn.classList.add('bg-red-600', 'hover:bg-red-500');
+                seeMoreBtn.classList.remove('btn-see-more'); // Remove green class
+                seeMoreBtn.classList.add('btn-see-less'); // Add red class
                 seeMoreBtn.dataset.state = 'expanded';
             } else {
                 gamesInGrid.forEach((card, index) => {
@@ -444,8 +464,8 @@
                     }
                 });
                 seeMoreBtn.textContent = 'See More';
-                seeMoreBtn.classList.remove('bg-red-600', 'hover:bg-red-500');
-                seeMoreBtn.classList.add('bg-gray-700', 'hover:bg-gray-600');
+                seeMoreBtn.classList.remove('btn-see-less'); // Remove red class
+                seeMoreBtn.classList.add('btn-see-more'); // Add green class
                 seeMoreBtn.dataset.state = 'collapsed';
                 document.getElementById('all-mods-header').scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
