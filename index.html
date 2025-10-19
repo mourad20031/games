@@ -23,6 +23,7 @@
             background-color: #1e1e1e;
             border: 1px solid #2d2d2d;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 0.75rem; /* Slightly rounded corners for a modern feel */
         }
         .game-card:hover {
             transform: translateY(-8px);
@@ -49,16 +50,31 @@
         .modal-content {
             background-color: #1e1e1e;
         }
-        /* Updated game-image for circular shape */
+        /* Updated game-image for a more modern circular shape */
         .game-image {
             aspect-ratio: 1 / 1;
             object-fit: cover;
             width: 100%;
             border-radius: 50%; /* Make it circular */
-            padding: 8px; /* Add some padding to prevent image content from touching the edge */
-            background-color: #2a2a2a; /* Background for the padding area */
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            /* Removed padding and background here, relying on card background */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Subtle shadow for depth */
         }
+        /* Style for "Coming Soon" images to make text more modern */
+        .coming-soon-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af; /* Lighter grey for modern text */
+            font-size: 0.9rem; /* Smaller, more subtle text */
+            font-weight: 500; /* Medium weight */
+            background-color: #2a2a2a; /* Slightly darker background for contrast */
+            border-radius: 50%;
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            object-fit: cover; /* Important for consistency with other images */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
         /* New custom style for the 'See More' button gradient effect */
         .btn-see-more {
             background-image: linear-gradient(90deg, #22c55e, #10b981); /* Green Gradient */
@@ -181,7 +197,7 @@
                     </div>
                     
                     <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Baseball9 Mod">
-                        <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Baseball9 Mod" class="game-image">
+                        <div class="coming-soon-image">Coming Soon</div>
                         <div class="p-4 flex flex-col flex-grow">
                             <h3 class="text-sm font-bold text-white mb-2 truncate">Baseball9 Mod</h3>
                             <div class="flex items-center text-xs mb-3 text-yellow-400">
@@ -194,7 +210,7 @@
                     </div>
                     
                     <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Hollow Knight Silksong Mod">
-                        <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Hollow Knight Silksong Mod" class="game-image">
+                        <div class="coming-soon-image">Coming Soon</div>
                         <div class="p-4 flex flex-col flex-grow">
                             <h3 class="text-sm font-bold text-white mb-2 truncate">Hollow Knight Silksong Mod</h3>
                             <div class="flex items-center text-xs mb-3 text-yellow-400">
@@ -216,7 +232,7 @@
             <div id="games-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Subway Surfers Mod">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Subway Surfers" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow">
                         <h3 class="text-sm font-bold text-white mb-2 truncate">Subway Surfers Mod</h3>
                         <div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.8</span></div>
@@ -225,20 +241,20 @@
                     </div>
                 </div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Clash of Clans Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Clash of Clans" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Clash of Clans Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 22.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Clash of Clans Mod APK','Build your village, raise a clan, and compete in epic Clan Wars! This mod provides unlimited Gems, Gold, and Elixir.','#YOUR_DOWNLOAD_LINK_HERE_2')">Download Now</button></div></div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Asphalt 9 Legends Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Asphalt 9" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Asphalt 9 Legends</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 8.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Asphalt 9 Legends Mod APK','Get behind the wheel of high-end supercars and race through stunning real-world locations. Our mod unlocks all cars and provides unlimited credits.','#YOUR_DOWNLOAD_LINK_HERE_3')">Download Now</button></div></div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Among Us Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Among Us" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Among Us Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.7</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 15.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Among Us Mod APK','Always be the impostor, see ghosts, and unlock all skins, hats, and pets. This mod gives you the ultimate advantage.','#YOUR_DOWNLOAD_LINK_HERE_5')">Download Now</button></div></div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Roblox Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Roblox" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Roblox Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.6</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 40.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Roblox Mod APK','Get unlimited Robux, wallhack abilities, and fly mode in any game. This mod menu gives you the power to explore the Roblox universe like never before.','#YOUR_DOWNLOAD_LINK_HERE_6')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Township Mod">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Township Mod" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow">
                         <h3 class="text-sm font-bold text-white mb-2 truncate">Township Mod</h3>
                         <div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div>
@@ -248,7 +264,7 @@
                 </div>
 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Block Blast Mod">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Block Blast Mod" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow">
                         <h3 class="text-sm font-bold text-white mb-2 truncate">Block Blast Mod</h3>
                         <div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.8</span></div>
@@ -258,7 +274,7 @@
                 </div>
 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Pizza Ready Mod">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Pizza Ready Mod" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow">
                         <h3 class="text-sm font-bold text-white mb-2 truncate">Pizza Ready Mod</h3>
                         <div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div>
@@ -268,7 +284,7 @@
                 </div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Shadow Fight 3 Mod">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Shadow Fight 3 Mod" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow">
                         <h3 class="text-sm font-bold text-white mb-2 truncate">Shadow Fight 3 Mod</h3>
                         <div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.7</span></div>
@@ -278,7 +294,7 @@
                 </div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="DLS 22 Mod">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="DLS 22 Mod" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow">
                         <h3 class="text-sm font-bold text-white mb-2 truncate">DLS 22 Mod</h3>
                         <div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div>
@@ -288,16 +304,16 @@
                 </div>
 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Hill Climb Racing Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Hill Climb Racing" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Hill Climb Racing Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 28.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Hill Climb Racing Mod APK','Unlimited coins and gems to upgrade your vehicles to the max. Unlock all stages and vehicles instantly.','#YOUR_DOWNLOAD_LINK_HERE_13')">Download Now</button></div></div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Temple Run 2 Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Temple Run 2" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Temple Run 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.7</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 19.4M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Temple Run 2 Mod APK','Unlimited coins and gems. Unlock all characters and power-ups for the ultimate endless running experience.','#YOUR_DOWNLOAD_LINK_HERE_14')">Download Now</button></div></div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Plants vs. Zombies 2 Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Plants vs. Zombies 2" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">PvZ 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 14.8M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Plants vs. Zombies 2 Mod APK','Unlimited coins, gems, and mints. All plants are unlocked and max level. Defend your lawn against zombies through time!','#YOUR_DOWNLOAD_LINK_HERE_15')">Download Now</button></div></div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Madout 2 BCO Mod">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Madout 2 BCO Mod" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow">
                         <h3 class="text-sm font-bold text-white mb-2 truncate">Madout 2 BCO Mod</h3>
                         <div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div>
@@ -306,32 +322,32 @@
                     </div>
                 </div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Gardenscapes Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Gardenscapes" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Gardenscapes Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.6</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 11.5M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Gardenscapes Mod APK','Unlimited stars and coins. Restore a beautiful garden to its former glory without waiting or paying for resources.','#YOUR_DOWNLOAD_LINK_HERE_22')">Download Now</button></div></div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Homescapes Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Homescapes" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Homescapes Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.6</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 13.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Homescapes Mod APK','Unlimited stars and coins. Help Austin the butler bring warmth and comfort back to his wonderful family\'s mansion.','#YOUR_DOWNLOAD_LINK_HERE_23')">Download Now</button></div></div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Pokemon GO Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Pokemon GO" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Pokemon GO Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 29.9M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Pokemon GO Mod APK','GPS Joystick, auto-walk, and enhanced throw. Catch \'em all from the comfort of your home.','#YOUR_DOWNLOAD_LINK_HERE_24')">Download Now</button></div></div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="My Talking Tom 2 Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="My Talking Tom 2" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">My Talking Tom 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 16.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'My Talking Tom 2 Mod APK','Unlimited coins and stars. Play with Tom, feed him, and take care of your very own virtual pet without any limits.','#YOUR_DOWNLOAD_LINK_HERE_25')">Download Now</button></div></div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Ludo King Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Ludo King" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Ludo King Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.5</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 10.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Ludo King Mod APK','Always get a six, and see your opponent\'s dice rolls. Become the undisputed king of Ludo.','#YOUR_DOWNLOAD_LINK_HERE_26')">Download Now</button></div></div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Garena AOV Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Garena AOV" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Garena AOV Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 9.9M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Garena AOV Mod APK','Map hack and drone view. Experience the ultimate 5v5 MOBA experience with full map awareness.','#YOUR_DOWNLOAD_LINK_HERE_27')">Download Now</button></div></div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Dead Trigger 2 Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="Dead Trigger 2" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">Dead Trigger 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.8</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 11.8M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Dead Trigger 2 Mod APK','Unlimited ammo and god mode. Survive the zombie apocalypse in this award-winning first-person shooter.','#YOUR_DOWNLOAD_LINK_HERE_28')">Download Now</button></div></div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="eFootball PES Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="eFootball PES" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">eFootball PES Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 15.5M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'eFootball PES Mod APK','Unlimited myClub coins and GP. Build your dream team with legendary players and compete online.','#YOUR_DOWNLOAD_LINK_HERE_29')">Download Now</button></div></div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="MARVEL Contest of Champions Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Coming+Soon" alt="MARVEL Contest of Champions" class="game-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow"><h3 class="text-sm font-bold text-white mb-2 truncate">MCoC Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.7</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 8.9M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'MARVEL Contest of Champions Mod APK','God mode, one-hit kill, and unlimited mana. Assemble a mighty team of heroes and villains in the ultimate cosmic showdown.','#YOUR_DOWNLOAD_LINK_HERE_30')">Download Now</button></div></div>
             </div>
 
@@ -436,7 +452,14 @@
 
         function openModal(buttonElement, title, description, downloadLink) {
             const gameCard = buttonElement.closest('.game-card');
-            const imgSrc = gameCard.querySelector('.game-image').src;
+            let imgSrc;
+            const imgElement = gameCard.querySelector('.game-image');
+            if (imgElement) {
+                imgSrc = imgElement.src;
+            } else { // Handle 'Coming Soon' div
+                // You might want a generic placeholder for modals for 'Coming Soon' items
+                imgSrc = 'https://placehold.co/400x400/1a1a1a/9ca3af?text=Coming+Soon'; 
+            }
 
             gameModal.querySelector('#modal-title').textContent = title;
             gameModal.querySelector('#modal-img').src = imgSrc;
