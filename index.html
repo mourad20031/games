@@ -54,6 +54,14 @@
             object-fit: cover;
             width: 100%;
         }
+        /* Slider styles */
+        .slider-slide {
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .slider-slide.active {
+            display: block;
+        }
         /* Hide scrollbar for Chrome, Safari and Opera */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
@@ -75,165 +83,224 @@
                     <i class="fas fa-gamepad text-green-400"></i> Mod<span class="text-green-400">Games</span>
                 </h1>
             </a>
-            <nav class="hidden md:flex items-center space-x-6">
+            <nav class="hidden md:flex items-center space-x-8">
                 <a href="#trending" class="text-gray-300 hover:text-green-400 transition">Trending</a>
+                <a href="#all-mods-header" class="text-gray-300 hover:text-green-400 transition">All Games</a>
                 <a href="javascript:void(0);" onclick="openContactModal()" class="text-gray-300 hover:text-green-400 transition">Contact Us</a>
             </nav>
-            <div class="hidden md:flex relative">
-                <input type="text" id="searchInputDesktop" placeholder="Search for games..." class="search-bar text-white rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-green-400 w-64">
-                <i class="fas fa-search text-gray-400 absolute right-4 top-1/2 -translate-y-1/2"></i>
-            </div>
             <button id="menu-btn" class="md:hidden text-white text-2xl">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-4 pb-4">
-             <div class="relative mb-4">
-                <input type="text" id="searchInputMobile" placeholder="Search for games..." class="search-bar text-white rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-green-400 w-full">
-                <i class="fas fa-search text-gray-400 absolute right-4 top-1/2 -translate-y-1/2"></i>
-            </div>
             <a href="#trending" class="block text-gray-300 hover:text-green-400 transition py-2">Trending</a>
+            <a href="#all-mods-header" class="block text-gray-300 hover:text-green-400 transition py-2">All Games</a>
             <a href="javascript:void(0);" onclick="openContactModal()" class="block text-gray-300 hover:text-green-400 transition py-2">Contact Us</a>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-10">
+    <main>
         
-        <!-- Trending Section -->
-        <section id="trending" class="pt-8">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">Trending Games</h2>
-                <p class="text-sm text-gray-400 max-w-2xl mx-auto">See what games everyone is downloading right now.</p>
+        <!-- Hero Slider -->
+        <section id="slider-container" class="relative w-full h-64 sm:h-80 md:h-96 overflow-hidden">
+            <div class="relative h-full">
+                <!-- Slide 1 -->
+                <div class="slider-slide active h-full">
+                    <img src="https://placehold.co/1200x400/1a1a1a/7fff00?text=GTA+San+Andreas" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-center p-4">
+                        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">GTA San Andreas Mod</h2>
+                        <p class="text-sm md:text-lg text-gray-300 mb-6 max-w-2xl">Unlimited money, all weapons, and high-res graphics.</p>
+                        <a href="#YOUR_DOWNLOAD_LINK_HERE_9" class="btn-download py-3 px-8 rounded-lg text-base">Download Now</a>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="slider-slide h-full">
+                     <img src="https://placehold.co/1200x400/1a1a1a/f0e68c?text=PUBG+Mobile" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-center p-4">
+                        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">PUBG Mobile Mod</h2>
+                        <p class="text-sm md:text-lg text-gray-300 mb-6 max-w-2xl">Wallhack, aimbot, and unlimited UC.</p>
+                        <a href="#YOUR_DOWNLOAD_LINK_HERE_10" class="btn-download py-3 px-8 rounded-lg text-base">Download Now</a>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="slider-slide h-full">
+                     <img src="https://placehold.co/1200x400/1a1a1a/00ff00?text=Clash+of+Clans" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-center p-4">
+                        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Clash of Clans Mod</h2>
+                        <p class="text-sm md:text-lg text-gray-300 mb-6 max-w-2xl">Unlimited Gems, Gold, and Elixir.</p>
+                        <a href="#YOUR_DOWNLOAD_LINK_HERE_2" class="btn-download py-3 px-8 rounded-lg text-base">Download Now</a>
+                    </div>
+                </div>
             </div>
-             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="GTA San Andreas Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/7fff00?text=GTA+SA" alt="GTA San Andreas" class="game-image">
-                    <div class="p-4 flex flex-col flex-grow">
-                        <h3 class="text-base font-bold text-white mb-2 truncate">GTA San Andreas Mod</h3>
-                        <div class="flex items-center text-xs mb-3 text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-400 ml-2">5.0</span>
-                        </div>
-                        <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 50.5M</div>
-                        <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'GTA San Andreas Mod APK','Unlimited money, all weapons, and high-res graphics. Re-live the classic story of CJ in Los Santos with this definitive edition mod.','#YOUR_DOWNLOAD_LINK_HERE_9')">Download Now</button>
-                    </div>
+            <!-- Slider Navigation -->
+            <button id="prev-slide" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition z-10">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="next-slide" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition z-10">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <!-- Slider Dots -->
+            <div id="slider-dots" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10"></div>
+        </section>
+
+        <!-- Search Section -->
+        <section id="search-section" class="py-12 bg-[#161616]">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">Find Your Favorite Modded Game</h2>
+                <div class="relative max-w-2xl mx-auto">
+                    <input type="text" id="mainSearchInput" placeholder="Search for games like 'Minecraft'..." class="search-bar text-white rounded-full py-3 pl-6 pr-12 focus:outline-none focus:ring-2 focus:ring-green-400 w-full text-lg">
+                    <i class="fas fa-search text-gray-400 absolute right-5 top-1/2 -translate-y-1/2 text-xl"></i>
                 </div>
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="PUBG Mobile Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/f0e68c?text=PUBG+Mobile" alt="PUBG Mobile" class="game-image">
-                    <div class="p-4 flex flex-col flex-grow">
-                        <h3 class="text-base font-bold text-white mb-2 truncate">PUBG Mobile Mod</h3>
-                        <div class="flex items-center text-xs mb-3 text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-400 ml-2">4.9</span>
-                        </div>
-                        <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 38.2M</div>
-                        <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'PUBG Mobile Mod APK','Wallhack, aimbot, and unlimited UC. Get your chicken dinner every single time with this powerful mod menu.','#YOUR_DOWNLOAD_LINK_HERE_10')">Download Now</button>
-                    </div>
-                </div>
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="8 Ball Pool Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/000000?text=8+Ball+Pool&textcolor=ffffff" alt="8 Ball Pool" class="game-image">
-                    <div class="p-4 flex flex-col flex-grow">
-                        <h3 class="text-base font-bold text-white mb-2 truncate">8 Ball Pool Mod</h3>
-                        <div class="flex items-center text-xs mb-3 text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-400 ml-2">5.0</span>
-                        </div>
-                        <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 12.6M</div>
-                        <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, '8 Ball Pool Mod APK','Unlimited guidelines, all cues unlocked, and anti-ban features. Never miss a shot again and become a pool legend.','#YOUR_DOWNLOAD_LINK_HERE_11')">Download Now</button>
-                    </div>
-                </div>
-                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Candy Crush Saga Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/ff69b4?text=Candy+Crush" alt="Candy Crush" class="game-image">
-                    <div class="p-4 flex flex-col flex-grow">
-                        <h3 class="text-base font-bold text-white mb-2 truncate">Candy Crush Saga Mod</h3>
-                        <div class="flex items-center text-xs mb-3 text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-400 ml-2">4.8</span>
-                        </div>
-                        <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 21.1M</div>
-                        <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Candy Crush Saga Mod APK','Unlimited lives, all levels unlocked, and endless boosters. Crush the candy kingdom with zero restrictions.','#YOUR_DOWNLOAD_LINK_HERE_12')">Download Now</button>
-                    </div>
-                </div>
-                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Subway Surfers Mod APK">
-                    <img src="https://placehold.co/400x400/1a1a1a/cyan?text=Subway+Surfers" alt="Subway Surfers" class="game-image">
-                    <div class="p-4 flex flex-col flex-grow">
-                        <h3 class="text-base font-bold text-white mb-2 truncate">Subway Surfers Mod</h3>
-                        <div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.8</span></div>
-                        <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 10.5M</div>
-                        <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Subway Surfers Mod APK','Experience Subway Surfers like never before with our mod! Get unlimited coins, keys, and all characters unlocked from the start. Enjoy an ad-free experience and surf through the subways without any limitations.','#YOUR_DOWNLOAD_LINK_HERE_1')">Download Now</button>
-                    </div>
-                </div>
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Shadow Fight 2 Mod APK"><img src="https://placehold.co/400x400/1a1a1a/483d8b?text=Shadow+Fight+2" alt="Shadow Fight 2" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Shadow Fight 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 23.0M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Shadow Fight 2 Mod APK','Unlimited gems and coins to buy and upgrade all the legendary weapons. Defeat all the demons and close the Gate of Shadows.','#YOUR_DOWNLOAD_LINK_HERE_16')">Download Now</button></div></div>
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Real Racing 3 Mod APK"><img src="https://placehold.co/400x400/1a1a1a/708090?text=RR3" alt="Real Racing 3" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Real Racing 3 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 9.5M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Real Racing 3 Mod APK','Unlimited Gold and R$ currency. Unlock all cars and events in this stunningly realistic racing simulator.','#YOUR_DOWNLOAD_LINK_HERE_17')">Download Now</button></div></div>
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Mobile Legends Mod APK"><img src="https://placehold.co/400x400/1a1a1a/1e90ff?text=MLBB" alt="Mobile Legends" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Mobile Legends Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.8</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 31.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Mobile Legends Mod APK','Map hack, drone view, and unlocked skins. See your enemies on the minimap at all times and dominate the 5v5 MOBA arena.','#YOUR_DOWNLOAD_LINK_HERE_18')">Download Now</button></div></div>
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Brawl Stars Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ffd700?text=Brawl+Stars" alt="Brawl Stars" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Brawl Stars Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 17.6M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Brawl Stars Mod APK','Private server with unlimited gems, coins, and boxes. Unlock and max out all brawlers instantly.','#YOUR_DOWNLOAD_LINK_HERE_19')">Download Now</button></div></div>
             </div>
         </section>
 
-        <div id="all-mods-header" class="text-center my-16">
-            <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">All Available Mods</h2>
-            <p class="text-sm text-gray-400 max-w-2xl mx-auto">Get access to the latest and greatest modded games with unlimited features, all for free.</p>
-        </div>
 
-        <!-- Games Grid -->
-        <div id="games-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            <!-- Row 1 -->
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Clash of Clans Mod APK"><img src="https://placehold.co/400x400/1a1a1a/00ff00?text=Clash+of+Clans" alt="Clash of Clans" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Clash of Clans Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 22.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Clash of Clans Mod APK','Build your village, raise a clan, and compete in epic Clan Wars! This mod provides unlimited Gems, Gold, and Elixir.','#YOUR_DOWNLOAD_LINK_HERE_2')">Download Now</button></div></div>
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Asphalt 9 Legends Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ff00ff?text=Asphalt+9" alt="Asphalt 9" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Asphalt 9 Legends</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 8.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Asphalt 9 Legends Mod APK','Get behind the wheel of high-end supercars and race through stunning real-world locations. Our mod unlocks all cars and provides unlimited credits.','#YOUR_DOWNLOAD_LINK_HERE_3')">Download Now</button></div></div>
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Minecraft PE Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ffa500?text=Minecraft+PE" alt="Minecraft PE" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Minecraft PE Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 35.7M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Minecraft PE Mod APK','This mod unlocks all premium skins, textures, and worlds. Enjoy god mode and unlimited inventory items.','#YOUR_DOWNLOAD_LINK_HERE_4')">Download Now</button></div></div>
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Among Us Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ff4500?text=Among+Us" alt="Among Us" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Among Us Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.7</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 15.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Among Us Mod APK','Always be the impostor, see ghosts, and unlock all skins, hats, and pets. This mod gives you the ultimate advantage.','#YOUR_DOWNLOAD_LINK_HERE_5')">Download Now</button></div></div>
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Roblox Mod APK"><img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Roblox" alt="Roblox" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Roblox Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.6</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 40.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Roblox Mod APK','Get unlimited Robux, wallhack abilities, and fly mode in any game. This mod menu gives you the power to explore the Roblox universe like never before.','#YOUR_DOWNLOAD_LINK_HERE_6')">Download Now</button></div></div>
-            <!-- Row 2 -->
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Stumble Guys Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ffff00?text=Stumble+Guys" alt="Stumble Guys" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Stumble Guys Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 18.9M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Stumble Guys Mod APK','Unlock all skins, emotes, and animations. Run faster, jump higher, and always qualify in this fun-filled battle royale.','#YOUR_DOWNLOAD_LINK_HERE_7')">Download Now</button></div></div>
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Free Fire Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ff8c00?text=Free+Fire" alt="Free Fire" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Free Fire Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.8</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 25.3M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Free Fire Mod APK','Auto-aim, unlimited diamonds, and no recoil. Dominate the battlefield with the best hacks available for Garena Free Fire.','#YOUR_DOWNLOAD_LINK_HERE_8')">Download Now</button></div></div>
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Hill Climb Racing Mod APK"><img src="https://placehold.co/400x400/1a1a1a/deb887?text=Hill+Climb" alt="Hill Climb Racing" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Hill Climb Racing Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 28.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Hill Climb Racing Mod APK','Unlimited coins and gems to upgrade your vehicles to the max. Unlock all stages and vehicles instantly.','#YOUR_DOWNLOAD_LINK_HERE_13')">Download Now</button></div></div>
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Temple Run 2 Mod APK"><img src="https://placehold.co/400x400/1a1a1a/cd853f?text=Temple+Run+2" alt="Temple Run 2" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Temple Run 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.7</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 19.4M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Temple Run 2 Mod APK','Unlimited coins and gems. Unlock all characters and power-ups for the ultimate endless running experience.','#YOUR_DOWNLOAD_LINK_HERE_14')">Download Now</button></div></div>
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Plants vs. Zombies 2 Mod APK"><img src="https://placehold.co/400x400/1a1a1a/2e8b57?text=PvZ+2" alt="Plants vs. Zombies 2" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">PvZ 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 14.8M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Plants vs. Zombies 2 Mod APK','Unlimited coins, gems, and mints. All plants are unlocked and max level. Defend your lawn against zombies through time!','#YOUR_DOWNLOAD_LINK_HERE_15')">Download Now</button></div></div>
-            <!-- Row 3 -->
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Archero Mod APK"><img src="https://placehold.co/400x400/1a1a1a/dda0dd?text=Archero" alt="Archero" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Archero Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 7.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Archero Mod APK','God mode and high damage attacks. Defeat waves of evil with ease and become the world\'s greatest archer.','#YOUR_DOWNLOAD_LINK_HERE_21')">Download Now</button></div></div>
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Gardenscapes Mod APK"><img src="https://placehold.co/400x400/1a1a1a/98fb98?text=Gardenscapes" alt="Gardenscapes" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Gardenscapes Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.6</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 11.5M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Gardenscapes Mod APK','Unlimited stars and coins. Restore a beautiful garden to its former glory without waiting or paying for resources.','#YOUR_DOWNLOAD_LINK_HERE_22')">Download Now</button></div></div>
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Homescapes Mod APK"><img src="https://placehold.co/400x400/1a1a1a/add8e6?text=Homescapes" alt="Homescapes" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Homescapes Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.6</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 13.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Homescapes Mod APK','Unlimited stars and coins. Help Austin the butler bring warmth and comfort back to his wonderful family\'s mansion.','#YOUR_DOWNLOAD_LINK_HERE_23')">Download Now</button></div></div>
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Pokemon GO Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ffcb05?text=Pokemon+GO" alt="Pokemon GO" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Pokemon GO Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 29.9M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Pokemon GO Mod APK','GPS Joystick, auto-walk, and enhanced throw. Catch \'em all from the comfort of your home.','#YOUR_DOWNLOAD_LINK_HERE_24')">Download Now</button></div></div>
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="My Talking Tom 2 Mod APK"><img src="https://placehold.co/400x400/1a1a1a/87ceeb?text=Talking+Tom+2" alt="My Talking Tom 2" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">My Talking Tom 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 16.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'My Talking Tom 2 Mod APK','Unlimited coins and stars. Play with Tom, feed him, and take care of your very own virtual pet without any limits.','#YOUR_DOWNLOAD_LINK_HERE_25')">Download Now</button></div></div>
-            <!-- Row 4 -->
-             <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Ludo King Mod APK"><img src="https://placehold.co/400x400/1a1a1a/f4a460?text=Ludo+King" alt="Ludo King" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Ludo King Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.5</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 10.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Ludo King Mod APK','Always get a six, and see your opponent\'s dice rolls. Become the undisputed king of Ludo.','#YOUR_DOWNLOAD_LINK_HERE_26')">Download Now</button></div></div>
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Garena AOV Mod APK"><img src="https://placehold.co/400x400/1a1a1a/dc143c?text=AOV" alt="Garena AOV" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Garena AOV Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 9.9M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Garena AOV Mod APK','Map hack and drone view. Experience the ultimate 5v5 MOBA experience with full map awareness.','#YOUR_DOWNLOAD_LINK_HERE_27')">Download Now</button></div></div>
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Dead Trigger 2 Mod APK"><img src="https://placehold.co/400x400/1a1a1a/b22222?text=Dead+Trigger+2" alt="Dead Trigger 2" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Dead Trigger 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.8</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 11.8M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Dead Trigger 2 Mod APK','Unlimited ammo and god mode. Survive the zombie apocalypse in this award-winning first-person shooter.','#YOUR_DOWNLOAD_LINK_HERE_28')">Download Now</button></div></div>
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="eFootball PES Mod APK"><img src="https://placehold.co/400x400/1a1a1a/4169e1?text=PES" alt="eFootball PES" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">eFootball PES Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 15.5M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'eFootball PES Mod APK','Unlimited myClub coins and GP. Build your dream team with legendary players and compete online.','#YOUR_DOWNLOAD_LINK_HERE_29')">Download Now</button></div></div>
-            <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="MARVEL Contest of Champions Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ff0000?text=MCoC" alt="MARVEL Contest of Champions" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">MCoC Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.7</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 8.9M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'MARVEL Contest of Champions Mod APK','God mode, one-hit kill, and unlimited mana. Assemble a mighty team of heroes and villains in the ultimate cosmic showdown.','#YOUR_DOWNLOAD_LINK_HERE_30')">Download Now</button></div></div>
-        </div>
+        <div class="container mx-auto px-4 py-10">
+            <!-- Trending Section -->
+            <section id="trending" class="pt-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">Trending Games</h2>
+                    <p class="text-sm text-gray-400 max-w-2xl mx-auto">See what games everyone is downloading right now.</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                     <!-- 10 Trending Game Cards -->
+                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="GTA San Andreas Mod APK">
+                        <img src="https://placehold.co/400x400/1a1a1a/7fff00?text=GTA+SA" alt="GTA San Andreas" class="game-image">
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-base font-bold text-white mb-2 truncate">GTA San Andreas Mod</h3>
+                            <div class="flex items-center text-xs mb-3 text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-gray-400 ml-2">5.0</span>
+                            </div>
+                            <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 50.5M</div>
+                            <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'GTA San Andreas Mod APK','Unlimited money, all weapons, and high-res graphics. Re-live the classic story of CJ in Los Santos with this definitive edition mod.','#YOUR_DOWNLOAD_LINK_HERE_9')">Download Now</button>
+                        </div>
+                    </div>
+                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="PUBG Mobile Mod APK">
+                        <img src="https://placehold.co/400x400/1a1a1a/f0e68c?text=PUBG+Mobile" alt="PUBG Mobile" class="game-image">
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-base font-bold text-white mb-2 truncate">PUBG Mobile Mod</h3>
+                            <div class="flex items-center text-xs mb-3 text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-400 ml-2">4.9</span>
+                            </div>
+                            <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 38.2M</div>
+                            <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'PUBG Mobile Mod APK','Wallhack, aimbot, and unlimited UC. Get your chicken dinner every single time with this powerful mod menu.','#YOUR_DOWNLOAD_LINK_HERE_10')">Download Now</button>
+                        </div>
+                    </div>
+                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="8 Ball Pool Mod APK">
+                        <img src="https://placehold.co/400x400/1a1a1a/000000?text=8+Ball+Pool&textcolor=ffffff" alt="8 Ball Pool" class="game-image">
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-base font-bold text-white mb-2 truncate">8 Ball Pool Mod</h3>
+                            <div class="flex items-center text-xs mb-3 text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-gray-400 ml-2">5.0</span>
+                            </div>
+                            <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 12.6M</div>
+                            <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, '8 Ball Pool Mod APK','Unlimited guidelines, all cues unlocked, and anti-ban features. Never miss a shot again and become a pool legend.','#YOUR_DOWNLOAD_LINK_HERE_11')">Download Now</button>
+                        </div>
+                    </div>
+                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Candy Crush Saga Mod APK">
+                        <img src="https://placehold.co/400x400/1a1a1a/ff69b4?text=Candy+Crush" alt="Candy Crush" class="game-image">
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-base font-bold text-white mb-2 truncate">Candy Crush Saga Mod</h3>
+                            <div class="flex items-center text-xs mb-3 text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-400 ml-2">4.8</span>
+                            </div>
+                            <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 21.1M</div>
+                            <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Candy Crush Saga Mod APK','Unlimited lives, all levels unlocked, and endless boosters. Crush the candy kingdom with zero restrictions.','#YOUR_DOWNLOAD_LINK_HERE_12')">Download Now</button>
+                        </div>
+                    </div>
+                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Subway Surfers Mod APK">
+                        <img src="https://placehold.co/400x400/1a1a1a/cyan?text=Subway+Surfers" alt="Subway Surfers" class="game-image">
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-base font-bold text-white mb-2 truncate">Subway Surfers Mod</h3>
+                            <div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.8</span></div>
+                            <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 10.5M</div>
+                            <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Subway Surfers Mod APK','Experience Subway Surfers like never before with our mod! Get unlimited coins, keys, and all characters unlocked from the start. Enjoy an ad-free experience and surf through the subways without any limitations.','#YOUR_DOWNLOAD_LINK_HERE_1')">Download Now</button>
+                        </div>
+                    </div>
+                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Shadow Fight 2 Mod APK"><img src="https://placehold.co/400x400/1a1a1a/483d8b?text=Shadow+Fight+2" alt="Shadow Fight 2" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Shadow Fight 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 23.0M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Shadow Fight 2 Mod APK','Unlimited gems and coins to buy and upgrade all the legendary weapons. Defeat all the demons and close the Gate of Shadows.','#YOUR_DOWNLOAD_LINK_HERE_16')">Download Now</button></div></div>
+                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Real Racing 3 Mod APK"><img src="https://placehold.co/400x400/1a1a1a/708090?text=RR3" alt="Real Racing 3" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Real Racing 3 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 9.5M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Real Racing 3 Mod APK','Unlimited Gold and R$ currency. Unlock all cars and events in this stunningly realistic racing simulator.','#YOUR_DOWNLOAD_LINK_HERE_17')">Download Now</button></div></div>
+                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Mobile Legends Mod APK"><img src="https://placehold.co/400x400/1a1a1a/1e90ff?text=MLBB" alt="Mobile Legends" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Mobile Legends Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.8</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 31.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Mobile Legends Mod APK','Map hack, drone view, and unlocked skins. See your enemies on the minimap at all times and dominate the 5v5 MOBA arena.','#YOUR_DOWNLOAD_LINK_HERE_18')">Download Now</button></div></div>
+                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Brawl Stars Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ffd700?text=Brawl+Stars" alt="Brawl Stars" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Brawl Stars Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 17.6M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Brawl Stars Mod APK','Private server with unlimited gems, coins, and boxes. Unlock and max out all brawlers instantly.','#YOUR_DOWNLOAD_LINK_HERE_19')">Download Now</button></div></div>
+                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Genshin Impact Mod APK">
+                        <img src="https://placehold.co/400x400/1a1a1a/ece5d8?text=Genshin" alt="Genshin Impact" class="game-image">
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-base font-bold text-white mb-2 truncate">Genshin Impact Mod</h3>
+                            <div class="flex items-center text-xs mb-3 text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-gray-400 ml-2">5.0</span>
+                            </div>
+                            <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 25.1M</div>
+                            <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Genshin Impact Mod APK','Unlimited Primogems, Mora, and Resin. Unlock all characters and explore the vast world of Teyvat without limits.','#YOUR_DOWNLOAD_LINK_HERE_20')">Download Now</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <div id="no-results" class="text-center text-gray-400 text-xl mt-12 hidden">
-            <i class="fas fa-frown text-3xl mb-4"></i>
-            <p>No games found matching your search.</p>
-        </div>
-        
-        <div id="see-more-container" class="text-center mt-8">
-            <button id="see-more-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition">
-                See More
-            </button>
-        </div>
+            <div id="all-mods-header" class="text-center my-16">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">All Available Mods</h2>
+                <p class="text-sm text-gray-400 max-w-2xl mx-auto">Get access to the latest and greatest modded games with unlimited features, all for free.</p>
+            </div>
 
-        <!-- Contact Button Section -->
-        <section id="contact-button-section" class="text-center py-16">
-            <h3 class="text-xl font-bold text-white mb-4">Have Questions or Suggestions?</h3>
-            <p class="text-gray-400 text-sm mb-6">We'd love to hear from you. Get in touch with our team.</p>
-            <button onclick="openContactModal()" class="btn-download py-3 px-8 rounded-lg text-base">
-                Contact Us
-            </button>
-        </section>
+            <!-- Games Grid -->
+            <div id="games-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                 <!-- 21 Game Cards -->
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Clash of Clans Mod APK"><img src="https://placehold.co/400x400/1a1a1a/00ff00?text=Clash+of+Clans" alt="Clash of Clans" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Clash of Clans Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 22.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Clash of Clans Mod APK','Build your village, raise a clan, and compete in epic Clan Wars! This mod provides unlimited Gems, Gold, and Elixir.','#YOUR_DOWNLOAD_LINK_HERE_2')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Asphalt 9 Legends Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ff00ff?text=Asphalt+9" alt="Asphalt 9" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Asphalt 9 Legends</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 8.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Asphalt 9 Legends Mod APK','Get behind the wheel of high-end supercars and race through stunning real-world locations. Our mod unlocks all cars and provides unlimited credits.','#YOUR_DOWNLOAD_LINK_HERE_3')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Minecraft PE Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ffa500?text=Minecraft+PE" alt="Minecraft PE" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Minecraft PE Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 35.7M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Minecraft PE Mod APK','This mod unlocks all premium skins, textures, and worlds. Enjoy god mode and unlimited inventory items.','#YOUR_DOWNLOAD_LINK_HERE_4')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Among Us Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ff4500?text=Among+Us" alt="Among Us" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Among Us Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.7</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 15.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Among Us Mod APK','Always be the impostor, see ghosts, and unlock all skins, hats, and pets. This mod gives you the ultimate advantage.','#YOUR_DOWNLOAD_LINK_HERE_5')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Roblox Mod APK"><img src="https://placehold.co/400x400/1a1a1a/cccccc?text=Roblox" alt="Roblox" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Roblox Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.6</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 40.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Roblox Mod APK','Get unlimited Robux, wallhack abilities, and fly mode in any game. This mod menu gives you the power to explore the Roblox universe like never before.','#YOUR_DOWNLOAD_LINK_HERE_6')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Stumble Guys Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ffff00?text=Stumble+Guys" alt="Stumble Guys" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Stumble Guys Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 18.9M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Stumble Guys Mod APK','Unlock all skins, emotes, and animations. Run faster, jump higher, and always qualify in this fun-filled battle royale.','#YOUR_DOWNLOAD_LINK_HERE_7')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Free Fire Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ff8c00?text=Free+Fire" alt="Free Fire" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Free Fire Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.8</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 25.3M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Free Fire Mod APK','Auto-aim, unlimited diamonds, and no recoil. Dominate the battlefield with the best hacks available for Garena Free Fire.','#YOUR_DOWNLOAD_LINK_HERE_8')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Hill Climb Racing Mod APK"><img src="https://placehold.co/400x400/1a1a1a/deb887?text=Hill+Climb" alt="Hill Climb Racing" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Hill Climb Racing Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 28.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Hill Climb Racing Mod APK','Unlimited coins and gems to upgrade your vehicles to the max. Unlock all stages and vehicles instantly.','#YOUR_DOWNLOAD_LINK_HERE_13')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Temple Run 2 Mod APK"><img src="https://placehold.co/400x400/1a1a1a/cd853f?text=Temple+Run+2" alt="Temple Run 2" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Temple Run 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.7</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 19.4M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Temple Run 2 Mod APK','Unlimited coins and gems. Unlock all characters and power-ups for the ultimate endless running experience.','#YOUR_DOWNLOAD_LINK_HERE_14')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Plants vs. Zombies 2 Mod APK"><img src="https://placehold.co/400x400/1a1a1a/2e8b57?text=PvZ+2" alt="Plants vs. Zombies 2" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">PvZ 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 14.8M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Plants vs. Zombies 2 Mod APK','Unlimited coins, gems, and mints. All plants are unlocked and max level. Defend your lawn against zombies through time!','#YOUR_DOWNLOAD_LINK_HERE_15')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Archero Mod APK"><img src="https://placehold.co/400x400/1a1a1a/dda0dd?text=Archero" alt="Archero" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Archero Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 7.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Archero Mod APK','God mode and high damage attacks. Defeat waves of evil with ease and become the world\'s greatest archer.','#YOUR_DOWNLOAD_LINK_HERE_21')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Gardenscapes Mod APK"><img src="https://placehold.co/400x400/1a1a1a/98fb98?text=Gardenscapes" alt="Gardenscapes" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Gardenscapes Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.6</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 11.5M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Gardenscapes Mod APK','Unlimited stars and coins. Restore a beautiful garden to its former glory without waiting or paying for resources.','#YOUR_DOWNLOAD_LINK_HERE_22')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Homescapes Mod APK"><img src="https://placehold.co/400x400/1a1a1a/add8e6?text=Homescapes" alt="Homescapes" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Homescapes Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.6</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 13.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Homescapes Mod APK','Unlimited stars and coins. Help Austin the butler bring warmth and comfort back to his wonderful family\'s mansion.','#YOUR_DOWNLOAD_LINK_HERE_23')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Pokemon GO Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ffcb05?text=Pokemon+GO" alt="Pokemon GO" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Pokemon GO Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 29.9M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Pokemon GO Mod APK','GPS Joystick, auto-walk, and enhanced throw. Catch \'em all from the comfort of your home.','#YOUR_DOWNLOAD_LINK_HERE_24')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="My Talking Tom 2 Mod APK"><img src="https://placehold.co/400x400/1a1a1a/87ceeb?text=Talking+Tom+2" alt="My Talking Tom 2" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">My Talking Tom 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">5.0</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 16.1M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'My Talking Tom 2 Mod APK','Unlimited coins and stars. Play with Tom, feed him, and take care of your very own virtual pet without any limits.','#YOUR_DOWNLOAD_LINK_HERE_25')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Ludo King Mod APK"><img src="https://placehold.co/400x400/1a1a1a/f4a460?text=Ludo+King" alt="Ludo King" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Ludo King Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.5</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 10.2M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Ludo King Mod APK','Always get a six, and see your opponent\'s dice rolls. Become the undisputed king of Ludo.','#YOUR_DOWNLOAD_LINK_HERE_26')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Garena AOV Mod APK"><img src="https://placehold.co/400x400/1a1a1a/dc143c?text=AOV" alt="Garena AOV" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Garena AOV Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 9.9M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Garena AOV Mod APK','Map hack and drone view. Experience the ultimate 5v5 MOBA experience with full map awareness.','#YOUR_DOWNLOAD_LINK_HERE_27')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Dead Trigger 2 Mod APK"><img src="https://placehold.co/400x400/1a1a1a/b22222?text=Dead+Trigger+2" alt="Dead Trigger 2" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">Dead Trigger 2 Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.8</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 11.8M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Dead Trigger 2 Mod APK','Unlimited ammo and god mode. Survive the zombie apocalypse in this award-winning first-person shooter.','#YOUR_DOWNLOAD_LINK_HERE_28')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="eFootball PES Mod APK"><img src="https://placehold.co/400x400/1a1a1a/4169e1?text=PES" alt="eFootball PES" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">eFootball PES Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-2">4.9</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 15.5M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'eFootball PES Mod APK','Unlimited myClub coins and GP. Build your dream team with legendary players and compete online.','#YOUR_DOWNLOAD_LINK_HERE_29')">Download Now</button></div></div>
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="MARVEL Contest of Champions Mod APK"><img src="https://placehold.co/400x400/1a1a1a/ff0000?text=MCoC" alt="MARVEL Contest of Champions" class="game-image"><div class="p-4 flex flex-col flex-grow"><h3 class="text-base font-bold text-white mb-2 truncate">MCoC Mod</h3><div class="flex items-center text-xs mb-3 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-2">4.7</span></div><div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 8.9M</div><button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'MARVEL Contest of Champions Mod APK','God mode, one-hit kill, and unlimited mana. Assemble a mighty team of heroes and villains in the ultimate cosmic showdown.','#YOUR_DOWNLOAD_LINK_HERE_30')">Download Now</button></div></div>
+            </div>
 
+            <div id="no-results" class="text-center text-gray-400 text-xl mt-12 hidden">
+                <i class="fas fa-frown text-3xl mb-4"></i>
+                <p>No games found matching your search.</p>
+            </div>
+            
+            <div id="see-more-container" class="text-center mt-8">
+                <button id="see-more-btn" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition">
+                    See More
+                </button>
+            </div>
+
+            <!-- Contact Button Section -->
+            <section id="contact-button-section" class="text-center py-16">
+                <h3 class="text-xl font-bold text-white mb-4">Have Questions or Suggestions?</h3>
+                <p class="text-gray-400 text-sm mb-6">We'd love to hear from you. Get in touch with our team.</p>
+                <button onclick="openContactModal()" class="btn-download py-3 px-8 rounded-lg text-base">
+                    Contact Us
+                </button>
+            </section>
+        </div>
     </main>
     
     <!-- Verified Section -->
-    <section class="text-center py-10 border-t border-b border-gray-800">
-        <div class="flex items-center justify-center space-x-3">
-            <i class="fas fa-shield-alt text-green-400 text-3xl"></i>
+    <section class="text-center py-8 border-t border-b border-gray-800">
+        <div class="flex items-center justify-center space-x-2">
+            <i class="fas fa-shield-alt text-green-400 text-2xl"></i>
             <div>
-                <h4 class="text-lg font-semibold text-white">Verified & Secure</h4>
-                <p class="text-gray-400 text-sm">All mods are scanned by Play Protect.</p>
+                <h4 class="text-base font-semibold text-white">Verified & Secure</h4>
+                <p class="text-gray-400 text-xs">All mods are scanned by Play Protect.</p>
             </div>
         </div>
     </section>
@@ -369,7 +436,7 @@
             setTimeout(openSuccessModal, 350); 
         });
         
-        const searchInputs = [document.getElementById('searchInputDesktop'), document.getElementById('searchInputMobile')];
+        const mainSearchInput = document.getElementById('mainSearchInput');
         const allGameCards = document.querySelectorAll('.game-card');
         const noResults = document.getElementById('no-results');
 
@@ -384,13 +451,13 @@
             noResults.classList.toggle('hidden', visibleCount > 0);
         }
 
-        searchInputs.forEach(input => input.addEventListener('input', (e) => {
+        mainSearchInput.addEventListener('input', (e) => {
             document.getElementById('see-more-container').style.display = 'none';
             filterGames(e.target.value);
             if (e.target.value === '') {
                 setupSeeMore();
             }
-        }));
+        });
 
         // --- See More Logic ---
         const gamesGrid = document.getElementById('games-grid');
@@ -439,8 +506,72 @@
                 document.getElementById('all-mods-header').scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         });
+        
+        // --- Slider Logic ---
+        const slides = document.querySelectorAll('.slider-slide');
+        const prevBtn = document.getElementById('prev-slide');
+        const nextBtn = document.getElementById('next-slide');
+        const dotsContainer = document.getElementById('slider-dots');
+        let currentSlide = 0;
+        let slideInterval;
 
+        function createDots() {
+            slides.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.classList.add('w-3', 'h-3', 'rounded-full', 'transition');
+                dot.classList.add(i === 0 ? 'bg-green-400' : 'bg-gray-500');
+                dot.addEventListener('click', () => {
+                    goToSlide(i);
+                    resetInterval();
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+        
+        function updateDots() {
+            const dots = dotsContainer.children;
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.toggle('bg-green-400', i === currentSlide);
+                dots[i].classList.toggle('bg-gray-500', i !== currentSlide);
+            }
+        }
+
+        function goToSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            updateDots();
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+        
+        function startInterval() {
+             slideInterval = setInterval(nextSlide, 5000);
+        }
+        
+        function resetInterval() {
+            clearInterval(slideInterval);
+            startInterval();
+        }
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetInterval();
+        });
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetInterval();
+        });
+        
         // Initial setup on page load
+        createDots();
+        startInterval();
         setupSeeMore();
     </script>
 </body>
