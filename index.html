@@ -50,14 +50,14 @@
         .modal-content {
             background-color: #1e1e1e;
         }
-        /* Updated game-image for a more modern circular shape */
+        /* Updated game-image for a modern circular mask on a square element */
         .game-image {
             aspect-ratio: 1 / 1;
             object-fit: cover;
             width: 100%;
-            border-radius: 50%; /* Make it circular */
-            /* Removed padding and background here, relying on card background */
+            border-radius: 50%; /* Makes the content visible through a circular mask */
             box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Subtle shadow for depth */
+            margin-bottom: 1rem; /* Added margin to separate logo from card content */
         }
         /* Style for "Coming Soon" images to make text more modern */
         .coming-soon-image {
@@ -68,11 +68,11 @@
             font-size: 0.9rem; /* Smaller, more subtle text */
             font-weight: 500; /* Medium weight */
             background-color: #2a2a2a; /* Slightly darker background for contrast */
-            border-radius: 50%;
+            border-radius: 50%; /* Make the div circular */
             aspect-ratio: 1 / 1;
             width: 100%;
-            object-fit: cover; /* Important for consistency with other images */
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            margin-bottom: 1rem; /* Added margin to separate logo from card content */
         }
 
         /* New custom style for the 'See More' button gradient effect */
@@ -95,7 +95,7 @@
             box-shadow: 0 6px 20px rgba(239, 68, 68, 0.6);
             transform: translateY(-2px);
         }
-
+        
         /* Hide scrollbar for Chrome, Safari and Opera */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
@@ -104,6 +104,10 @@
         .no-scrollbar {
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
+        }
+        /* Added padding-top to card content to balance the new image margin */
+        .game-card .p-4 {
+            padding-top: 0.5rem; 
         }
     </style>
 </head>
@@ -197,7 +201,7 @@
                     </div>
                     
                     <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Baseball9 Mod">
-                        <img src=="https://i.postimg.cc/tTwzhC6q/Baseball9-Mod-Logo.png">Coming Soon</div>
+                        <div class="coming-soon-image">Coming Soon</div>
                         <div class="p-4 flex flex-col flex-grow">
                             <h3 class="text-sm font-bold text-white mb-2 truncate">Baseball9 Mod</h3>
                             <div class="flex items-center text-xs mb-3 text-yellow-400">
@@ -210,7 +214,7 @@
                     </div>
                     
                     <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Hollow Knight Silksong Mod">
-                        <img src="https://i.postimg.cc/nzJFMqRM/640px-Silksong-cover.jpg">Coming Soon</div>
+                        <div class="coming-soon-image">Coming Soon</div>
                         <div class="p-4 flex flex-col flex-grow">
                             <h3 class="text-sm font-bold text-white mb-2 truncate">Hollow Knight Silksong Mod</h3>
                             <div class="flex items-center text-xs mb-3 text-yellow-400">
@@ -457,7 +461,7 @@
             if (imgElement) {
                 imgSrc = imgElement.src;
             } else { // Handle 'Coming Soon' div
-                // You might want a generic placeholder for modals for 'Coming Soon' items
+                // Use a generic placeholder for modals for 'Coming Soon' items
                 imgSrc = 'https://placehold.co/400x400/1a1a1a/9ca3af?text=Coming+Soon'; 
             }
 
