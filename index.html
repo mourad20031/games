@@ -15,6 +15,12 @@
             font-family: 'Inter', sans-serif;
             background-color: #121212;
             color: #E0E0E0;
+            /* Disable text selection, copying, and image dragging/saving across the entire page */
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-drag: none;
         }
         .header-bg {
             background-color: #1a1a1a;
@@ -213,7 +219,7 @@
                     </div>
 
                     <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Baseball9 Mod">
-                        <img src="https://i.postimg.cc/tTwzhC6q/Baseball9-Mod-Logo.png" alt="Baseball9 Mod" class="game-image">
+                        <img src="https://i.postimg.cc/W3B7f88p/Baseball9.png" alt="Baseball9 Mod" class="game-image">
                         <div class="p-4 flex flex-col flex-grow">
                             <h3 class="text-sm font-bold text-white mb-2 truncate">Baseball9 Mod</h3>
                             <div class="flex items-center text-xs mb-3 text-yellow-400">
@@ -404,7 +410,7 @@
     <footer class="header-bg border-t border-t-green-500/20">
         <div class="container mx-auto px-4 py-6 text-center text-gray-400">
             <p>&copy; 2024 ModGames. All Rights Reserved.</p>
-            <p class="text-sm mt-2">Disclaimer: All mods are for educational purposes only. We do not own the rights to these games.</p>
+            
         </div>
     </footer>
 
@@ -474,15 +480,13 @@
             let imgSrc;
             const imgElement = gameCard.querySelector('.game-image');
             
-            // Check if the card uses a specific image
+            // Determine the image source for the modal
             if (imgElement && imgElement.src) {
                 imgSrc = imgElement.src;
             } 
-            // Check if the card uses the "Coming Soon" div
             else if (gameCard.querySelector('.coming-soon-image')) {
                  imgSrc = 'https://placehold.co/400x400/1a1a1a/9ca3af?text=COMING+SOON'; 
             } 
-            // Fallback for any other case
             else {
                  imgSrc = 'https://placehold.co/400x400/1a1a1a/9ca3af?text=Image+Unavailable';
             }
