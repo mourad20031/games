@@ -23,14 +23,14 @@
             background-color: #1e1e1e;
             border: 1px solid #2d2d2d;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-radius: 0.75rem; /* Slightly rounded corners for a modern feel */
+            border-radius: 0.75rem;
         }
         .game-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
         }
         .btn-download {
-            background-color: #22c55e; /* Green color */
+            background-color: #22c55e;
             color: #ffffff;
             font-weight: bold;
             transition: all 0.3s ease;
@@ -51,12 +51,12 @@
             background-color: #1e1e1e;
         }
         
-        /* MODERN SQUARE LOGO WITH ROUNDED CORNERS (like the screenshot) */
+        /* MODERN SQUARE LOGO STYLE */
         .game-image {
             aspect-ratio: 1 / 1;
             object-fit: cover;
             width: 100%;
-            border-radius: 12px; /* Standard app/game icon corner radius */
+            border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             margin-bottom: 1rem;
         }
@@ -70,7 +70,7 @@
             font-size: 0.9rem; 
             font-weight: 500; 
             background-color: #2a2a2a; 
-            border-radius: 12px; /* Consistent with game-image */
+            border-radius: 12px;
             aspect-ratio: 1 / 1;
             width: 100%;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
@@ -79,7 +79,7 @@
 
         /* New custom style for the 'See More' button gradient effect */
         .btn-see-more {
-            background-image: linear-gradient(90deg, #22c55e, #10b981); /* Green Gradient */
+            background-image: linear-gradient(90deg, #22c55e, #10b981);
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
         }
@@ -89,7 +89,7 @@
             transform: translateY(-2px);
         }
         .btn-see-less {
-            background-image: linear-gradient(90deg, #ef4444, #dc2626); /* Red Gradient */
+            background-image: linear-gradient(90deg, #ef4444, #dc2626);
             box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
         }
         .btn-see-less:hover {
@@ -104,9 +104,10 @@
         }
         /* Hide scrollbar for IE, Edge and Firefox */
         .no-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
+        /* Adjust card padding to compensate for logo margin */
         .game-card .p-4 {
             padding-top: 0.5rem; 
         }
@@ -147,7 +148,7 @@
             </div>
         </section>
 
-        <section id="search-section" class="pt-8 pb-4 bg-[#161616]">
+        <section id="search-section" class="pt-4 pb-2 bg-[#161616]">
             <div class="container mx-auto px-4">
                 <div class="relative w-full max-w-xs md:max-w-md">
                     <input type="text" id="mainSearchInput" placeholder="Search for games..." class="search-bar text-white rounded-full py-2 pl-5 pr-10 focus:outline-none focus:ring-2 focus:ring-green-400 w-full text-base">
@@ -157,10 +158,10 @@
         </section>
 
 
-        <div class="container mx-auto px-4 py-10">
-            <section id="trending" class="pt-8">
-                <div class="text-center mb-12">
-                    <h2 class="text-xl md:text-2xl font-extrabold text-white mb-4">Trending Games</h2>
+        <div class="container mx-auto px-4 py-8">
+            <section id="trending" class="pt-2">
+                <div class="text-center mb-6">
+                    <h2 class="text-xl md:text-2xl font-extrabold text-white mb-2">Trending Games</h2>
                     <p class="text-sm text-gray-400 max-w-2xl mx-auto">See what games everyone is downloading right now.</p>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
@@ -210,39 +211,39 @@
                             <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Subway Surfers Mod APK','Unlimited coins, keys, and all characters unlocked from the start. Enjoy an ad-free experience and surf through the subways without any limitations.','#YOUR_DOWNLOAD_LINK_HERE_SS')">Download Now</button>
                         </div>
                     </div>
-                    
-                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Baseball9 Mod">
+
+                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Hollow Knight Silksong Mod">
                         <div class="coming-soon-image">Coming Soon</div>
                         <div class="p-4 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-white mb-2 truncate">Baseball9 Mod</h3>
+                            <h3 class="text-sm font-bold text-white mb-2 truncate">Hollow Knight Silksong Mod</h3>
                             <div class="flex items-center text-xs mb-3 text-yellow-400">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-400 ml-2">5.0</span>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-400 ml-2">4.8</span>
                             </div>
-                            <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 12.6M</div>
-                            <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Baseball9 Mod APK','Unlimited money and diamonds. Recruit legendary players and build your perfect baseball team to win the World Series.','#YOUR_DOWNLOAD_LINK_HERE_B9')">Download Now</button>
+                            <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 21.1M</div>
+                            <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Hollow Knight Silksong Mod APK','Early access, unlimited health, and all charms unlocked. Explore the vast world of Pharloom with no limits.','#YOUR_DOWNLOAD_LINK_HERE_HKS')">Download Now</button>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <div id="all-mods-header" class="text-center my-16">
+            <div id="all-mods-header" class="text-center my-12">
                 <h2 class="text-xl md:text-2xl font-extrabold text-white mb-4">All Available Mods</h2>
                 <p class="text-sm text-gray-400 max-w-2xl mx-auto">Get access to the latest and greatest modded games with unlimited features, all for free.</p>
             </div>
 
             <div id="games-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                 
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Hollow Knight Silksong Mod">
+                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Baseball9 Mod">
                     <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-4 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-white mb-2 truncate">Hollow Knight Silksong Mod</h3>
+                        <h3 class="text-sm font-bold text-white mb-2 truncate">Baseball9 Mod</h3>
                         <div class="flex items-center text-xs mb-3 text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-400 ml-2">4.8</span>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-400 ml-2">5.0</span>
                         </div>
-                        <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 21.1M</div>
-                        <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Hollow Knight Silksong Mod APK','Early access, unlimited health, and all charms unlocked. Explore the vast world of Pharloom with no limits.','#YOUR_DOWNLOAD_LINK_HERE_HKS')">Download Now</button>
+                        <div class="text-gray-400 text-xs mb-3"><i class="fas fa-download mr-2"></i> 12.6M</div>
+                        <button class="btn-download mt-auto py-2 px-4 rounded-lg w-full text-xs" onclick="openModal(this, 'Baseball9 Mod APK','Unlimited money and diamonds. Recruit legendary players and build your perfect baseball team to win the World Series.','#YOUR_DOWNLOAD_LINK_HERE_B9')">Download Now</button>
                     </div>
                 </div>
 
