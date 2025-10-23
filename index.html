@@ -1,686 +1,601 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FR9YXVV8Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ModGames - Premium Modded Games</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #1a1a1a;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -webkit-user-drag: none;
+    }
+    .header-bg {
+      background-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    .game-card {
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    .game-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.12);
+      border-color: #22c55e;
+    }
+    .btn-download {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #ffffff;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-download:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+    }
+    .btn-download:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn-download.loading {
+      background: linear-gradient(90deg, #22c55e, #16a34a, #22c55e);
+      background-size: 200% 100%;
+      animation: loading-shine 2s infinite;
+    }
+    @keyframes loading-shine {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .search-bar, .form-input {
+      background-color: #f9fafb;
+      border: 1px solid #e5e7eb;
+    }
+    .modal-bg {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+    }
+    .modal-content {
+      background-color: #ffffff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Game image styling */
+    .game-image {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      margin-bottom: 0.5rem;
+      pointer-events: none; 
+    }
+    
+    /* Coming Soon placeholder */
+    .coming-soon-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9ca3af; 
+      font-size: 0.7rem; 
+      font-weight: 500; 
+      background-color: #f3f4f6; 
+      border-radius: 8px;
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      margin-bottom: 0.5rem;
+      pointer-events: none; 
+    }
 
-  gtag('config', 'G-6FR9YXVV8Z');
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ModGames - Download The Latest Modded Games</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #121212;
-            color: #E0E0E0;
-            /* Disable text selection, copying, and image dragging/saving across the entire page */
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            -webkit-user-drag: none;
-        }
-        .header-bg {
-            background-color: #1a1a1a;
-        }
-        .game-card, .contact-card {
-            background-color: #1e1e1e;
-            border: 1px solid #2d2d2d;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-radius: 0.75rem;
-        }
-        .game-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
-        }
-        .btn-download {
-            background-color: #22c55e;
-            color: #ffffff;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-download:hover {
-            transform: scale(1.05);
-            filter: brightness(1.1);
-        }
-        .btn-download:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-        }
-        .btn-download.loading {
-            background: linear-gradient(90deg, #22c55e, #16a34a, #22c55e);
-            background-size: 200% 100%;
-            animation: loading-shine 2s infinite;
-        }
-        @keyframes loading-shine {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        .search-bar, .form-input {
-            background-color: #2a2a2a;
-            border: 1px solid #3a3a3a;
-        }
-        .modal-bg {
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(4px);
-        }
-        .modal-content {
-            background-color: #1e1e1e;
-        }
-        
-        /* MODERN SQUARE LOGO STYLE */
-        .game-image {
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            margin-bottom: 1rem;
-            /* New property to prevent right-click/long press for saving the image */
-            pointer-events: none; 
-        }
-        
-        /* Modern "Coming Soon" Placeholder Style */
-        .coming-soon-image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #9ca3af; 
-            font-size: 0.9rem; 
-            font-weight: 500; 
-            background-color: #2a2a2a; 
-            border-radius: 12px;
-            aspect-ratio: 1 / 1;
-            width: 100%;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            margin-bottom: 1rem;
-            /* Apply pointer-events to prevent interaction with the placeholder div as well */
-            pointer-events: none; 
-        }
-
-        /* New custom style for the 'See More' button gradient effect */
-        .btn-see-more {
-            background-image: linear-gradient(90deg, #22c55e, #10b981);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
-        }
-        .btn-see-more:hover {
-            background-image: linear-gradient(90deg, #10b981, #22c55e);
-            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.6);
-            transform: translateY(-2px);
-        }
-        .btn-see-less {
-            background-image: linear-gradient(90deg, #ef4444, #dc2626);
-            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
-        }
-        .btn-see-less:hover {
-            background-image: linear-gradient(90deg, #dc2626, #ef4444);
-            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.6);
-            transform: translateY(-2px);
-        }
-
-        /* Modern Back Home Button */
-        .btn-back-home {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-            border: none;
-            border-radius: 50px;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .btn-back-home:hover {
-            background: linear-gradient(135deg, #1d4ed8, #3b82f6);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
-            transform: translateY(-2px);
-        }
-
-        /* Professional Confirm Button */
-        .btn-confirm {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            color: white;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-confirm:hover {
-            background: linear-gradient(135deg, #16a34a, #22c55e);
-            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.6);
-            transform: translateY(-2px);
-        }
-        .btn-confirm:active {
-            transform: translateY(0);
-        }
-
-        /* Loading animation */
-        .loading-dots {
-            display: inline-block;
-            position: relative;
-            width: 80px;
-            height: 80px;
-        }
-        .loading-dots div {
-            position: absolute;
-            top: 33px;
-            width: 13px;
-            height: 13px;
-            border-radius: 50%;
-            background: #22c55e;
-            animation-timing-function: cubic-bezier(0, 1, 1, 0);
-        }
-        .loading-dots div:nth-child(1) {
-            left: 8px;
-            animation: loading-dots1 0.6s infinite;
-        }
-        .loading-dots div:nth-child(2) {
-            left: 8px;
-            animation: loading-dots2 0.6s infinite;
-        }
-        .loading-dots div:nth-child(3) {
-            left: 32px;
-            animation: loading-dots2 0.6s infinite;
-        }
-        .loading-dots div:nth-child(4) {
-            left: 56px;
-            animation: loading-dots3 0.6s infinite;
-        }
-        @keyframes loading-dots1 {
-            0% { transform: scale(0); }
-            100% { transform: scale(1); }
-        }
-        @keyframes loading-dots3 {
-            0% { transform: scale(1); }
-            100% { transform: scale(0); }
-        }
-        @keyframes loading-dots2 {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(24px, 0); }
-        }
-
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        /* Adjust card padding to compensate for logo margin */
-        .game-card .p-4 {
-            padding-top: 0.5rem; 
-        }
-
-        /* Smaller landing page adjustments */
-        .container {
-            max-width: 1200px;
-        }
-        .game-card {
-            transform: scale(0.95);
-            transform-origin: center;
-        }
-        .game-card:hover {
-            transform: scale(0.95) translateY(-8px);
-        }
-
-        /* Download counter animation */
-        .download-counter {
-            transition: all 0.5s ease;
-        }
-        .download-counter.updating {
-            color: #22c55e;
-            transform: scale(1.1);
-        }
-    </style>
+    /* Modern See More button */
+    .btn-see-more {
+      background: linear-gradient(135deg, #22c55e, #10b981);
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-see-more:hover {
+      background: linear-gradient(135deg, #10b981, #22c55e);
+      box-shadow: 0 6px 16px rgba(34, 197, 94, 0.35);
+      transform: translateY(-2px);
+    }
+    
+    .btn-see-more:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(34, 197, 94, 0.25);
+    }
+    
+    .btn-see-more .icon {
+      transition: transform 0.3s ease;
+    }
+    
+    .btn-see-more.expanded .icon {
+      transform: rotate(180deg);
+    }
+    
+    /* Pulse animation for the button */
+    @keyframes pulse {
+      0% { box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25); }
+      50% { box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4); }
+      100% { box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25); }
+    }
+    
+    .btn-see-more.pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    /* Smooth transition for showing/hiding games */
+    .game-card {
+      transition: all 0.4s ease;
+    }
+    
+    .game-card.hidden {
+      opacity: 0;
+      transform: translateY(10px);
+      height: 0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    /* Safety badge */
+    .safety-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #f0fdf4;
+      color: #16a34a;
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid #dcfce7;
+    }
+    
+    /* Installation notification */
+    .install-notification {
+      position: fixed;
+      bottom: 20px;
+      left: -320px;
+      background: white;
+      border-radius: 8px;
+      padding: 10px 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 1000;
+      transition: left 0.5s ease-in-out;
+      border-left: 4px solid #22c55e;
+      max-width: 280px;
+    }
+    .install-notification.show {
+      left: 20px;
+    }
+    .user-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    
+    /* Compact game grid layout */
+    .compact-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    
+    @media (min-width: 768px) {
+      .compact-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .compact-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+    }
+    
+    @media (min-width: 1280px) {
+      .compact-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+      }
+    }
+    
+    /* Hero section styling */
+    .hero-gradient {
+      background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+    }
+    
+    /* Loading dots animation */
+    .loading-dots {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+    }
+    .loading-dots div {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: loading-dots 1.4s ease-in-out infinite both;
+    }
+    .loading-dots div:nth-child(1) { animation-delay: -0.32s; }
+    .loading-dots div:nth-child(2) { animation-delay: -0.16s; }
+    .loading-dots div:nth-child(3) { animation-delay: 0s; }
+    @keyframes loading-dots {
+      0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+  </style>
 </head>
 <body class="antialiased">
 
-    <header class="header-bg sticky top-0 z-50 shadow-lg shadow-green-500/10">
+    <header class="header-bg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="#">
-                <h1 class="text-lg font-bold text-white tracking-wider">
-                    <i class="fas fa-gamepad text-green-400"></i> Mod<span class="text-green-400">Games</span>
+                <h1 class="text-lg font-bold text-gray-900 tracking-tight">
+                    <i class="fas fa-gamepad text-green-500"></i> Mod<span class="text-green-500">Games</span>
                 </h1>
             </a>
             <nav class="hidden md:flex items-center space-x-6">
-                <a href="#trending" class="text-gray-300 hover:text-green-400 transition text-sm">Trending</a>
-                <a href="#all-mods-header" class="text-gray-300 hover:text-green-400 transition text-sm">All Games</a>
-                <a href="javascript:void(0);" onclick="openContactModal()" class="text-gray-300 hover:text-green-400 transition text-sm">Contact Us</a>
+                <a href="#trending" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">Trending</a>
+                <a href="#all-mods-header" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">All Games</a>
+                <a href="javascript:void(0);" onclick="openContactModal()" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">Contact</a>
             </nav>
-            <button id="menu-btn" class="md:hidden text-white text-xl">
+            <button id="menu-btn" class="md:hidden text-gray-700 text-xl">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden px-4 pb-3">
-            <a href="#trending" class="block text-gray-300 hover:text-green-400 transition py-2 text-sm">Trending</a>
-            <a href="#all-mods-header" class="block text-gray-300 hover:text-green-400 transition py-2 text-sm">All Games</a>
-            <a href="javascript:void(0);" onclick="openContactModal()" class="block text-gray-300 hover:text-green-400 transition py-2 text-sm">Contact Us</a>
+        <div id="mobile-menu" class="hidden md:hidden px-4 pb-3 bg-white border-t border-gray-100">
+            <a href="#trending" class="block text-gray-600 hover:text-green-500 transition py-2 text-sm font-medium">Trending</a>
+            <a href="#all-mods-header" class="block text-gray-600 hover:text-green-500 transition py-2 text-sm font-medium">All Games</a>
+            <a href="javascript:void(0);" onclick="openContactModal()" class="block text-gray-600 hover:text-green-500 transition py-2 text-sm font-medium">Contact</a>
         </div>
     </header>
 
     <main>
         
-        <section id="hero-section" class="relative w-full h-32 sm:h-44 md:h-52 overflow-hidden">
-            <img src="https://i.postimg.cc/Jh66H0F5/Untitled-design-1.jpg" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center p-4">
-                 <h2 class="text-xl md:text-3xl font-extrabold text-white mb-1">Welcome to ModGames</h2>
-                 <p class="text-xs md:text-base text-gray-300 max-w-2xl">Your one-stop destination for the latest modded games.</p>
+        <section id="hero-section" class="relative w-full h-32 sm:h-40 md:h-44 overflow-hidden rounded-xl mx-4 mt-4">
+            <div class="absolute inset-0 hero-gradient flex flex-col items-center justify-center text-center p-4 rounded-xl">
+                 <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-2">Premium Modded Games</h2>
+                 <p class="text-sm md:text-base text-white/90 max-w-2xl">Safe, verified mods with unlimited features</p>
+                 <div class="mt-3 flex items-center gap-2">
+                   <span class="safety-badge"><i class="fas fa-shield-alt"></i> 100% Safe</span>
+                   <span class="safety-badge"><i class="fas fa-bolt"></i> Instant Download</span>
+                 </div>
             </div>
         </section>
 
-        <section id="search-section" class="pt-3 pb-1 bg-[#161616]">
+        <section id="search-section" class="pt-4 pb-2 bg-white">
             <div class="container mx-auto px-4">
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
                     <div class="relative w-full max-w-xs md:max-w-md">
-                        <input type="text" id="mainSearchInput" placeholder="Search for games..." class="search-bar text-white rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-green-400 w-full text-sm">
+                        <input type="text" id="mainSearchInput" placeholder="Search for games..." class="search-bar text-gray-800 rounded-full py-2.5 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-green-400 w-full text-sm">
                         <i class="fas fa-search text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 text-sm"></i>
                     </div>
-                    <button id="back-home-btn" class="btn-back-home hidden">
-                        <i class="fas fa-home"></i>
-                        <span>Back Home</span>
-                    </button>
                 </div>
             </div>
         </section>
 
-        <div class="container mx-auto px-4 py-6">
-            <section id="trending" class="pt-1">
-                <div class="text-center mb-4">
-                    <h2 class="text-lg md:text-xl font-extrabold text-white mb-1">Trending Games</h2>
-                    <p class="text-xs text-gray-400 max-w-2xl mx-auto">See what games everyone is downloading right now.</p>
+        <div class="container mx-auto px-4 py-4">
+            <section id="trending" class="pt-2">
+                <div class="text-center mb-6">
+                    <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-2">Trending Games</h2>
+                    <p class="text-sm text-gray-500 max-w-2xl mx-auto">Most popular mods right now</p>
                 </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 gap-3">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 gap-4">
                         
                     <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Clash Royale Mod">
                         <img src="https://i.postimg.cc/yxYq9xXV/unnamed.png" alt="Clash Royale Mod" class="game-image">
                         <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-xs font-bold text-white mb-1 truncate">Clash Royale Mod</h3>
-                            <div class="flex items-center text-xs mb-2 text-yellow-400">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Clash Royale Mod</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-400 ml-1">5.0</span>
+                                <span class="text-gray-500 ml-1">5.0</span>
                             </div>
-                            <div class="text-gray-400 text-xs mb-2">
+                            <div class="text-gray-500 text-xs mb-2">
                                 <i class="fas fa-download mr-1"></i> 
                                 <span class="download-counter" data-count="50500000">50.5M</span>
                             </div>
-                            <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs" onclick="startDownload(this, 'Clash Royale Mod APK','Unlimited Gems and Gold, all cards unlocked, and custom servers for endless battles. Build the ultimate deck.','https://bouttiq.graphics/cl/i/grqd21')">Download Now</button>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Clash Royale Mod APK','Unlimited Gems and Gold, all cards unlocked, and custom servers for endless battles. Build the ultimate deck.','https://bouttiq.graphics/cl/i/grqd21')">Download Now</button>
                         </div>
                     </div>
                     
                     <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Brawl Stars Mod">
                         <img src="https://i.postimg.cc/XJvSBXkR/unnamed-1.png" alt="Brawl Stars Mod" class="game-image">
                         <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-xs font-bold text-white mb-1 truncate">Brawl Stars Mod</h3>
-                            <div class="flex items-center text-xs mb-2 text-yellow-400">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Brawl Stars Mod</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                <span class="text-gray-400 ml-1">4.9</span>
+                                <span class="text-gray-500 ml-1">4.9</span>
                             </div>
-                            <div class="text-gray-400 text-xs mb-2">
+                            <div class="text-gray-500 text-xs mb-2">
                                 <i class="fas fa-download mr-1"></i> 
                                 <span class="download-counter" data-count="38200000">38.2M</span>
                             </div>
-                            <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs" onclick="startDownload(this, 'Brawl Stars Mod APK','Private server with unlimited gems, coins, and boxes. Unlock and max out all brawlers instantly.','https://bouttiq.graphics/cl/i/kr79v8')">Download Now</button>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Brawl Stars Mod APK','Private server with unlimited gems, coins, and boxes. Unlock and max out all brawlers instantly.','https://bouttiq.graphics/cl/i/kr79v8')">Download Now</button>
                         </div>
                     </div>
 
                     <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Minecraft Mod APK">
                         <img src="https://i.postimg.cc/1tndxdcZ/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.avif" alt="Minecraft Mod" class="game-image">
                         <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-xs font-bold text-white mb-1 truncate">Minecraft Mod</h3>
-                            <div class="flex items-center text-xs mb-2 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-1">5.0</span></div>
-                            <div class="text-gray-400 text-xs mb-2">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Minecraft Mod</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div>
+                            <div class="text-gray-500 text-xs mb-2">
                                 <i class="fas fa-download mr-1"></i> 
                                 <span class="download-counter" data-count="35700000">35.7M</span>
                             </div>
-                            <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs" onclick="startDownload(this, 'Minecraft Mod APK','This mod unlocks all premium skins, textures, and worlds. Enjoy god mode and unlimited inventory items.','https://bouttiq.graphics/cl/i/qnked4')">Download Now</button>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Minecraft Mod APK','This mod unlocks all premium skins, textures, and worlds. Enjoy god mode and unlimited inventory items.','https://bouttiq.graphics/cl/i/qnked4')">Download Now</button>
                         </div>
                     </div>
                     
                     <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Subway Surfers Mod">
                         <img src="https://i.postimg.cc/yNbL1Tvr/5900ed3c1d60b6f8e108a233d11cf94c3636ecef9687f571767ebf7b6e2b0b74-200.webp" alt="Subway Surfers Mod" class="game-image">
                         <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-xs font-bold text-white mb-1 truncate">Subway Surfers Mod</h3>
-                            <div class="flex items-center text-xs mb-2 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-1">4.8</span></div>
-                            <div class="text-gray-400 text-xs mb-2">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Subway Surfers Mod</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-500 ml-1">4.8</span></div>
+                            <div class="text-gray-500 text-xs mb-2">
                                 <i class="fas fa-download mr-1"></i> 
                                 <span class="download-counter" data-count="10500000">10.5M</span>
                             </div>
-                            <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs" onclick="startDownload(this, 'Subway Surfers Mod APK','Unlimited coins, keys, and all characters unlocked from the start. Enjoy an ad-free experience and surf through the subways without any limitations.','https://bouttiq.graphics/cl/i/vonkw9')">Download Now</button>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Subway Surfers Mod APK','Unlimited coins, keys, and all characters unlocked from the start. Enjoy an ad-free experience and surf through the subways without any limitations.','https://bouttiq.graphics/cl/i/vonkw9')">Download Now</button>
                         </div>
                     </div>
 
                     <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Baseball9 Mod">
                         <img src="https://i.postimg.cc/tTwzhC6q/Baseball9-Mod-Logo.png" alt="Baseball9 Mod" class="game-image">
                         <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-xs font-bold text-white mb-1 truncate">Baseball9 Mod</h3>
-                            <div class="flex items-center text-xs mb-2 text-yellow-400">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Baseball9 Mod</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-400 ml-1">5.0</span>
+                                <span class="text-gray-500 ml-1">5.0</span>
                             </div>
-                            <div class="text-gray-400 text-xs mb-2">
+                            <div class="text-gray-500 text-xs mb-2">
                                 <i class="fas fa-download mr-1"></i> 
                                 <span class="download-counter" data-count="12600000">12.6M</span>
                             </div>
-                            <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs" onclick="startDownload(this, 'Baseball9 Mod APK','Unlimited money and diamonds. Recruit legendary players and build your perfect baseball team to win the World Series.','https://bouttiq.graphics/cl/i/wov1q2')">Download Now</button>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Baseball9 Mod APK','Unlimited money and diamonds. Recruit legendary players and build your perfect baseball team to win the World Series.','https://bouttiq.graphics/cl/i/wov1q2')">Download Now</button>
                         </div>
                     </div>
                     
                     <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Hollow Knight Silksong Mod">
                         <img src="https://i.postimg.cc/nzJFMqRM/640px-Silksong-cover.jpg" alt="Hollow Knight Silksong Mod" class="game-image">
                         <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-xs font-bold text-white mb-1 truncate">Hollow Knight Silksong Mod</h3>
-                            <div class="flex items-center text-xs mb-2 text-yellow-400">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Hollow Knight Silksong Mod</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                <span class="text-gray-400 ml-1">4.8</span>
+                                <span class="text-gray-500 ml-1">4.8</span>
                             </div>
-                            <div class="text-gray-400 text-xs mb-2">
+                            <div class="text-gray-500 text-xs mb-2">
                                 <i class="fas fa-download mr-1"></i> 
                                 <span class="download-counter" data-count="21100000">21.1M</span>
                             </div>
-                            <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs" onclick="startDownload(this, 'Hollow Knight Silksong Mod APK','Early access, unlimited health, and all charms unlocked. Explore the vast world of Pharloom with no limits.','https://bouttiq.graphics/cl/i/7j7ge5')">Download Now</button>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Hollow Knight Silksong Mod APK','Early access, unlimited health, and all charms unlocked. Explore the vast world of Pharloom with no limits.','https://bouttiq.graphics/cl/i/7j7ge5')">Download Now</button>
                         </div>
                     </div>
                 </div>
             </section>
 
             <div id="all-mods-header" class="text-center my-8">
-                <h2 class="text-lg md:text-xl font-extrabold text-white mb-2">All Available Mods</h2>
-                <p class="text-xs text-gray-400 max-w-2xl mx-auto">Get access to the latest and greatest modded games with unlimited features, all for free.</p>
+                <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-2">All Available Mods</h2>
+                <p class="text-sm text-gray-500 max-w-2xl mx-auto">Premium modded games with unlimited features</p>
             </div>
 
-            <div id="games-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-                
+            <div id="games-grid" class="compact-grid grid">
+                <!-- Only 4 games initially visible -->
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Clash of Clans Mod APK">
                     <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-xs font-bold text-white mb-1 truncate">Clash of Clans Mod</h3>
-                        <div class="flex items-center text-xs mb-2 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-400 ml-1">5.0</span></div>
-                        <div class="text-gray-400 text-xs mb-2">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Clash of Clans Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
                             <i class="fas fa-download mr-1"></i> 
                             <span class="download-counter" data-count="22100000">22.1M</span>
                         </div>
-                        <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs" onclick="startDownload(this, 'Clash of Clans Mod APK','Build your village, raise a clan, and compete in epic Clan Wars! This mod provides unlimited Gems, Gold, and Elixir.','#')">Download Now</button>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Clash of Clans Mod APK','Build your village, raise a clan, and compete in epic Clan Wars! This mod provides unlimited Gems, Gold, and Elixir.','#')">Download Now</button>
                     </div>
                 </div>
                 
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Asphalt 9 Legends Mod APK">
                     <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-xs font-bold text-white mb-1 truncate">Asphalt 9 Legends</h3>
-                        <div class="flex items-center text-xs mb-2 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-400 ml-1">4.9</span></div>
-                        <div class="text-gray-400 text-xs mb-2">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Asphalt 9 Legends</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.9</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
                             <i class="fas fa-download mr-1"></i> 
                             <span class="download-counter" data-count="8200000">8.2M</span>
                         </div>
-                        <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs" onclick="startDownload(this, 'Asphalt 9 Legends Mod APK','Get behind the wheel of high-end supercars and race through stunning real-world locations. Our mod unlocks all cars and provides unlimited credits.','#')">Download Now</button>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Asphalt 9 Legends Mod APK','Get behind the wheel of high-end supercars and race through stunning real-world locations. Our mod unlocks all cars and provides unlimited credits.','#')">Download Now</button>
                     </div>
                 </div>
                 
-                <!-- Add the same download-counter structure to all other game cards -->
-                <!-- For brevity, I'll show the pattern for a few more cards -->
-
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="DLS 22 Mod">
-                    <div class="game-image">
-                        <img src="https://i.postimg.cc/htqMbcx0/dls2022mod.png" alt="DLS 22 Mod" class="w-full h-auto object-cover">
-                    </div>
+                    <img src="https://i.postimg.cc/htqMbcx0/dls2022mod.png" alt="DLS 22 Mod" class="game-image">
                     <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-xs font-bold text-white mb-1 truncate">DLS 22 Mod</h3>
-                        <div class="flex items-center text-xs mb-2 text-yellow-400">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">DLS 22 Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-400 ml-1">4.9</span>
+                            <span class="text-gray-500 ml-1">4.9</span>
                         </div>
-                        <div class="text-gray-400 text-xs mb-2">
+                        <div class="text-gray-500 text-xs mb-2">
                             <i class="fas fa-download mr-1"></i> 
                             <span class="download-counter" data-count="14800000">14.8M</span>
                         </div>
-                        <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs"
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
                             onclick="startDownload(this, 'DLS 22 Mod APK','Unlimited coins and diamonds, and unlocked players. Build your ultimate dream team and manage your club like a pro.','https://bouttiq.graphics/cl/i/qneg75')">
                             Download Now
                         </button>
                     </div>
                 </div>
 
-                <!-- NEW GAMES ADDED HERE -->
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Hitman: Absolution Mod">
                     <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-xs font-bold text-white mb-1 truncate">Hitman: Absolution</h3>
-                        <div class="flex items-center text-xs mb-2 text-yellow-400">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Hitman: Absolution</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-400 ml-1">4.7</span>
+                            <span class="text-gray-500 ml-1">4.7</span>
                         </div>
-                        <div class="text-gray-400 text-xs mb-2">
+                        <div class="text-gray-500 text-xs mb-2">
                             <i class="fas fa-download mr-1"></i> 
                             <span class="download-counter" data-count="7800000">7.8M</span>
                         </div>
-                        <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs"
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
                             onclick="startDownload(this, 'Hitman: Absolution Mod APK','Unlimited ammo, all weapons unlocked, and stealth mode enhancements. Become the ultimate assassin with our premium mod.','#')">
                             Download Now
                         </button>
                     </div>
                 </div>
 
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="WWE 2K25: Netflix Ed. Mod">
+                <!-- Hidden games -->
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="WWE 2K25: Netflix Ed. Mod">
                     <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-xs font-bold text-white mb-1 truncate">WWE 2K25: Netflix Ed.</h3>
-                        <div class="flex items-center text-xs mb-2 text-yellow-400">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">WWE 2K25: Netflix Ed.</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-400 ml-1">5.0</span>
+                            <span class="text-gray-500 ml-1">5.0</span>
                         </div>
-                        <div class="text-gray-400 text-xs mb-2">
+                        <div class="text-gray-500 text-xs mb-2">
                             <i class="fas fa-download mr-1"></i> 
                             <span class="download-counter" data-count="9200000">9.2M</span>
                         </div>
-                        <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs"
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
                             onclick="startDownload(this, 'WWE 2K25: Netflix Ed. Mod APK','Unlock all wrestlers, arenas, and special moves. Unlimited stamina and health for ultimate wrestling domination.','#')">
                             Download Now
                         </button>
                     </div>
                 </div>
 
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Balatro Mod">
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Balatro Mod">
                     <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-xs font-bold text-white mb-1 truncate">Balatro Mod</h3>
-                        <div class="flex items-center text-xs mb-2 text-yellow-400">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Balatro Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-400 ml-1">4.8</span>
+                            <span class="text-gray-500 ml-1">4.8</span>
                         </div>
-                        <div class="text-gray-400 text-xs mb-2">
+                        <div class="text-gray-500 text-xs mb-2">
                             <i class="fas fa-download mr-1"></i> 
                             <span class="download-counter" data-count="6500000">6.5M</span>
                         </div>
-                        <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs"
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
                             onclick="startDownload(this, 'Balatro Mod APK','Unlimited chips, all cards unlocked, and enhanced poker mechanics. Become the ultimate card shark with our mod.','#')">
                             Download Now
                         </button>
                     </div>
                 </div>
 
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Royal Match Mod">
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Royal Match Mod">
                     <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-xs font-bold text-white mb-1 truncate">Royal Match Mod</h3>
-                        <div class="flex items-center text-xs mb-2 text-yellow-400">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Royal Match Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-400 ml-1">5.0</span>
+                            <span class="text-gray-500 ml-1">5.0</span>
                         </div>
-                        <div class="text-gray-400 text-xs mb-2">
+                        <div class="text-gray-500 text-xs mb-2">
                             <i class="fas fa-download mr-1"></i> 
                             <span class="download-counter" data-count="15300000">15.3M</span>
                         </div>
-                        <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs"
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
                             onclick="startDownload(this, 'Royal Match Mod APK','Unlimited lives, boosters, and coins. Solve challenging match-3 puzzles and restore the royal castle with ease.','#')">
                             Download Now
                         </button>
                     </div>
                 </div>
 
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Slay the Spire Mod">
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Slay the Spire Mod">
                     <div class="coming-soon-image">Coming Soon</div>
                     <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-xs font-bold text-white mb-1 truncate">Slay the Spire Mod</h3>
-                        <div class="flex items-center text-xs mb-2 text-yellow-400">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Slay the Spire Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-400 ml-1">4.8</span>
+                            <span class="text-gray-500 ml-1">4.8</span>
                         </div>
-                        <div class="text-gray-400 text-xs mb-2">
+                        <div class="text-gray-500 text-xs mb-2">
                             <i class="fas fa-download mr-1"></i> 
                             <span class="download-counter" data-count="7200000">7.2M</span>
                         </div>
-                        <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs"
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
                             onclick="startDownload(this, 'Slay the Spire Mod APK','Unlock all cards, relics, and characters. Infinite gold and enhanced deck-building options for the ultimate rogue-like experience.','#')">
                             Download Now
                         </button>
                     </div>
                 </div>
 
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Stardew Valley Mod">
-                    <div class="coming-soon-image">Coming Soon</div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-xs font-bold text-white mb-1 truncate">Stardew Valley Mod</h3>
-                        <div class="flex items-center text-xs mb-2 text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-400 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-400 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="11800000">11.8M</span>
-                        </div>
-                        <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs"
-                            onclick="startDownload(this, 'Stardew Valley Mod APK','Unlimited money, instant crop growth, and all items unlocked. Build your dream farm without any limitations.','#')">
-                            Download Now
-                        </button>
-                    </div>
-                </div>
-
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Dead Cells Mod">
-                    <div class="coming-soon-image">Coming Soon</div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-xs font-bold text-white mb-1 truncate">Dead Cells Mod</h3>
-                        <div class="flex items-center text-xs mb-2 text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-400 ml-1">4.9</span>
-                        </div>
-                        <div class="text-gray-400 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="8400000">8.4M</span>
-                        </div>
-                        <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs"
-                            onclick="startDownload(this, 'Dead Cells Mod APK','Unlock all weapons, abilities, and mutations. God mode and infinite cells for the ultimate rogue-vania experience.','#')">
-                            Download Now
-                        </button>
-                    </div>
-                </div>
-
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="GRID Autosport Mod">
-                    <div class="coming-soon-image">Coming Soon</div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-xs font-bold text-white mb-1 truncate">GRID Autosport Mod</h3>
-                        <div class="flex items-center text-xs mb-2 text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-400 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-400 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="5600000">5.6M</span>
-                        </div>
-                        <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs"
-                            onclick="startDownload(this, 'GRID Autosport Mod APK','Unlock all cars, tracks, and upgrades. Unlimited money and enhanced performance for the ultimate racing experience.','#')">
-                            Download Now
-                        </button>
-                    </div>
-                </div>
-
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Township Mod">
-                    <div class="coming-soon-image">Coming Soon</div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-xs font-bold text-white mb-1 truncate">Township Mod</h3>
-                        <div class="flex items-center text-xs mb-2 text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-400 ml-1">4.8</span>
-                        </div>
-                        <div class="text-gray-400 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="12700000">12.7M</span>
-                        </div>
-                        <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs"
-                            onclick="startDownload(this, 'Township Mod APK','Unlimited coins, cash, and all buildings unlocked. Build your dream city without any resource limitations.','#')">
-                            Download Now
-                        </button>
-                    </div>
-                </div>
-
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="TOEM: A Photo Adventure Mod">
-                    <div class="coming-soon-image">Coming Soon</div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-xs font-bold text-white mb-1 truncate">TOEM: A Photo Adventure</h3>
-                        <div class="flex items-center text-xs mb-2 text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-400 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-400 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="4300000">4.3M</span>
-                        </div>
-                        <button class="btn-download mt-auto py-1 px-3 rounded-lg w-full text-xs"
-                            onclick="startDownload(this, 'TOEM: A Photo Adventure Mod APK','Unlock all camera equipment and photo filters. Explore the charming world without any limitations.','#')">
-                            Download Now
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Continue with the same pattern for all other game cards... -->
-
+                <!-- More hidden games would continue here -->
             </div>
 
-            <div id="no-results" class="text-center text-gray-400 text-lg mt-8 hidden">
+            <div id="no-results" class="text-center text-gray-500 text-lg mt-8 hidden">
                 <i class="fas fa-frown text-2xl mb-2"></i>
                 <p class="text-sm">No games found matching your search.</p>
             </div>
             
-            <div id="see-more-container" class="text-center mt-6">
-                <button id="see-more-btn" class="btn-see-more text-white font-bold py-2 px-6 rounded-full text-base shadow-lg transition duration-300 ease-in-out">
-                    See More
+            <div id="see-more-container" class="text-center mt-8">
+                <button id="see-more-btn" class="btn-see-more pulse">
+                    <span class="text">See More Games</span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
                 </button>
             </div>
 
-            <section id="contact-button-section" class="text-center py-12">
-                <h3 class="text-base font-bold text-white mb-2">Have Questions or Suggestions?</h3>
-                <p class="text-gray-400 text-xs mb-4">We'd love to hear from you. Get in touch with our team.</p>
+            <section id="contact-button-section" class="text-center py-8">
+                <h3 class="text-base font-bold text-gray-900 mb-2">Have Questions?</h3>
+                <p class="text-gray-500 text-xs mb-4">We're here to help. Contact our support team.</p>
                 <button onclick="openContactModal()" class="btn-download py-2 px-6 rounded-lg text-sm">
                     Contact Us
                 </button>
@@ -688,91 +603,109 @@
         </div>
     </main>
     
-    <section class="text-center py-6 border-t border-b border-gray-800">
+    <section class="text-center py-4 border-t border-gray-100">
         <div class="flex items-center justify-center space-x-2">
-            <i class="fas fa-shield-alt text-green-400 text-xl"></i>
+            <i class="fas fa-shield-alt text-green-500 text-lg"></i>
             <div>
-                <h4 class="text-sm font-semibold text-white">Verified & Secure</h4>
-                <p class="text-gray-400 text-xs">All mods are scanned by Play Protect.</p>
+                <h4 class="text-sm font-semibold text-gray-900">100% Safe & Verified</h4>
+                <p class="text-gray-500 text-xs">All mods are tested and verified for safety.</p>
             </div>
         </div>
     </section>
 
-    <footer class="header-bg border-t border-t-green-500/20">
-        <div class="container mx-auto px-4 py-4 text-center text-gray-400">
+    <footer class="header-bg border-t border-gray-100">
+        <div class="container mx-auto px-4 py-4 text-center text-gray-500">
             <p class="text-sm">&copy; 2024 ModGames. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- All modals remain the same as before -->
+    <!-- Installation Notifications -->
+    <div id="install-notification" class="install-notification">
+        <div class="user-avatar" id="user-avatar">👤</div>
+        <div>
+            <p class="text-sm font-medium text-gray-900" id="user-name">Someone just installed</p>
+            <p class="text-xs text-gray-500" id="game-name">Baseball9 Mod</p>
+        </div>
+    </div>
+
+    <!-- All modals -->
     <div id="gameModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
-        <div class="modal-content text-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto no-scrollbar relative transform transition-all duration-300 scale-95 opacity-0">
-            <button class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-white" onclick="closeModal('gameModal')"><i class="fas fa-times"></i></button>
+        <div class="modal-content text-gray-900 rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto no-scrollbar relative transform transition-all duration-300 scale-95 opacity-0">
+            <button class="absolute top-4 right-4 text-2xl text-gray-500 hover:text-gray-700" onclick="closeModal('gameModal')"><i class="fas fa-times"></i></button>
             <div class="pt-8 px-6 flex justify-center">
-                <img id="modal-img" src="" alt="Game Image" class="w-40 h-40 game-image rounded-lg shadow-lg">
+                <img id="modal-img" src="" alt="Game Image" class="w-32 h-32 game-image rounded-lg shadow-md">
             </div>
             <div class="p-6 text-center">
                 <h2 id="modal-title" class="text-xl font-bold mb-4"></h2>
                 <div class="text-left">
-                    <h3 class="text-lg font-semibold text-green-400 mb-2">Description</h3>
-                    <p id="modal-description" class="text-gray-300 mb-6"></p>
+                    <h3 class="text-lg font-semibold text-green-500 mb-2">Description</h3>
+                    <p id="modal-description" class="text-gray-600 mb-6"></p>
                 </div>
-                <button id="modal-confirm-btn" class="btn-confirm block py-4 px-6 rounded-xl w-full text-lg text-center mt-4">
-                    <i class="fas fa-download mr-2"></i>Confirm Now
+                <button id="modal-confirm-btn" class="btn-download block py-3 px-6 rounded-xl w-full text-base text-center mt-4">
+                    <i class="fas fa-download mr-2"></i>Download Now
                 </button>
             </div>
         </div>
     </div>
     
     <div id="contactModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
-        <div class="modal-content text-white rounded-lg shadow-xl w-full max-w-lg relative transform transition-all duration-300 scale-95 opacity-0">
-            <button class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-white" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></button>
-            <div class="p-8">
+        <div class="modal-content text-gray-900 rounded-lg w-full max-w-lg relative transform transition-all duration-300 scale-95 opacity-0">
+            <button class="absolute top-4 right-4 text-2xl text-gray-500 hover:text-gray-700" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></button>
+            <div class="p-6">
                 <h2 class="text-2xl font-bold mb-4 text-center">Contact Us</h2>
-                <p class="text-center text-gray-400 mb-6">Have a question or a suggestion? Drop us a line!</p>
+                <p class="text-center text-gray-500 mb-6">Have a question or suggestion? Get in touch!</p>
                 <form id="contact-form">
                     <div class="mb-4">
-                        <label for="fullName" class="block text-gray-300 mb-2">Full Name</label>
-                        <input type="text" id="fullName" name="fullName" class="form-input w-full rounded-lg py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-green-400" required>
+                        <label for="fullName" class="block text-gray-700 mb-2">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" class="form-input w-full rounded-lg py-2 px-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400" required>
                     </div>
                     <div class="mb-4">
-                        <label for="email" class="block text-gray-300 mb-2">Email</label>
-                        <input type="email" id="email" name="email" class="form-input w-full rounded-lg py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-green-400" required>
+                        <label for="email" class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="form-input w-full rounded-lg py-2 px-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400" required>
                     </div>
                     <div class="mb-6">
-                           <label for="message" class="block text-gray-300 mb-2">Message</label>
-                           <textarea id="message" name="message" rows="4" class="form-input w-full rounded-lg py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-green-400" required></textarea>
+                           <label for="message" class="block text-gray-700 mb-2">Message</label>
+                           <textarea id="message" name="message" rows="4" class="form-input w-full rounded-lg py-2 px-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400" required></textarea>
                     </div>
-                    <button type="submit" class="btn-download block py-3 px-4 rounded-lg w-full text-lg text-center">Submit</button>
+                    <button type="submit" class="btn-download block py-3 px-4 rounded-lg w-full text-base text-center">Submit</button>
                 </form>
             </div>
         </div>
     </div>
 
     <div id="successModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
-        <div class="modal-content text-white rounded-lg shadow-xl w-full max-w-sm text-center p-8 transform transition-all duration-300 scale-95 opacity-0">
-            <div class="text-green-400 text-5xl mb-4">
+        <div class="modal-content text-gray-900 rounded-lg w-full max-w-sm text-center p-6 transform transition-all duration-300 scale-95 opacity-0">
+            <div class="text-green-500 text-5xl mb-4">
                 <i class="fas fa-check-circle"></i>
             </div>
             <h2 class="text-2xl font-bold mb-2">Success!</h2>
-            <p class="text-gray-400">Your message has been sent. We'll get back to you soon.</p>
+            <p class="text-gray-500">Your message has been sent. We'll get back to you soon.</p>
         </div>
     </div>
 
     <div id="loadingModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
-        <div class="modal-content text-white rounded-lg shadow-xl w-full max-w-sm text-center p-8 transform transition-all duration-300 scale-95 opacity-0">
-            <div class="loading-dots mx-auto mb-6">
+        <div class="modal-content text-gray-900 rounded-lg w-full max-w-sm text-center p-6 transform transition-all duration-300 scale-95 opacity-0">
+            <div class="loading-dots mx-auto mb-4">
                 <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
             </div>
-            <h2 class="text-2xl font-bold mb-2">Preparing Download</h2>
-            <p class="text-gray-400">Your game is being prepared for download...</p>
+            <h2 class="text-xl font-bold mb-2">Preparing Download</h2>
+            <p class="text-gray-500">Your game is being prepared for download...</p>
         </div>
     </div>
     
     <script>
+        // Games for notifications
+        const gameNames = [
+            "Clash Royale Mod", "Brawl Stars Mod", "Minecraft Mod", "Subway Surfers Mod",
+            "Baseball9 Mod", "Hollow Knight Silksong Mod", "Clash of Clans Mod",
+            "Asphalt 9 Legends", "DLS 22 Mod", "Hitman: Absolution", "WWE 2K25: Netflix Ed.",
+            "Balatro Mod", "Royal Match Mod", "Slay the Spire Mod", "Stardew Valley Mod",
+            "Dead Cells Mod", "GRID Autosport Mod", "Township Mod", "TOEM: A Photo Adventure"
+        ];
+
         // Download counter functionality
         function startDownload(buttonElement, title, description, downloadLink) {
             const gameCard = buttonElement.closest('.game-card');
@@ -833,7 +766,7 @@
             requestAnimationFrame(updateCounter);
         }
 
-        // Rest of the JavaScript remains the same as before
+        // DOM elements
         const gameModal = document.getElementById('gameModal');
         const contactModal = document.getElementById('contactModal');
         const successModal = document.getElementById('successModal');
@@ -841,14 +774,19 @@
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const modalConfirmBtn = document.getElementById('modal-confirm-btn');
-        const backHomeBtn = document.getElementById('back-home-btn');
         const mainSearchInput = document.getElementById('mainSearchInput');
+        const installNotification = document.getElementById('install-notification');
+        const userName = document.getElementById('user-name');
+        const gameName = document.getElementById('game-name');
+        const seeMoreBtn = document.getElementById('see-more-btn');
         
         let currentDownloadLink = '';
+        let notificationInterval;
         
+        // Mobile menu toggle
         menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-        // Search functionality with Back Home button
+        // Search functionality
         mainSearchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
             const allGameCards = document.querySelectorAll('.game-card');
@@ -862,28 +800,6 @@
             });
 
             noResults.classList.toggle('hidden', visibleCount > 0);
-            
-            // Show/hide back home button based on search
-            if (searchTerm.length > 0) {
-                backHomeBtn.classList.remove('hidden');
-                document.getElementById('see-more-container').style.display = 'none';
-            } else {
-                backHomeBtn.classList.add('hidden');
-                setupSeeMore();
-            }
-        });
-
-        // Back Home functionality
-        backHomeBtn.addEventListener('click', () => {
-            mainSearchInput.value = '';
-            const allGameCards = document.querySelectorAll('.game-card');
-            allGameCards.forEach(card => {
-                card.style.display = 'flex';
-            });
-            document.getElementById('no-results').classList.add('hidden');
-            backHomeBtn.classList.add('hidden');
-            setupSeeMore();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         function openModal(buttonElement, title, description, downloadLink) {
@@ -896,10 +812,10 @@
                 imgSrc = imgElement.src;
             } 
             else if (gameCard.querySelector('.coming-soon-image')) {
-                 imgSrc = 'https://placehold.co/400x400/1a1a1a/9ca3af?text=COMING+SOON'; 
+                 imgSrc = 'https://placehold.co/400x400/f3f4f6/9ca3af?text=COMING+SOON'; 
             } 
             else {
-                 imgSrc = 'https://placehold.co/400x400/1a1a1a/9ca3af?text=Image+Unavailable';
+                 imgSrc = 'https://placehold.co/400x400/f3f4f6/9ca3af?text=Image+Unavailable';
             }
 
             gameModal.querySelector('#modal-title').textContent = title;
@@ -986,58 +902,76 @@
             setTimeout(openSuccessModal, 350);  
         });
 
-        // --- See More Logic ---
-        const seeMoreContainer = document.getElementById('see-more-container');
-        const seeMoreBtn = document.getElementById('see-more-btn');
-        const allModsCards = Array.from(document.querySelectorAll('#games-grid .game-card'));
-        const initialVisibleCount = 10;
-
-        function setupSeeMore() {
-            if (allModsCards.length <= initialVisibleCount) {
-                seeMoreContainer.style.display = 'none';
-                return;
-            } else {
-                seeMoreContainer.style.display = 'block';
-            }
-
-            // Hide games beyond the initial count in the *All Mods* section
-            allModsCards.forEach((card, index) => {
-                card.style.display = index < initialVisibleCount ? 'flex' : 'none';
-            });
-            
-            seeMoreBtn.textContent = 'See More';
-            seeMoreBtn.classList.remove('btn-see-less');
-            seeMoreBtn.classList.add('btn-see-more');
-            seeMoreBtn.dataset.state = 'collapsed';
-        }
-
+        // Modern See More functionality
+        let isExpanded = false;
+        const btnText = seeMoreBtn.querySelector('.text');
+        const btnIcon = seeMoreBtn.querySelector('.icon');
+        
         seeMoreBtn.addEventListener('click', () => {
-            const isCollapsed = seeMoreBtn.dataset.state === 'collapsed';
-
-            if (isCollapsed) {
-                // Show all games in the *All Mods* section
-                allModsCards.forEach(card => card.style.display = 'flex');
-                seeMoreBtn.textContent = 'See Less';
-                seeMoreBtn.classList.remove('btn-see-more');
-                seeMoreBtn.classList.add('btn-see-less');
-                seeMoreBtn.dataset.state = 'expanded';
+            const hiddenCards = document.querySelectorAll('#games-grid .game-card.hidden');
+            
+            if (!isExpanded) {
+                // Show all hidden games with animation
+                hiddenCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.remove('hidden');
+                    }, index * 50); // Stagger the animation
+                });
+                
+                btnText.textContent = 'See Less';
+                seeMoreBtn.classList.add('expanded');
+                seeMoreBtn.classList.remove('pulse');
+                isExpanded = true;
+                
+                // Scroll to newly shown content if needed
+                setTimeout(() => {
+                    if (hiddenCards.length > 0) {
+                        hiddenCards[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                }, 300);
             } else {
-                // Collapse back to initial view
-                allModsCards.forEach((card, index) => {
-                    if (index >= initialVisibleCount) {
-                        card.style.display = 'none';
+                // Hide all but first 4 games with animation
+                const allCards = document.querySelectorAll('#games-grid .game-card');
+                allCards.forEach((card, index) => {
+                    if (index >= 4) {
+                        setTimeout(() => {
+                            card.classList.add('hidden');
+                        }, (index - 4) * 30); // Stagger the animation
                     }
                 });
-                seeMoreBtn.textContent = 'See More';
-                seeMoreBtn.classList.remove('btn-see-less');
-                seeMoreBtn.classList.add('btn-see-more');
-                seeMoreBtn.dataset.state = 'collapsed';
-                document.getElementById('all-mods-header').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                btnText.textContent = 'See More Games';
+                seeMoreBtn.classList.remove('expanded');
+                seeMoreBtn.classList.add('pulse');
+                isExpanded = false;
+                
+                // Scroll to the top of the games section
+                document.getElementById('all-mods-header').scrollIntoView({ behavior: 'smooth' });
             }
         });
+
+        // Fake installation notifications
+        function showInstallNotification() {
+            const randomGame = gameNames[Math.floor(Math.random() * gameNames.length)];
+            const randomCount = Math.floor(Math.random() * 5) + 1; // Random number 1-5
+            
+            userName.textContent = `${randomCount} people just installed`;
+            gameName.textContent = randomGame;
+            
+            installNotification.classList.add('show');
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                installNotification.classList.remove('show');
+            }, 5000);
+        }
         
-        // Initial setup on page load
-        setupSeeMore();
+        // Start the notification cycle after page load
+        setTimeout(() => {
+            showInstallNotification();
+            // Show notification every 5 seconds
+            notificationInterval = setInterval(showInstallNotification, 5000);
+        }, 3000);
     </script>
 </body>
 </html>
