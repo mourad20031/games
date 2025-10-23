@@ -1410,7 +1410,7 @@
             answer.classList.toggle('open');
         }
 
-        // Fake installation notifications - now using games from the website
+        // Enhanced installation notifications with random games every 5 seconds
         function showInstallNotification() {
             // Refresh the game list to ensure it's up to date
             const websiteGames = getAllGamesFromWebsite();
@@ -1422,12 +1422,18 @@
                 userName.textContent = `${randomCount} people just installed`;
                 gameName.textContent = randomGame;
                 
-                installNotification.classList.add('show');
+                // Hide current notification if visible
+                installNotification.classList.remove('show');
                 
-                // Hide after 5 seconds
+                // Show new notification after a brief delay
+                setTimeout(() => {
+                    installNotification.classList.add('show');
+                }, 100);
+                
+                // Hide after 4.5 seconds to allow for smooth transition
                 setTimeout(() => {
                     installNotification.classList.remove('show');
-                }, 5000);
+                }, 4500);
             }
         }
         
