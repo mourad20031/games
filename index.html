@@ -616,12 +616,21 @@
       background: rgba(255, 255, 255, 0.1) !important;
       border-color: rgba(255, 255, 255, 0.2) !important;
     }
+
+    /* Green header bar */
+    .header-top-bar {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      height: 4px;
+      width: 100%;
+    }
   </style>
 </head>
 <body class="antialiased">
 
     <!-- Header with Theme Toggle -->
     <header class="header-bg sticky top-0 z-50">
+        <!-- Green bar at the top -->
+        <div class="header-top-bar"></div>
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="#">
                 <h1 class="text-lg font-bold text-gray-900 tracking-tight">
