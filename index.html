@@ -534,7 +534,7 @@
       border-color: #065f46;
     }
 
-    /* Theme Toggle Styles */
+    /* Theme Toggle Styles - Fixed */
     .theme-toggle {
       background: none;
       border: none;
@@ -546,10 +546,12 @@
       justify-content: center;
       transition: background-color 0.3s ease;
       color: var(--text-color);
+      width: 40px;
+      height: 40px;
     }
 
     .theme-toggle:hover {
-      background-color: rgba(0,0,0,0.1);
+      background-color: rgba(0,0,0,0.05);
     }
 
     [data-theme="dark"] .theme-toggle:hover {
@@ -602,7 +604,7 @@
     <!-- Header - Updated with theme toggle -->
     <header class="header-bg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#">
+            <a href="https://yourusername.github.io/your-repo-name" class="flex items-center">
                 <h1 class="text-lg font-bold text-gray-900 tracking-tight">
                     <i class="fas fa-gamepad text-green-500"></i> Mod<span class="text-green-500">Games</span>
                 </h1>
@@ -614,7 +616,7 @@
                 <a href="#contact-section" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">Contact</a>
             </nav>
             <div class="flex items-center space-x-4">
-                <!-- Theme Toggle Button -->
+                <!-- Theme Toggle Button - Fixed -->
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
                     <svg class="theme-icon" id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
@@ -652,6 +654,7 @@
                     <div class="hero-badges flex items-center gap-2 mb-8">
                       <span class="safety-badge"><i class="fas fa-shield-alt"></i> 100% Safe</span>
                       <span class="safety-badge"><i class="fas fa-bolt"></i> Instant Download</span>
+                      <span class="safety-badge"><i class="fas fa-download"></i> +1M Downloads</span>
                     </div>
                     <div class="hero-cta">
                       <button class="btn-download py-3 px-8 rounded-xl text-base font-semibold" onclick="document.getElementById('all-mods-header').scrollIntoView({ behavior: 'smooth' })">
@@ -1432,6 +1435,391 @@
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
                             onclick="startDownload(this, 'Pokemon GO Mod APK','Spoofing, auto-walk, unlimited PokéCoins, and all Pokémon available. Catch them all easily.','#')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Additional 16 games to reach 50 total -->
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="FIFA Mobile Mod">
+                    <div class="relative">
+                        <span class="game-badge mod-badge">MOD</span>
+                        <span class="game-badge safe-badge">SAFE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">FIFA Mobile Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="198000">198K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'FIFA Mobile Mod APK','Unlimited coins, all players unlocked, and enhanced gameplay. Build your ultimate football team.','#')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="PUBG Mobile Mod">
+                    <div class="relative">
+                        <span class="game-badge mod-badge">MOD</span>
+                        <span class="game-badge safe-badge">SAFE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">PUBG Mobile Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="345000">345K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'PUBG Mobile Mod APK','Aimbot, wallhack, unlimited UC, and all skins unlocked. Dominate the battleground.','#')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="8 Ball Pool Mod">
+                    <div class="relative">
+                        <span class="game-badge mod-badge">MOD</span>
+                        <span class="game-badge safe-badge">SAFE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">8 Ball Pool Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="276000">276K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, '8 Ball Pool Mod APK','Unlimited coins and cash cues. Become the pool master with our premium mod.','#')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Candy Crush Saga Mod">
+                    <div class="relative">
+                        <span class="game-badge mod-badge">MOD</span>
+                        <span class="game-badge safe-badge">SAFE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Candy Crush Saga Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.7</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="312000">312K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Candy Crush Saga Mod APK','Unlimited lives, boosters, and moves. Complete all levels with ease.','#')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Temple Run 2 Mod">
+                    <div class="relative">
+                        <span class="game-badge mod-badge">MOD</span>
+                        <span class="game-badge safe-badge">SAFE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Temple Run 2 Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="187000">187K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Temple Run 2 Mod APK','Unlimited coins, all characters unlocked, and god mode. Run endlessly without obstacles.','#')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Plants vs Zombies 2 Mod">
+                    <div class="relative">
+                        <span class="game-badge mod-badge">MOD</span>
+                        <span class="game-badge safe-badge">SAFE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Plants vs Zombies 2</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="234000">234K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Plants vs Zombies 2 Mod APK','Unlimited sun, coins, and all plants unlocked. Defeat zombies with ease.','#')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Angry Birds 2 Mod">
+                    <div class="relative">
+                        <span class="game-badge mod-badge">MOD</span>
+                        <span class="game-badge safe-badge">SAFE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Angry Birds 2 Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="198000">198K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Angry Birds 2 Mod APK','Unlimited gems, lives, and all birds unlocked. Destroy piggies with style.','#')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Hill Climb Racing 2 Mod">
+                    <div class="relative">
+                        <span class="game-badge mod-badge">MOD</span>
+                        <span class="game-badge safe-badge">SAFE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Hill Climb Racing 2</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="167000">167K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Hill Climb Racing 2 Mod APK','Unlimited coins, gems, and all vehicles unlocked. Climb those hills with ease.','#')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Shadow Fight 2 Mod">
+                    <div class="relative">
+                        <span class="game-badge mod-badge">MOD</span>
+                        <span class="game-badge safe-badge">SAFE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Shadow Fight 2 Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="223000">223K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Shadow Fight 2 Mod APK','Unlimited coins, gems, and all weapons unlocked. Become the ultimate shadow fighter.','#')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Vector 2 Mod">
+                    <div class="relative">
+                        <span class="game-badge mod-badge">MOD</span>
+                        <span class="game-badge safe-badge">SAFE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Vector 2 Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="134000">134K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Vector 2 Mod APK','Unlimited energy, all characters unlocked, and premium features. Parkour like a pro.','#')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Geometry Dash Mod">
+                    <div class="relative">
+                        <span class="game-badge mod-badge">MOD</span>
+                        <span class="game-badge safe-badge">SAFE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Geometry Dash Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="287000">287K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Geometry Dash Mod APK','Unlocked all levels, icons, and colors. Jump and fly through dangerous passages.','#')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Bloons TD 6 Mod">
+                    <div class="relative">
+                        <span class="game-badge mod-badge">MOD</span>
+                        <span class="game-badge safe-badge">SAFE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Bloons TD 6 Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="198000">198K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Bloons TD 6 Mod APK','Unlimited money, all heroes unlocked, and instant upgrades. Pop all bloons!','#')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Plague Inc Mod">
+                    <div class="relative">
+                        <span class="game-badge mod-badge">MOD</span>
+                        <span class="game-badge safe-badge">SAFE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Plague Inc Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="176000">176K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Plague Inc Mod APK','Unlocked all plague types, unlimited DNA points, and mega brutal difficulty. Infect the world!','#')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Kingdom Rush Vengeance Mod">
+                    <div class="relative">
+                        <span class="game-badge mod-badge">MOD</span>
+                        <span class="game-badge safe-badge">SAFE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Kingdom Rush Vengeance</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="143000">143K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Kingdom Rush Vengeance Mod APK','Unlimited gems, all heroes unlocked, and premium towers. Defend your kingdom!','#')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Altos Odyssey Mod">
+                    <div class="relative">
+                        <span class="game-badge mod-badge">MOD</span>
+                        <span class="game-badge safe-badge">SAFE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Altos Odyssey Mod</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="123000">123K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Altos Odyssey Mod APK','Unlimited coins, all characters unlocked, and endless sandboarding. Journey without limits.','#')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="game-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Monument Valley 2 Mod">
+                    <div class="relative">
+                        <span class="game-badge mod-badge">MOD</span>
+                        <span class="game-badge safe-badge">SAFE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Monument Valley 2</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="98000">98K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Monument Valley 2 Mod APK','All chapters unlocked and ad-free experience. Guide a mother and her child through magical architecture.','#')">
                             Download Now
                         </button>
                     </div>
