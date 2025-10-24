@@ -43,8 +43,8 @@
     [data-theme="dark"] {
       --bg-primary: #0f172a;
       --bg-secondary: #1e293b;
-      --text-primary: #f1f5f9;
-      --text-secondary: #94a3b8;
+      --text-primary: #ffffff;
+      --text-secondary: #e5e7eb;
       --border-color: #334155;
       --header-bg: #1e293b;
       --card-bg: #1e293b;
@@ -518,19 +518,103 @@
       transition: background-color 0.3s ease;
     }
     
-    /* Dark mode specific text colors */
+    /* Enhanced Dark Mode Styles */
     [data-theme="dark"] .text-gray-900,
     [data-theme="dark"] .text-gray-800,
     [data-theme="dark"] .text-gray-700,
     [data-theme="dark"] .text-gray-600,
     [data-theme="dark"] .text-gray-500 {
-      color: var(--text-primary) !important;
+      color: #ffffff !important;
     }
     
-    /* Dark mode specific background colors */
     [data-theme="dark"] .bg-white,
     [data-theme="dark"] .bg-gray-50 {
       background-color: var(--section-bg) !important;
+    }
+    
+    /* Force all text to be white in dark mode */
+    [data-theme="dark"] {
+      color: #ffffff;
+    }
+    
+    [data-theme="dark"] * {
+      color: inherit;
+    }
+    
+    /* Ensure all text elements are white in dark mode */
+    [data-theme="dark"] h1,
+    [data-theme="dark"] h2,
+    [data-theme="dark"] h3,
+    [data-theme="dark"] h4,
+    [data-theme="dark"] h5,
+    [data-theme="dark"] h6,
+    [data-theme="dark"] p,
+    [data-theme="dark"] span,
+    [data-theme="dark"] a,
+    [data-theme="dark"] li,
+    [data-theme="dark"] label {
+      color: #ffffff !important;
+    }
+    
+    /* Game titles and descriptions */
+    [data-theme="dark"] .game-card h3,
+    [data-theme="dark"] .game-card .text-gray-500,
+    [data-theme="dark"] .game-card .text-yellow-500,
+    [data-theme="dark"] .game-card .text-gray-500 span {
+      color: #ffffff !important;
+    }
+    
+    /* Section titles */
+    [data-theme="dark"] .section-title,
+    [data-theme="dark"] .section-subtitle {
+      color: #ffffff !important;
+    }
+    
+    /* FAQ section */
+    [data-theme="dark"] .faq-question h3 {
+      color: #ffffff !important;
+    }
+    
+    [data-theme="dark"] .faq-answer p {
+      color: #e5e7eb !important;
+    }
+    
+    /* Footer text */
+    [data-theme="dark"] footer h3,
+    [data-theme="dark"] footer h4,
+    [data-theme="dark"] footer p,
+    [data-theme="dark"] footer a {
+      color: #ffffff !important;
+    }
+    
+    /* Modal text */
+    [data-theme="dark"] .modal-content h2,
+    [data-theme="dark"] .modal-content h3,
+    [data-theme="dark"] .modal-content p {
+      color: #ffffff !important;
+    }
+    
+    /* Search bar text - keep dark for readability */
+    [data-theme="dark"] .search-bar,
+    [data-theme="dark"] .form-input {
+      color: #1a1a1a !important;
+    }
+    
+    /* Ensure all sections have dark backgrounds */
+    [data-theme="dark"] #search-section,
+    [data-theme="dark"] #trending,
+    [data-theme="dark"] #most-downloaded,
+    [data-theme="dark"] #recently-added,
+    [data-theme="dark"] #faq-section,
+    [data-theme="dark"] #contact-section {
+      background-color: var(--section-bg) !important;
+    }
+    
+    /* Hero badges */
+    [data-theme="dark"] .hero-badges .safety-badge {
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.1) !important;
+      border-color: rgba(255, 255, 255, 0.2) !important;
     }
   </style>
 </head>
@@ -596,7 +680,7 @@
             </div>
         </section>
 
-        <section id="search-section" class="pt-4 pb-2 bg-white">
+        <section id="search-section" class="pt-4 pb-2" style="background-color: var(--section-bg);">
             <div class="container mx-auto px-4">
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
                     <div class="relative w-full max-w-xs md:max-w-md">
