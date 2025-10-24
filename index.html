@@ -42,8 +42,8 @@
       transition: all 0.6s ease;
     }
     .game-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.12);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(34, 197, 94, 0.15);
       border-color: #22c55e;
     }
     .btn-download {
@@ -311,13 +311,14 @@
     .game-badge {
       position: absolute;
       top: 8px;
-      font-size: 0.55rem;
+      font-size: 0.65rem;
       font-weight: 800;
-      padding: 3px 6px;
-      border-radius: 4px;
+      padding: 4px 8px;
+      border-radius: 6px;
       z-index: 10;
       letter-spacing: 0.5px;
       text-transform: uppercase;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .mod-badge {
       left: 8px;
@@ -327,114 +328,19 @@
     }
     .safe-badge {
       right: 8px;
+      background: rgba(255, 255, 255, 0.95);
       color: #22c55e;
       font-weight: 700;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      border: 1px solid #dcfce7;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
     
-    /* Hero Section Animations */
-    .hero-content {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
+    /* Footer styles */
+    .footer-links a {
+      transition: color 0.2s ease;
     }
-    
-    .hero-title {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease 0.2s;
-    }
-    
-    .hero-subtitle {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease 0.4s;
-    }
-    
-    .hero-badges {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease 0.6s;
-    }
-    
-    .hero-cta {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease 1s;
-      animation: gentle-pulse 2s infinite 1.5s;
-    }
-    
-    @keyframes gentle-pulse {
-      0% { transform: translateY(20px) scale(1); }
-      50% { transform: translateY(20px) scale(1.05); }
-      100% { transform: translateY(20px) scale(1); }
-    }
-    
-    .hero-content.animate,
-    .hero-title.animate,
-    .hero-subtitle.animate,
-    .hero-badges.animate,
-    .hero-cta.animate {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    /* Background Video */
-    .video-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.15;
-    }
-    
-    .video-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(34, 197, 94, 0.9) 0%, rgba(16, 185, 129, 0.9) 100%);
-      z-index: -1;
-    }
-    
-    /* Parallax Effect */
-    .parallax {
-      transform: translateY(0);
-      transition: transform 0.3s ease-out;
-    }
-    
-    /* Section Animations */
-    section {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-    
-    section.animate {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .section-title {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease 0.2s;
-    }
-    
-    .section-subtitle {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease 0.4s;
-    }
-    
-    .section-title.animate,
-    .section-subtitle.animate {
-      opacity: 1;
-      transform: translateY(0);
+    .footer-links a:hover {
+      color: #22c55e;
     }
   </style>
 </head>
@@ -467,26 +373,14 @@
 
     <main>
         
-        <!-- Enhanced Hero Section with Video Background -->
-        <section id="hero-section" class="relative w-full h-96 overflow-hidden">
-            <div class="video-overlay"></div>
-            <video autoplay muted loop playsinline class="video-background parallax">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-game-show-background-1744-large.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-                 <div class="hero-content animate">
-                    <h2 class="hero-title text-3xl md:text-5xl font-extrabold text-white mb-4">Premium Modded Games</h2>
-                    <p class="hero-subtitle text-lg md:text-xl text-white/90 max-w-2xl mb-6">Safe, verified mods with unlimited features</p>
-                    <div class="hero-badges flex items-center gap-2 mb-8">
-                      <span class="safety-badge"><i class="fas fa-shield-alt"></i> 100% Safe</span>
-                      <span class="safety-badge"><i class="fas fa-bolt"></i> Instant Download</span>
-                    </div>
-                    <div class="hero-cta">
-                      <button class="btn-download py-3 px-8 rounded-xl text-base font-semibold">
-                        <i class="fas fa-download mr-2"></i>Explore All Games
-                      </button>
-                    </div>
+        <!-- Updated Hero Section - Full Width -->
+        <section id="hero-section" class="relative w-full h-32 sm:h-40 md:h-44 overflow-hidden">
+            <div class="absolute inset-0 hero-gradient flex flex-col items-center justify-center text-center p-4">
+                 <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-2">Premium Modded Games</h2>
+                 <p class="text-sm md:text-base text-white/90 max-w-2xl">Safe, verified mods with unlimited features</p>
+                 <div class="mt-3 flex items-center gap-2">
+                   <span class="safety-badge"><i class="fas fa-shield-alt"></i> 100% Safe</span>
+                   <span class="safety-badge"><i class="fas fa-bolt"></i> Instant Download</span>
                  </div>
             </div>
         </section>
@@ -503,11 +397,10 @@
         </section>
 
         <div class="container mx-auto px-4 py-4">
-            <!-- 🔥 Trending Games Section -->
             <section id="trending" class="pt-2">
                 <div class="text-center mb-6">
-                    <h2 class="section-title text-xl md:text-2xl font-extrabold text-gray-900 mb-2">🔥 Trending Games</h2>
-                    <p class="section-subtitle text-sm text-gray-500 max-w-2xl mx-auto">Most popular mods right now</p>
+                    <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-2">Trending Games</h2>
+                    <p class="text-sm text-gray-500 max-w-2xl mx-auto">Most popular mods right now</p>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 gap-4">
                         
@@ -622,212 +515,6 @@
                                 <span class="download-counter" data-count="21100000">21.1M</span>
                             </div>
                             <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Hollow Knight Silksong Mod APK','Early access, unlimited health, and all charms unlocked. Explore the vast world of Pharloom with no limits.','https://bouttiq.graphics/cl/i/7j7ge5')">Download Now</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 💥 Most Downloaded Mods Section -->
-            <section id="most-downloaded" class="py-12">
-                <div class="text-center mb-10">
-                    <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">💥 Most Downloaded Mods</h2>
-                    <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">Our community's favorite mods with the highest download counts</p>
-                </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Clash of Clans Mod APK">
-                        <div class="relative">
-                            <span class="game-badge mod-badge">MOD</span>
-                            <span class="game-badge safe-badge">SAFE</span>
-                            <div class="coming-soon-image">Coming Soon</div>
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Clash of Clans Mod</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-500 ml-1">5.0</span>
-                            </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="22100000">22.1M</span>
-                            </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Clash of Clans Mod APK','Build your village, raise a clan, and compete in epic Clan Wars! This mod provides unlimited Gems, Gold, and Elixir.','#')">Download Now</button>
-                        </div>
-                    </div>
-                    
-                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Roblox Mod">
-                        <div class="relative">
-                            <span class="game-badge mod-badge">MOD</span>
-                            <span class="game-badge safe-badge">SAFE</span>
-                            <div class="coming-soon-image">Coming Soon</div>
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Roblox Mod</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                <span class="text-gray-500 ml-1">4.7</span>
-                            </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="41800000">41.8M</span>
-                            </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                onclick="startDownload(this, 'Roblox Mod APK','Unlimited Robux, all game passes unlocked, and enhanced features for the ultimate gaming experience.','#')">
-                                Download Now
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Call of Duty Mobile Mod">
-                        <div class="relative">
-                            <span class="game-badge mod-badge">MOD</span>
-                            <span class="game-badge safe-badge">SAFE</span>
-                            <div class="coming-soon-image">Coming Soon</div>
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Call of Duty Mobile</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-500 ml-1">5.0</span>
-                            </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="32400000">32.4M</span>
-                            </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                onclick="startDownload(this, 'Call of Duty Mobile Mod APK','Aimbot, wallhack, unlimited ammo, and all weapons unlocked. Dominate the battlefield.','#')">
-                                Download Now
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Genshin Impact Mod">
-                        <div class="relative">
-                            <span class="game-badge mod-badge">MOD</span>
-                            <span class="game-badge safe-badge">SAFE</span>
-                            <div class="coming-soon-image">Coming Soon</div>
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Genshin Impact Mod</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-500 ml-1">5.0</span>
-                            </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="27600000">27.6M</span>
-                            </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                onclick="startDownload(this, 'Genshin Impact Mod APK','Unlimited Primogems, all characters unlocked, and god mode. Explore Teyvat without limits.','#')">
-                                Download Now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ⚡ Recently Added Section -->
-            <section id="recently-added" class="py-12">
-                <div class="text-center mb-10">
-                    <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">⚡ Recently Added</h2>
-                    <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">Fresh mods added to our collection</p>
-                </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="WWE 2K25: Netflix Ed. Mod">
-                        <div class="relative">
-                            <span class="game-badge mod-badge">MOD</span>
-                            <span class="game-badge safe-badge">SAFE</span>
-                            <div class="coming-soon-image">Coming Soon</div>
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">WWE 2K25: Netflix Ed.</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-500 ml-1">5.0</span>
-                            </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="9200000">9.2M</span>
-                            </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                onclick="startDownload(this, 'WWE 2K25: Netflix Ed. Mod APK','Unlock all wrestlers, arenas, and special moves. Unlimited stamina and health for ultimate wrestling domination.','#')">
-                                Download Now
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Balatro Mod">
-                        <div class="relative">
-                            <span class="game-badge mod-badge">MOD</span>
-                            <span class="game-badge safe-badge">SAFE</span>
-                            <div class="coming-soon-image">Coming Soon</div>
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Balatro Mod</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                <span class="text-gray-500 ml-1">4.8</span>
-                            </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="6500000">6.5M</span>
-                            </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                onclick="startDownload(this, 'Balatro Mod APK','Unlimited chips, all cards unlocked, and enhanced poker mechanics. Become the ultimate card shark with our mod.','#')">
-                                Download Now
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Slay the Spire Mod">
-                        <div class="relative">
-                            <span class="game-badge mod-badge">MOD</span>
-                            <span class="game-badge safe-badge">SAFE</span>
-                            <div class="coming-soon-image">Coming Soon</div>
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Slay the Spire Mod</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                <span class="text-gray-500 ml-1">4.8</span>
-                            </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="7200000">7.2M</span>
-                            </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                onclick="startDownload(this, 'Slay the Spire Mod APK','Unlock all cards, relics, and characters. Infinite gold and enhanced deck-building options for the ultimate rogue-like experience.','#')">
-                                Download Now
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="TOEM: A Photo Adventure">
-                        <div class="relative">
-                            <span class="game-badge mod-badge">MOD</span>
-                            <span class="game-badge safe-badge">SAFE</span>
-                            <div class="coming-soon-image">Coming Soon</div>
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">TOEM: A Photo Adventure</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-500 ml-1">5.0</span>
-                            </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="5100000">5.1M</span>
-                            </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                onclick="startDownload(this, 'TOEM: A Photo Adventure Mod APK','All camera upgrades unlocked from start. Explore the charming world without limitations.','#')">
-                                Download Now
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -1377,9 +1064,51 @@
         </div>
     </section>
 
-    <footer class="header-bg border-t border-gray-100">
-        <div class="container mx-auto px-4 py-4 text-center text-gray-500">
-            <p class="text-sm">&copy; 2024 ModGames. All Rights Reserved.</p>
+    <!-- Enhanced Footer -->
+    <footer class="header-bg border-t border-gray-100 py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">
+                        <i class="fas fa-gamepad text-green-500"></i> Mod<span class="text-green-500">Games</span>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4 max-w-md">
+                        Your trusted source for premium modded games. All our mods are thoroughly tested for safety and performance.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-green-500 transition">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-green-500 transition">
+                            <i class="fab fa-discord text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-green-500 transition">
+                            <i class="fab fa-telegram text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
+                    <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                        <a href="#trending" class="hover:text-green-500 transition">Trending Games</a>
+                        <a href="#all-mods-header" class="hover:text-green-500 transition">All Mods</a>
+                        <a href="#faq-section" class="hover:text-green-500 transition">FAQ</a>
+                        <a href="#contact-section" class="hover:text-green-500 transition">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Legal</h4>
+                    <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                        <a href="#" class="hover:text-green-500 transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-green-500 transition">Terms of Service</a>
+                        <a href="#" class="hover:text-green-500 transition">Cookie Policy</a>
+                        <a href="#" class="hover:text-green-500 transition">DMCA</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-8 pt-6 text-center text-gray-500 text-sm">
+                <p>&copy; 2024 ModGames. All Rights Reserved. All game trademarks and registered trademarks are property of their respective owners.</p>
+            </div>
         </div>
     </footer>
 
@@ -1552,7 +1281,6 @@
         const userName = document.getElementById('user-name');
         const gameName = document.getElementById('game-name');
         const seeMoreBtn = document.getElementById('see-more-btn');
-        const videoBackground = document.querySelector('.video-background');
         
         let currentDownloadLink = '';
         let notificationInterval;
@@ -1776,62 +1504,9 @@
             notificationInterval = setInterval(showInstallNotification, 5000);
         }, 3000);
 
-        // Hero section animations
-        function animateHeroSection() {
-            const heroContent = document.querySelector('.hero-content');
-            const heroTitle = document.querySelector('.hero-title');
-            const heroSubtitle = document.querySelector('.hero-subtitle');
-            const heroBadges = document.querySelector('.hero-badges');
-            const heroCta = document.querySelector('.hero-cta');
-            
-            // Animate hero elements with delays
-            setTimeout(() => heroContent.classList.add('animate'), 100);
-            setTimeout(() => heroTitle.classList.add('animate'), 300);
-            setTimeout(() => heroSubtitle.classList.add('animate'), 500);
-            setTimeout(() => heroBadges.classList.add('animate'), 700);
-            setTimeout(() => heroCta.classList.add('animate'), 1000);
-        }
-        
-        // Scroll animation functionality
-        function animateOnScroll() {
-            const sections = document.querySelectorAll('section');
+        // Scroll animation functionality for game cards
+        function animateGameCardsOnScroll() {
             const gameCards = document.querySelectorAll('.game-card');
-            const sectionTitles = document.querySelectorAll('.section-title');
-            const sectionSubtitles = document.querySelectorAll('.section-subtitle');
-            
-            // Parallax effect for video background
-            if (videoBackground) {
-                const scrolled = window.pageYOffset;
-                const rate = scrolled * -0.5;
-                videoBackground.style.transform = `translateY(${rate}px)`;
-            }
-            
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (sectionTop < windowHeight * 0.85) {
-                    section.classList.add('animate');
-                }
-            });
-            
-            sectionTitles.forEach(title => {
-                const titleTop = title.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (titleTop < windowHeight * 0.85) {
-                    title.classList.add('animate');
-                }
-            });
-            
-            sectionSubtitles.forEach(subtitle => {
-                const subtitleTop = subtitle.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (subtitleTop < windowHeight * 0.85) {
-                    subtitle.classList.add('animate');
-                }
-            });
             
             gameCards.forEach(card => {
                 const cardTop = card.getBoundingClientRect().top;
@@ -1845,8 +1520,7 @@
         
         // Initial animation on page load
         window.addEventListener('load', () => {
-            animateHeroSection();
-            animateOnScroll();
+            animateGameCardsOnScroll();
             
             // Animate game cards with a slight delay for a staggered effect
             setTimeout(() => {
@@ -1860,7 +1534,7 @@
         });
         
         // Animate on scroll
-        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('scroll', animateGameCardsOnScroll);
     </script>
 </body>
 </html>
