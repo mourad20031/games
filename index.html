@@ -36,6 +36,8 @@
       --header-bg: #ffffff;
       --card-bg: #ffffff;
       --modal-bg: #ffffff;
+      --section-bg: #ffffff;
+      --footer-bg: #ffffff;
     }
 
     [data-theme="dark"] {
@@ -47,6 +49,8 @@
       --header-bg: #1e293b;
       --card-bg: #1e293b;
       --modal-bg: #1e293b;
+      --section-bg: #0f172a;
+      --footer-bg: #1e293b;
     }
 
     html {
@@ -506,6 +510,27 @@
     }
     .footer-links a:hover {
       color: #22c55e;
+    }
+    
+    /* Section backgrounds */
+    section {
+      background-color: var(--section-bg);
+      transition: background-color 0.3s ease;
+    }
+    
+    /* Dark mode specific text colors */
+    [data-theme="dark"] .text-gray-900,
+    [data-theme="dark"] .text-gray-800,
+    [data-theme="dark"] .text-gray-700,
+    [data-theme="dark"] .text-gray-600,
+    [data-theme="dark"] .text-gray-500 {
+      color: var(--text-primary) !important;
+    }
+    
+    /* Dark mode specific background colors */
+    [data-theme="dark"] .bg-white,
+    [data-theme="dark"] .bg-gray-50 {
+      background-color: var(--section-bg) !important;
     }
   </style>
 </head>
