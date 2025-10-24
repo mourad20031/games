@@ -3,78 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ModGames - Premium Modded Games | Safe APK Downloads</title>
-  <meta name="description" content="Download 100% safe modded games for free. Premium features unlocked - Unlimited coins, gems, and all characters. Safe APK downloads for Android games.">
-  <meta name="keywords" content="modded games, apk download, android games, premium games, unlimited coins, free mods, safe apk, mobile games">
-  <meta name="author" content="ModGames">
-  
-  <!-- Open Graph / Social Media -->
-  <meta property="og:title" content="ModGames - Premium Modded Games | Safe APK Downloads">
-  <meta property="og:description" content="Download 100% safe modded games for free. Premium features unlocked for popular Android games.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://i.postimg.cc/yxYq9xXV/unnamed.png">
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ModGames - Premium Modded Games">
-  <meta name="twitter:description" content="Download 100% safe modded games for free. Premium features unlocked.">
-  <meta name="twitter:image" content="https://i.postimg.cc/yxYq9xXV/unnamed.png">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
-
+  <title>ModGames - Premium Modded Games</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-primary: #f8fafc;
-      --bg-secondary: #ffffff;
-      --text-primary: #1a1a1a;
-      --text-secondary: #6b7280;
-      --border-color: #e5e7eb;
-      --header-bg: #ffffff;
-      --card-bg: #ffffff;
-      --modal-bg: #ffffff;
-      --section-bg: #ffffff;
-      --footer-bg: #ffffff;
-    }
-
-    [data-theme="dark"] {
-      --bg-primary: #0f172a;
-      --bg-secondary: #1e293b;
-      --text-primary: #ffffff;
-      --text-secondary: #e5e7eb;
-      --border-color: #334155;
-      --header-bg: #1e293b;
-      --card-bg: #1e293b;
-      --modal-bg: #1e293b;
-      --section-bg: #0f172a;
-      --footer-bg: #1e293b;
-    }
-
     html {
       scroll-behavior: smooth;
     }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
+      background-color: #f8fafc;
+      color: #1a1a1a;
       user-select: none;
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
       -webkit-user-drag: none;
-      transition: background-color 0.3s ease, color 0.3s ease;
     }
     .header-bg {
-      background-color: var(--header-bg);
+      background-color: #ffffff;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      transition: background-color 0.3s ease;
     }
     .game-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
       transition: all 0.3s ease;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -120,20 +73,16 @@
       100% { background-position: 200% 0; }
     }
     .search-bar, .form-input {
-      background-color: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      color: var(--text-primary);
-      transition: all 0.3s ease;
+      background-color: #f9fafb;
+      border: 1px solid #e5e7eb;
     }
     .modal-bg {
       background-color: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(4px);
     }
     .modal-content {
-      background-color: var(--modal-bg);
+      background-color: #ffffff;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      color: var(--text-primary);
-      transition: background-color 0.3s ease;
     }
     
     /* Game image styling */
@@ -152,16 +101,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--text-secondary);
-      font-size: 0.7rem;
-      font-weight: 500;
-      background-color: var(--bg-secondary);
+      color: #9ca3af; 
+      font-size: 0.7rem; 
+      font-weight: 500; 
+      background-color: #f3f4f6; 
       border-radius: 8px;
       aspect-ratio: 1 / 1;
       width: 100%;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
       margin-bottom: 0.5rem;
-      pointer-events: none;
+      pointer-events: none; 
     }
 
     /* Modern See More button */
@@ -240,19 +189,12 @@
       border: 1px solid #dcfce7;
     }
     
-    /* Dark mode safety badge */
-    [data-theme="dark"] .safety-badge {
-      background: #064e3b;
-      color: #34d399;
-      border-color: #065f46;
-    }
-    
     /* Installation notification */
     .install-notification {
       position: fixed;
       bottom: 20px;
       left: -320px;
-      background: var(--card-bg);
+      background: white;
       border-radius: 8px;
       padding: 10px 14px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -263,7 +205,6 @@
       transition: left 0.5s ease-in-out;
       border-left: 4px solid #22c55e;
       max-width: 280px;
-      color: var(--text-primary);
     }
     .install-notification.show {
       left: 20px;
@@ -336,7 +277,7 @@
     
     /* FAQ Section Styles */
     .faq-item {
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid #e5e7eb;
       transition: all 0.3s ease;
     }
     .faq-question {
@@ -345,7 +286,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: var(--text-primary);
     }
     .faq-question:hover {
       color: #22c55e;
@@ -354,7 +294,7 @@
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease;
-      color: var(--text-secondary);
+      color: #6b7280;
     }
     .faq-answer.open {
       max-height: 200px;
@@ -371,14 +311,13 @@
     .game-badge {
       position: absolute;
       top: 8px;
-      font-size: 0.65rem;
+      font-size: 0.55rem;
       font-weight: 800;
-      padding: 4px 8px;
-      border-radius: 6px;
+      padding: 3px 6px;
+      border-radius: 4px;
       z-index: 10;
       letter-spacing: 0.5px;
       text-transform: uppercase;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .mod-badge {
       left: 8px;
@@ -388,18 +327,9 @@
     }
     .safe-badge {
       right: 8px;
-      background: rgba(255, 255, 255, 0.95);
       color: #22c55e;
       font-weight: 700;
-      border: 1px solid #dcfce7;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
-    }
-    
-    /* Dark mode safe badge */
-    [data-theme="dark"] .safe-badge {
-      background: rgba(30, 41, 59, 0.95);
-      color: #34d399;
-      border-color: #065f46;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
     }
     
     /* Hero Section Animations */
@@ -471,39 +401,42 @@
       z-index: -1;
     }
     
-    /* Theme Toggle Button */
-    .theme-toggle {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-      border-radius: 50%;
-      transition: all 0.3s ease;
-      color: var(--text-primary);
+    /* Parallax Effect */
+    .parallax {
+      transform: translateY(0);
+      transition: transform 0.3s ease-out;
     }
     
-    .theme-toggle:hover {
-      background: var(--bg-secondary);
-      transform: scale(1.1);
+    /* Section Animations */
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
     }
     
-    .theme-toggle:active {
-      transform: scale(0.95);
+    section.animate {
+      opacity: 1;
+      transform: translateY(0);
     }
     
-    /* Theme-specific icons */
-    .theme-icon {
-      display: none;
+    .section-title {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease 0.2s;
     }
     
-    [data-theme="light"] .light-icon {
-      display: block;
+    .section-subtitle {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease 0.4s;
     }
     
-    [data-theme="dark"] .dark-icon {
-      display: block;
+    .section-title.animate,
+    .section-subtitle.animate {
+      opacity: 1;
+      transform: translateY(0);
     }
-
+    
     /* Enhanced Footer Styles */
     .footer-links a {
       transition: color 0.2s ease;
@@ -512,125 +445,39 @@
       color: #22c55e;
     }
     
-    /* Section backgrounds */
-    section {
-      background-color: var(--section-bg);
-      transition: background-color 0.3s ease;
+    /* Enhanced Badge Styles */
+    .game-badge {
+      position: absolute;
+      top: 8px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 6px;
+      z-index: 10;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    
-    /* Enhanced Dark Mode Styles */
-    [data-theme="dark"] .text-gray-900,
-    [data-theme="dark"] .text-gray-800,
-    [data-theme="dark"] .text-gray-700,
-    [data-theme="dark"] .text-gray-600,
-    [data-theme="dark"] .text-gray-500 {
-      color: #ffffff !important;
+    .mod-badge {
+      left: 8px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
     }
-    
-    [data-theme="dark"] .bg-white,
-    [data-theme="dark"] .bg-gray-50 {
-      background-color: var(--section-bg) !important;
-    }
-    
-    /* Force all text to be white in dark mode */
-    [data-theme="dark"] {
-      color: #ffffff;
-    }
-    
-    [data-theme="dark"] * {
-      color: inherit;
-    }
-    
-    /* Ensure all text elements are white in dark mode */
-    [data-theme="dark"] h1,
-    [data-theme="dark"] h2,
-    [data-theme="dark"] h3,
-    [data-theme="dark"] h4,
-    [data-theme="dark"] h5,
-    [data-theme="dark"] h6,
-    [data-theme="dark"] p,
-    [data-theme="dark"] span,
-    [data-theme="dark"] a,
-    [data-theme="dark"] li,
-    [data-theme="dark"] label {
-      color: #ffffff !important;
-    }
-    
-    /* Game titles and descriptions */
-    [data-theme="dark"] .game-card h3,
-    [data-theme="dark"] .game-card .text-gray-500,
-    [data-theme="dark"] .game-card .text-yellow-500,
-    [data-theme="dark"] .game-card .text-gray-500 span {
-      color: #ffffff !important;
-    }
-    
-    /* Section titles */
-    [data-theme="dark"] .section-title,
-    [data-theme="dark"] .section-subtitle {
-      color: #ffffff !important;
-    }
-    
-    /* FAQ section */
-    [data-theme="dark"] .faq-question h3 {
-      color: #ffffff !important;
-    }
-    
-    [data-theme="dark"] .faq-answer p {
-      color: #e5e7eb !important;
-    }
-    
-    /* Footer text */
-    [data-theme="dark"] footer h3,
-    [data-theme="dark"] footer h4,
-    [data-theme="dark"] footer p,
-    [data-theme="dark"] footer a {
-      color: #ffffff !important;
-    }
-    
-    /* Modal text */
-    [data-theme="dark"] .modal-content h2,
-    [data-theme="dark"] .modal-content h3,
-    [data-theme="dark"] .modal-content p {
-      color: #ffffff !important;
-    }
-    
-    /* Search bar text - keep dark for readability */
-    [data-theme="dark"] .search-bar,
-    [data-theme="dark"] .form-input {
-      color: #1a1a1a !important;
-    }
-    
-    /* Ensure all sections have dark backgrounds */
-    [data-theme="dark"] #search-section,
-    [data-theme="dark"] #trending,
-    [data-theme="dark"] #most-downloaded,
-    [data-theme="dark"] #recently-added,
-    [data-theme="dark"] #faq-section,
-    [data-theme="dark"] #contact-section {
-      background-color: var(--section-bg) !important;
-    }
-    
-    /* Hero badges */
-    [data-theme="dark"] .hero-badges .safety-badge {
-      color: #ffffff !important;
-      background: rgba(255, 255, 255, 0.1) !important;
-      border-color: rgba(255, 255, 255, 0.2) !important;
-    }
-
-    /* Green header bar */
-    .header-top-bar {
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      height: 4px;
-      width: 100%;
+    .safe-badge {
+      right: 8px;
+      background: rgba(255, 255, 255, 0.95);
+      color: #22c55e;
+      font-weight: 700;
+      border: 1px solid #dcfce7;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
   </style>
 </head>
 <body class="antialiased">
 
-    <!-- Header with Theme Toggle -->
+    <!-- Header - Keeping exactly the same as provided -->
     <header class="header-bg sticky top-0 z-50">
-        <!-- Green bar at the top -->
-        <div class="header-top-bar"></div>
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="#">
                 <h1 class="text-lg font-bold text-gray-900 tracking-tight">
@@ -643,16 +490,9 @@
                 <a href="#faq-section" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">FAQ</a>
                 <a href="#contact-section" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">Contact</a>
             </nav>
-            <div class="flex items-center space-x-4">
-                <!-- Theme Toggle Button -->
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon theme-icon light-icon text-lg"></i>
-                    <i class="fas fa-sun theme-icon dark-icon text-lg"></i>
-                </button>
-                <button id="menu-btn" class="md:hidden text-gray-700 text-xl">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+            <button id="menu-btn" class="md:hidden text-gray-700 text-xl">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
         <div id="mobile-menu" class="hidden md:hidden px-4 pb-3 bg-white border-t border-gray-100">
             <a href="#trending" class="block text-gray-600 hover:text-green-500 transition py-2 text-sm font-medium">Trending</a>
@@ -667,18 +507,17 @@
         <!-- Enhanced Hero Section with Video Background -->
         <section id="hero-section" class="relative w-full h-96 overflow-hidden">
             <div class="video-overlay"></div>
-            <video autoplay muted loop playsinline class="video-background">
+            <video autoplay muted loop playsinline class="video-background parallax">
                 <source src="https://assets.mixkit.co/videos/preview/mixkit-game-show-background-1744-large.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
                  <div class="hero-content animate">
-                    <h1 class="hero-title text-3xl md:text-5xl font-extrabold text-white mb-4">Premium Modded Games</h1>
-                    <p class="hero-subtitle text-lg md:text-xl text-white/90 max-w-2xl mb-6">Safe, verified mods with unlimited features - 100% Free APK Downloads</p>
+                    <h2 class="hero-title text-3xl md:text-5xl font-extrabold text-white mb-4">Premium Modded Games</h2>
+                    <p class="hero-subtitle text-lg md:text-xl text-white/90 max-w-2xl mb-6">Safe, verified mods with unlimited features</p>
                     <div class="hero-badges flex items-center gap-2 mb-8">
                       <span class="safety-badge"><i class="fas fa-shield-alt"></i> 100% Safe</span>
                       <span class="safety-badge"><i class="fas fa-bolt"></i> Instant Download</span>
-                      <span class="safety-badge"><i class="fas fa-rocket"></i> Latest Versions</span>
                     </div>
                     <div class="hero-cta">
                       <button class="btn-download py-3 px-8 rounded-xl text-base font-semibold">
@@ -689,7 +528,7 @@
             </div>
         </section>
 
-        <section id="search-section" class="pt-4 pb-2" style="background-color: var(--section-bg);">
+        <section id="search-section" class="pt-4 pb-2 bg-white">
             <div class="container mx-auto px-4">
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
                     <div class="relative w-full max-w-xs md:max-w-md">
@@ -705,7 +544,7 @@
             <section id="trending" class="pt-2">
                 <div class="text-center mb-6">
                     <h2 class="section-title text-xl md:text-2xl font-extrabold text-gray-900 mb-2">🔥 Trending Games</h2>
-                    <p class="section-subtitle text-sm text-gray-500 max-w-2xl mx-auto">Most popular mods right now - Updated daily</p>
+                    <p class="section-subtitle text-sm text-gray-500 max-w-2xl mx-auto">Most popular mods right now</p>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 gap-4">
                         
@@ -713,7 +552,7 @@
                         <div class="relative">
                             <span class="game-badge mod-badge">MOD</span>
                             <span class="game-badge safe-badge">SAFE</span>
-                            <img src="https://i.postimg.cc/yxYq9xXV/unnamed.png" alt="Clash Royale Mod APK Download - Unlimited Gems and Gold" class="game-image" loading="lazy">
+                            <img src="https://i.postimg.cc/yxYq9xXV/unnamed.png" alt="Clash Royale Mod" class="game-image">
                         </div>
                         <div class="p-3 flex flex-col flex-grow">
                             <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Clash Royale Mod</h3>
@@ -733,7 +572,7 @@
                         <div class="relative">
                             <span class="game-badge mod-badge">MOD</span>
                             <span class="game-badge safe-badge">SAFE</span>
-                            <img src="https://i.postimg.cc/XJvSBXkR/unnamed-1.png" alt="Brawl Stars Mod APK Download - Private Server" class="game-image" loading="lazy">
+                            <img src="https://i.postimg.cc/XJvSBXkR/unnamed-1.png" alt="Brawl Stars Mod" class="game-image">
                         </div>
                         <div class="p-3 flex flex-col flex-grow">
                             <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Brawl Stars Mod</h3>
@@ -753,7 +592,7 @@
                         <div class="relative">
                             <span class="game-badge mod-badge">MOD</span>
                             <span class="game-badge safe-badge">SAFE</span>
-                            <img src="https://i.postimg.cc/1tndxdcZ/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.avif" alt="Minecraft Mod APK Download - Premium Unlocked" class="game-image" loading="lazy">
+                            <img src="https://i.postimg.cc/1tndxdcZ/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.avif" alt="Minecraft Mod" class="game-image">
                         </div>
                         <div class="p-3 flex flex-col flex-grow">
                             <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Minecraft Mod</h3>
@@ -770,7 +609,7 @@
                         <div class="relative">
                             <span class="game-badge mod-badge">MOD</span>
                             <span class="game-badge safe-badge">SAFE</span>
-                            <img src="https://i.postimg.cc/yNbL1Tvr/5900ed3c1d60b6f8e108a233d11cf94c3636ecef9687f571767ebf7b6e2b0b74-200.webp" alt="Subway Surfers Mod APK Download - Unlimited Coins" class="game-image" loading="lazy">
+                            <img src="https://i.postimg.cc/yNbL1Tvr/5900ed3c1d60b6f8e108a233d11cf94c3636ecef9687f571767ebf7b6e2b0b74-200.webp" alt="Subway Surfers Mod" class="game-image">
                         </div>
                         <div class="p-3 flex flex-col flex-grow">
                             <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Subway Surfers Mod</h3>
@@ -787,7 +626,7 @@
                         <div class="relative">
                             <span class="game-badge mod-badge">MOD</span>
                             <span class="game-badge safe-badge">SAFE</span>
-                            <img src="https://i.postimg.cc/tTwzhC6q/Baseball9-Mod-Logo.png" alt="Baseball9 Mod APK Download - Unlimited Money" class="game-image" loading="lazy">
+                            <img src="https://i.postimg.cc/tTwzhC6q/Baseball9-Mod-Logo.png" alt="Baseball9 Mod" class="game-image">
                         </div>
                         <div class="p-3 flex flex-col flex-grow">
                             <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Baseball9 Mod</h3>
@@ -807,7 +646,7 @@
                         <div class="relative">
                             <span class="game-badge mod-badge">MOD</span>
                             <span class="game-badge safe-badge">SAFE</span>
-                            <img src="https://i.postimg.cc/nzJFMqRM/640px-Silksong-cover.jpg" alt="Hollow Knight Silksong Mod APK Download - Early Access" class="game-image" loading="lazy">
+                            <img src="https://i.postimg.cc/nzJFMqRM/640px-Silksong-cover.jpg" alt="Hollow Knight Silksong Mod" class="game-image">
                         </div>
                         <div class="p-3 flex flex-col flex-grow">
                             <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Hollow Knight Silksong Mod</h3>
@@ -1082,7 +921,7 @@
                     <div class="relative">
                         <span class="game-badge mod-badge">MOD</span>
                         <span class="game-badge safe-badge">SAFE</span>
-                        <img src="https://i.postimg.cc/htqMbcx0/dls2022mod.png" alt="DLS 22 Mod APK Download - Unlimited Coins" class="game-image" loading="lazy">
+                        <img src="https://i.postimg.cc/htqMbcx0/dls2022mod.png" alt="DLS 22 Mod" class="game-image">
                     </div>
                     <div class="p-3 flex flex-col flex-grow">
                         <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">DLS 22 Mod</h3>
@@ -1533,7 +1372,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section (Moved after FAQ) -->
     <section id="contact-section" class="py-12 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-10">
@@ -1564,8 +1403,18 @@
             </div>
         </div>
     </section>
+    
+    <section class="text-center py-4 border-t border-gray-100">
+        <div class="flex items-center justify-center space-x-2">
+            <i class="fas fa-shield-alt text-green-500 text-lg"></i>
+            <div>
+                <h4 class="text-sm font-semibold text-gray-900">100% Safe & Verified</h4>
+                <p class="text-gray-500 text-xs">All mods are tested and verified for safety.</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- Enhanced Footer with SEO content -->
+    <!-- Enhanced Footer -->
     <footer class="header-bg border-t border-gray-100 py-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -1574,7 +1423,7 @@
                         <i class="fas fa-gamepad text-green-500"></i> Mod<span class="text-green-500">Games</span>
                     </h3>
                     <p class="text-gray-600 text-sm mb-4 max-w-md">
-                        Your trusted source for premium modded games. Download 100% safe APK files with unlocked features, unlimited coins, gems, and premium content for popular Android games.
+                        Your trusted source for premium modded games. All our mods are thoroughly tested for safety and performance.
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-500 hover:text-green-500 transition">
@@ -1607,23 +1456,6 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- SEO Content Section -->
-            <div class="mt-8 pt-8 border-t border-gray-200">
-                <div class="prose max-w-none">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">About ModGames - Your Trusted Modded Games Source</h3>
-                    <p class="text-gray-600 text-sm mb-3">
-                        ModGames is the leading platform for safe, verified modded Android games. We provide premium unlocked APK files for popular games like Clash Royale, Brawl Stars, Minecraft, and many more. All our mods are thoroughly tested to ensure they are 100% safe and free from malware.
-                    </p>
-                    <p class="text-gray-600 text-sm mb-3">
-                        Our collection includes mods with unlimited coins, gems, unlocked characters, premium features, and enhanced gameplay. Whether you're looking for unlimited resources in strategy games or unlocked characters in action games, ModGames has you covered.
-                    </p>
-                    <p class="text-gray-600 text-sm">
-                        Download with confidence - all our APK files are verified safe and updated regularly. Enjoy enhanced gaming experiences without compromising your device's security.
-                    </p>
-                </div>
-            </div>
-            
             <div class="border-t border-gray-200 mt-8 pt-6 text-center text-gray-500 text-sm">
                 <p>&copy; 2024 ModGames. All Rights Reserved. All game trademarks and registered trademarks are property of their respective owners.</p>
             </div>
@@ -1708,23 +1540,6 @@
     </div>
     
     <script>
-        // Theme Toggle Functionality
-        function initTheme() {
-            const themeToggle = document.getElementById('theme-toggle');
-            const currentTheme = localStorage.getItem('theme') || 'light';
-            
-            // Set initial theme
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-            });
-        }
-
         // Get all games from the website
         function getAllGamesFromWebsite() {
             const gameCards = document.querySelectorAll('.game-card');
@@ -1816,6 +1631,7 @@
         const userName = document.getElementById('user-name');
         const gameName = document.getElementById('game-name');
         const seeMoreBtn = document.getElementById('see-more-btn');
+        const videoBackground = document.querySelector('.video-background');
         
         let currentDownloadLink = '';
         let notificationInterval;
@@ -2032,6 +1848,13 @@
             }
         }
         
+        // Start the notification cycle after page load
+        setTimeout(() => {
+            showInstallNotification();
+            // Show notification every 5 seconds
+            notificationInterval = setInterval(showInstallNotification, 5000);
+        }, 3000);
+
         // Hero section animations
         function animateHeroSection() {
             const heroContent = document.querySelector('.hero-content');
@@ -2054,6 +1877,13 @@
             const gameCards = document.querySelectorAll('.game-card');
             const sectionTitles = document.querySelectorAll('.section-title');
             const sectionSubtitles = document.querySelectorAll('.section-subtitle');
+            
+            // Parallax effect for video background
+            if (videoBackground) {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                videoBackground.style.transform = `translateY(${rate}px)`;
+            }
             
             sections.forEach(section => {
                 const sectionTop = section.getBoundingClientRect().top;
@@ -2094,7 +1924,6 @@
         
         // Initial animation on page load
         window.addEventListener('load', () => {
-            initTheme(); // Initialize theme first
             animateHeroSection();
             animateOnScroll();
             
@@ -2107,13 +1936,6 @@
                     }, index * 100);
                 });
             }, 300);
-
-            // Start the notification cycle after page load
-            setTimeout(() => {
-                showInstallNotification();
-                // Show notification every 5 seconds
-                notificationInterval = setInterval(showInstallNotification, 5000);
-            }, 3000);
         });
         
         // Animate on scroll
