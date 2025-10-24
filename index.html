@@ -436,10 +436,47 @@
       opacity: 1;
       transform: translateY(0);
     }
+    
+    /* Enhanced Footer Styles */
+    .footer-links a {
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover {
+      color: #22c55e;
+    }
+    
+    /* Enhanced Badge Styles */
+    .game-badge {
+      position: absolute;
+      top: 8px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 6px;
+      z-index: 10;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .mod-badge {
+      left: 8px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+    }
+    .safe-badge {
+      right: 8px;
+      background: rgba(255, 255, 255, 0.95);
+      color: #22c55e;
+      font-weight: 700;
+      border: 1px solid #dcfce7;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
   </style>
 </head>
 <body class="antialiased">
 
+    <!-- Header - Keeping exactly the same as provided -->
     <header class="header-bg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="#">
@@ -1377,9 +1414,51 @@
         </div>
     </section>
 
-    <footer class="header-bg border-t border-gray-100">
-        <div class="container mx-auto px-4 py-4 text-center text-gray-500">
-            <p class="text-sm">&copy; 2024 ModGames. All Rights Reserved.</p>
+    <!-- Enhanced Footer -->
+    <footer class="header-bg border-t border-gray-100 py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">
+                        <i class="fas fa-gamepad text-green-500"></i> Mod<span class="text-green-500">Games</span>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4 max-w-md">
+                        Your trusted source for premium modded games. All our mods are thoroughly tested for safety and performance.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-green-500 transition">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-green-500 transition">
+                            <i class="fab fa-discord text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-green-500 transition">
+                            <i class="fab fa-telegram text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
+                    <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                        <a href="#trending" class="hover:text-green-500 transition">Trending Games</a>
+                        <a href="#all-mods-header" class="hover:text-green-500 transition">All Mods</a>
+                        <a href="#faq-section" class="hover:text-green-500 transition">FAQ</a>
+                        <a href="#contact-section" class="hover:text-green-500 transition">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Legal</h4>
+                    <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                        <a href="#" class="hover:text-green-500 transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-green-500 transition">Terms of Service</a>
+                        <a href="#" class="hover:text-green-500 transition">Cookie Policy</a>
+                        <a href="#" class="hover:text-green-500 transition">DMCA</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-8 pt-6 text-center text-gray-500 text-sm">
+                <p>&copy; 2024 ModGames. All Rights Reserved. All game trademarks and registered trademarks are property of their respective owners.</p>
+            </div>
         </div>
     </footer>
 
