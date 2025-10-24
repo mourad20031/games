@@ -487,17 +487,17 @@
       transform: scale(0.95);
     }
     
-    /* Hide elements based on theme */
-    .light-hidden {
+    /* Theme-specific icons */
+    .theme-icon {
       display: none;
     }
     
-    [data-theme="dark"] .light-hidden {
+    [data-theme="light"] .light-icon {
       display: block;
     }
     
-    [data-theme="dark"] .dark-hidden {
-      display: none;
+    [data-theme="dark"] .dark-icon {
+      display: block;
     }
 
     /* Enhanced Footer Styles */
@@ -528,8 +528,8 @@
             <div class="flex items-center space-x-4">
                 <!-- Theme Toggle Button -->
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon dark-hidden text-lg"></i>
-                    <i class="fas fa-sun light-hidden text-lg"></i>
+                    <i class="fas fa-moon theme-icon light-icon text-lg"></i>
+                    <i class="fas fa-sun theme-icon dark-icon text-lg"></i>
                 </button>
                 <button id="menu-btn" class="md:hidden text-gray-700 text-xl">
                     <i class="fas fa-bars"></i>
@@ -560,7 +560,7 @@
                     <div class="hero-badges flex items-center gap-2 mb-8">
                       <span class="safety-badge"><i class="fas fa-shield-alt"></i> 100% Safe</span>
                       <span class="safety-badge"><i class="fas fa-bolt"></i> Instant Download</span>
-                      <span class="safety-badge"><i class="fas fa-star"></i> Premium Unlocked</span>
+                      <span class="safety-badge"><i class="fas fa-rocket"></i> Latest Versions</span>
                     </div>
                     <div class="hero-cta">
                       <button class="btn-download py-3 px-8 rounded-xl text-base font-semibold">
