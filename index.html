@@ -34,16 +34,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Added scripts as requested -->
-  <script type="text/javascript">
-    var fliHo_gtw_jeCFic={"it":4523985,"key":"e8a34"};
-  </script>
-  <script src="https://da4talg8ap14y.cloudfront.net/0407105.js"></script>
-  
   <style>
-    /* ... (all your existing CSS styles remain exactly the same) ... */
-    
     :root {
       --bg-color: #f8fafc;
       --text-color: #1a1a1a;
@@ -78,9 +69,540 @@
       -webkit-user-drag: none;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
+    .header-bg {
+      background-color: var(--header-bg);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.3s ease;
+    }
+    .game-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .game-card.animate {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease;
+    }
+    .game-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.12);
+      border-color: #22c55e;
+    }
+    .btn-download {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #ffffff;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-download:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+    }
+    .btn-download:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn-download.loading {
+      background: linear-gradient(90deg, #22c55e, #16a34a, #22c55e);
+      background-size: 200% 100%;
+      animation: loading-shine 2s infinite;
+    }
+    @keyframes loading-shine {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .search-bar, .form-input {
+      background-color: var(--search-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+    .modal-bg {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+    }
+    .modal-content {
+      background-color: var(--modal-bg);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
     
-    /* ... (all other CSS styles remain exactly the same) ... */
+    /* Game image styling */
+    .game-image {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      margin-bottom: 0.5rem;
+      pointer-events: none; 
+    }
     
+    /* Coming Soon placeholder */
+    .coming-soon-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9ca3af; 
+      font-size: 0.7rem; 
+      font-weight: 500; 
+      background-color: #f3f4f6; 
+      border-radius: 8px;
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      margin-bottom: 0.5rem;
+      pointer-events: none; 
+    }
+
+    [data-theme="dark"] .coming-soon-image {
+      background-color: #475569;
+      color: #cbd5e1;
+    }
+
+    /* Modern See More button */
+    .btn-see-more {
+      background: linear-gradient(135deg, #22c55e, #10b981);
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-see-more:hover {
+      background: linear-gradient(135deg, #10b981, #22c55e);
+      box-shadow: 0 6px 16px rgba(34, 197, 94, 0.35);
+      transform: translateY(-2px);
+    }
+    
+    .btn-see-more:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(34, 197, 94, 0.25);
+    }
+    
+    .btn-see-more .icon {
+      transition: transform 0.3s ease;
+    }
+    
+    .btn-see-more.expanded .icon {
+      transform: rotate(180deg);
+    }
+    
+    /* Pulse animation for the button */
+    @keyframes pulse {
+      0% { box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25); }
+      50% { box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4); }
+      100% { box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25); }
+    }
+    
+    .btn-see-more.pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    /* Smooth transition for showing/hiding games */
+    .game-card {
+      transition: all 0.4s ease;
+    }
+    
+    .game-card.hidden {
+      opacity: 0;
+      transform: translateY(10px);
+      height: 0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    /* Safety badge */
+    .safety-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #f0fdf4;
+      color: #16a34a;
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid #dcfce7;
+    }
+
+    [data-theme="dark"] .safety-badge {
+      background: #064e3b;
+      color: #34d399;
+      border-color: #065f46;
+    }
+    
+    /* Installation notification */
+    .install-notification {
+      position: fixed;
+      bottom: 20px;
+      left: -320px;
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 10px 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 1000;
+      transition: left 0.5s ease-in-out, background-color 0.3s ease;
+      border-left: 4px solid #22c55e;
+      max-width: 280px;
+    }
+    .install-notification.show {
+      left: 20px;
+    }
+    .user-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    
+    /* Compact game grid layout */
+    .compact-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    
+    @media (min-width: 768px) {
+      .compact-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .compact-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+    }
+    
+    @media (min-width: 1280px) {
+      .compact-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+      }
+    }
+    
+    /* Hero section styling */
+    .hero-gradient {
+      background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+    }
+    
+    /* Loading dots animation */
+    .loading-dots {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+    }
+    .loading-dots div {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: loading-dots 1.4s ease-in-out infinite both;
+    }
+    .loading-dots div:nth-child(1) { animation-delay: -0.32s; }
+    .loading-dots div:nth-child(2) { animation-delay: -0.16s; }
+    .loading-dots div:nth-child(3) { animation-delay: 0s; }
+    @keyframes loading-dots {
+      0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+    
+    /* FAQ Section Styles */
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+    .faq-question {
+      padding: 16px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-question:hover {
+      color: #22c55e;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: #6b7280;
+    }
+    .faq-answer.open {
+      max-height: 200px;
+      padding-bottom: 16px;
+    }
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+    
+    /* Modern Game card badges */
+    .game-badge {
+      position: absolute;
+      top: 8px;
+      font-size: 0.55rem;
+      font-weight: 800;
+      padding: 3px 6px;
+      border-radius: 4px;
+      z-index: 10;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .mod-badge {
+      left: 8px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+    }
+    .safe-badge {
+      right: 8px;
+      color: #22c55e;
+      font-weight: 700;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    /* Hero Section Animations */
+    .hero-content {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    
+    .hero-title {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease 0.2s;
+    }
+    
+    .hero-subtitle {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease 0.4s;
+    }
+    
+    .hero-badges {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease 0.6s;
+    }
+    
+    .hero-cta {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease 1s;
+      animation: gentle-pulse 2s infinite 1.5s;
+    }
+    
+    @keyframes gentle-pulse {
+      0% { transform: translateY(20px) scale(1); }
+      50% { transform: translateY(20px) scale(1.05); }
+      100% { transform: translateY(20px) scale(1); }
+    }
+    
+    .hero-content.animate,
+    .hero-title.animate,
+    .hero-subtitle.animate,
+    .hero-badges.animate,
+    .hero-cta.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Background Video */
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.15;
+    }
+    
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.9) 0%, rgba(16, 185, 129, 0.9) 100%);
+      z-index: -1;
+    }
+    
+    /* Parallax Effect */
+    .parallax {
+      transform: translateY(0);
+      transition: transform 0.3s ease-out;
+    }
+    
+    /* Section Animations */
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    
+    section.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .section-title {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease 0.2s;
+    }
+    
+    .section-subtitle {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease 0.4s;
+    }
+    
+    .section-title.animate,
+    .section-subtitle.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Enhanced Footer Styles */
+    .footer-links a {
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover {
+      color: #22c55e;
+    }
+    
+    /* Enhanced Badge Styles */
+    .game-badge {
+      position: absolute;
+      top: 8px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 6px;
+      z-index: 10;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .mod-badge {
+      left: 8px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+    }
+    .safe-badge {
+      right: 8px;
+      background: rgba(255, 255, 255, 0.95);
+      color: #22c55e;
+      font-weight: 700;
+      border: 1px solid #dcfce7;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    [data-theme="dark"] .safe-badge {
+      background: rgba(30, 41, 59, 0.95);
+      color: #22c55e;
+      border-color: #065f46;
+    }
+
+    /* Theme Toggle Styles - Fixed */
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+      color: var(--text-color);
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Remove hover background to eliminate shadow effect */
+    .theme-toggle:hover {
+      background-color: transparent;
+    }
+
+    .theme-icon {
+      width: 20px;
+      height: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .theme-icon.hidden {
+      display: none;
+    }
+
+    /* Dark mode text colors - ensure ALL text is white in dark mode */
+    [data-theme="dark"] .text-gray-900,
+    [data-theme="dark"] .text-gray-800,
+    [data-theme="dark"] .text-gray-700,
+    [data-theme="dark"] .text-gray-600,
+    [data-theme="dark"] .text-gray-500,
+    [data-theme="dark"] .text-gray-400 {
+      color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .bg-white {
+      background-color: var(--header-bg) !important;
+    }
+
+    [data-theme="dark"] .bg-gray-50 {
+      background-color: #1e293b !important;
+    }
+
+    /* Ensure all text in game cards is visible in dark mode */
+    [data-theme="dark"] .game-card h3,
+    [data-theme="dark"] .game-card .text-gray-500,
+    [data-theme="dark"] .game-card .text-yellow-500 {
+      color: #ffffff !important;
+    }
+
+    /* Ensure search section background in dark mode */
+    [data-theme="dark"] #search-section {
+      background-color: var(--header-bg) !important;
+    }
   </style>
 </head>
 <body class="antialiased">
@@ -185,7 +707,7 @@
                                 <i class="fas fa-download mr-1"></i> 
                                 <span class="download-counter" data-count="127000">127K</span>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="showDownloadModal('Clash Royale Mod APK','Unlimited Gems and Gold, all cards unlocked, and custom servers for endless battles. Build the ultimate deck.')">Download Now</button>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Clash Royale Mod APK','Unlimited Gems and Gold, all cards unlocked, and custom servers for endless battles. Build the ultimate deck.','https://bouttiq.graphics/cl/i/grqd21')">Download Now</button>
                         </div>
                     </div>
                     
@@ -205,7 +727,7 @@
                                 <i class="fas fa-download mr-1"></i> 
                                 <span class="download-counter" data-count="98500">98.5K</span>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="showDownloadModal('Brawl Stars Mod APK','Private server with unlimited gems, coins, and boxes. Unlock and max out all brawlers instantly.')">Download Now</button>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Brawl Stars Mod APK','Private server with unlimited gems, coins, and boxes. Unlock and max out all brawlers instantly.','https://redirectapps.online/cl/i/kr79v8')">Download Now</button>
                         </div>
                     </div>
 
@@ -222,7 +744,7 @@
                                 <i class="fas fa-download mr-1"></i> 
                                 <span class="download-counter" data-count="215000">215K</span>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="showDownloadModal('Minecraft Mod APK','This mod unlocks all premium skins, textures, and worlds. Enjoy god mode and unlimited inventory items.')">Download Now</button>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Minecraft Mod APK','This mod unlocks all premium skins, textures, and worlds. Enjoy god mode and unlimited inventory items.','https://redirectapps.online/cl/i/qnked4')">Download Now</button>
                         </div>
                     </div>
                     
@@ -239,7 +761,7 @@
                                 <i class="fas fa-download mr-1"></i> 
                                 <span class="download-counter" data-count="178000">178K</span>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="showDownloadModal('Subway Surfers Mod APK','Unlimited coins, keys, and all characters unlocked from the start. Enjoy an ad-free experience and surf through the subways without any limitations.')">Download Now</button>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Subway Surfers Mod APK','Unlimited coins, keys, and all characters unlocked from the start. Enjoy an ad-free experience and surf through the subways without any limitations.','https://bouttiq.graphics/cl/i/vonkw9')">Download Now</button>
                         </div>
                     </div>
 
@@ -259,7 +781,7 @@
                                 <i class="fas fa-download mr-1"></i> 
                                 <span class="download-counter" data-count="89200">89.2K</span>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="showDownloadModal('Baseball9 Mod APK','Unlimited money and diamonds. Recruit legendary players and build your perfect baseball team to win the World Series.')">Download Now</button>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Baseball9 Mod APK','Unlimited money and diamonds. Recruit legendary players and build your perfect baseball team to win the World Series.','https://bouttiq.graphics/cl/i/wov1q2')">Download Now</button>
                         </div>
                     </div>
                     
@@ -279,7 +801,7 @@
                                 <i class="fas fa-download mr-1"></i> 
                                 <span class="download-counter" data-count="143000">143K</span>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="showDownloadModal('Hollow Knight Silksong Mod APK','Early access, unlimited health, and all charms unlocked. Explore the vast world of Pharloom with no limits.')">Download Now</button>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Hollow Knight Silksong Mod APK','Early access, unlimited health, and all charms unlocked. Explore the vast world of Pharloom with no limits.','https://redirectapps.online/cl/i/7j7ge5')">Download Now</button>
                         </div>
                     </div>
                 </div>
@@ -308,7 +830,7 @@
                                 <i class="fas fa-download mr-1"></i> 
                                 <span class="download-counter" data-count="198000">198K</span>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="showDownloadModal('Royal Match Mod APK','Match colorful tiles, decorate royal rooms, and enjoy puzzle fun both online and offline.')">Download Now</button>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Royal Match Mod APK','Match colorful tiles, decorate royal rooms, and enjoy puzzle fun both online and offline.','https://bouttiq.graphics/cl/i/4o2oxx')">Download Now</button>
                         </div>
                     </div>
                     
@@ -330,7 +852,7 @@
                                 <span class="download-counter" data-count="87600">87.6K</span>
                             </div>
                             <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                onclick="showDownloadModal('Hitman: Absolution Mod APK','Play as Agent 47 in a stealth-action thriller where every choice and disguise matters.')">
+                                onclick="startDownload(this, 'Hitman: Absolution Mod APK','Play as Agent 47 in a stealth-action thriller where every choice and disguise matters.','https://bouttiq.graphics/cl/i/m5e5jm')">
                                 Download Now
                             </button>
                         </div>
@@ -354,7 +876,7 @@
                                 <span class="download-counter" data-count="96700">96.7K</span>
                             </div>
                             <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                onclick="showDownloadModal('Dead Cells Mod APK','Fight, die, and repeat in this fast-paced roguelike packed with action and fluid combat.')">
+                                onclick="startDownload(this, 'Dead Cells Mod APK','Fight, die, and repeat in this fast-paced roguelike packed with action and fluid combat.','https://bouttiq.graphics/cl/i/3474en')">
                                 Download Now
                             </button>
                         </div>
@@ -378,7 +900,7 @@
                                 <span class="download-counter" data-count="71200">71.2K</span>
                             </div>
                             <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                onclick="showDownloadModal('GRID Autosport Mod APK','Experience console-quality racing with realistic handling, diverse cars, and full offline play.')">
+                                onclick="startDownload(this, 'GRID Autosport Mod APK','Experience console-quality racing with realistic handling, diverse cars, and full offline play.','https://bouttiq.graphics/cl/i/1xoxnd')">
                                 Download Now
                             </button>
                         </div>
@@ -411,7 +933,7 @@
                                 <span class="download-counter" data-count="198000">198K</span>
                             </div>
                             <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                onclick="showDownloadModal('WWE25 Mod APK','Step into the ring and battle as your favorite superstars in this action-packed wrestling experience.')">
+                                onclick="startDownload(this, 'WWE25 Mod APK','Step into the ring and battle as your favorite superstars in this action-packed wrestling experience.','https://bouttiq.graphics/cl/i/rn7edd')">
                                 Download Now
                             </button>
                         </div>
@@ -435,7 +957,7 @@
                                 <span class="download-counter" data-count="87600">87.6K</span>
                             </div>
                             <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                onclick="showDownloadModal('Slay the Spire Mod APK','Climb ever-changing levels, build your deck, and defeat powerful bosses in this roguelike card game.')">
+                                onclick="startDownload(this, 'Slay the Spire Mod APK','Climb ever-changing levels, build your deck, and defeat powerful bosses in this roguelike card game.','https://bouttiq.graphics/cl/i/m5e5j4')">
                                 Download Now
                             </button>
                         </div>
@@ -459,7 +981,7 @@
                                 <span class="download-counter" data-count="96700">96.7K</span>
                             </div>
                             <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                onclick="showDownloadModal('Dredge Mod APK','Explore mysterious seas, catch strange fish, and uncover dark secrets lurking beneath the waves.')">
+                                onclick="startDownload(this, 'Dredge Mod APK','Explore mysterious seas, catch strange fish, and uncover dark secrets lurking beneath the waves.','https://bouttiq.graphics/cl/i/3474em')">
                                 Download Now
                             </button>
                         </div>
@@ -483,7 +1005,7 @@
                                 <span class="download-counter" data-count="71200">71.2K</span>
                             </div>
                             <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                onclick="showDownloadModal('Stardew Valley Mod APK','Escape to the countryside, build your dream farm, and connect with the charming villagers.')">
+                                onclick="startDownload(this, 'Stardew Valley Mod APK','Escape to the countryside, build your dream farm, and connect with the charming villagers.','https://bouttiq.graphics/cl/i/4o2oxj')">
                                 Download Now
                             </button>
                         </div>
@@ -514,7 +1036,7 @@
                             <i class="fas fa-download mr-1"></i> 
                             <span class="download-counter" data-count="267000">98.5K</span>
                         </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="showDownloadModal('Brawl Stars Mod APK','Private server with unlimited gems, coins, and boxes. Unlock and max out all brawlers instantly.')">Download Now</button>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Brawl Stars Mod APK','Private server with unlimited gems, coins, and boxes. Unlock and max out all brawlers instantly.','https://bouttiq.graphics/cl/i/kr79v8')">Download Now</button>
                     </div>
                 </div>
                 <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Clash Royale Mod ">
@@ -533,7 +1055,7 @@
                             <i class="fas fa-download mr-1"></i> 
                             <span class="download-counter" data-count="189000">127K</span>
                         </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="showDownloadModal('Clash Royale Mod APK','Unlimited gems and gold, all cards unlocked, And custom servers for endless battles — build the ultimate deck.')">Download Now</button>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Clash Royale Mod APK','Unlimited gems and gold, all cards unlocked, And custom servers for endless battles — build the ultimate deck.','https://bouttiq.graphics/cl/i/grqd21')">Download Now</button>
                     </div>
                 </div>
                 
@@ -555,7 +1077,7 @@
                             <span class="download-counter" data-count="156000">156K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('DLS 22 Mod APK','Unlimited coins and diamonds, and unlocked players. Build your ultimate dream team and manage your club like a pro.')">
+                            onclick="startDownload(this, 'DLS 22 Mod APK','Unlimited coins and diamonds, and unlocked players. Build your ultimate dream team and manage your club like a pro.','https://redirectapps.online/cl/i/qneg75')">
                             Download Now
                         </button>
                     </div>
@@ -579,7 +1101,7 @@
                                 <span class="download-counter" data-count="134000">134K</span>
                             </div>
                             <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                onclick="showDownloadModal('Stardew Valley Mod APK','Escape to the countryside, build your dream farm, and connect with the charming villagers.')">
+                                onclick="startDownload(this, 'Stardew Valley Mod APK','Escape to the countryside, build your dream farm, and connect with the charming villagers.','https://bouttiq.graphics/cl/i/4o2oxj')">
                                 Download Now
                             </button>
                         </div>
@@ -604,7 +1126,7 @@
                             <span class="download-counter" data-count="52300">52.3K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Slay the Spire Mod APK','Climb ever-changing levels, build your deck, and defeat powerful bosses in this roguelike card game.')">
+                            onclick="startDownload(this, 'Slay the Spire Mod APK','Climb ever-changing levels, build your deck, and defeat powerful bosses in this roguelike card game.','https://bouttiq.graphics/cl/i/m5e5j4')">
                             Download Now
                         </button>
                     </div>
@@ -628,7 +1150,7 @@
                             <span class="download-counter" data-count="38700">38.7K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Dredge Mod APK','Explore mysterious seas, catch strange fish, and uncover dark secrets lurking beneath the waves.')">
+                            onclick="startDownload(this, 'Dredge Mod APK','Explore mysterious seas, catch strange fish, and uncover dark secrets lurking beneath the waves.','https://bouttiq.graphics/cl/i/3474em')">
                             Download Now
                         </button>
                     </div>
@@ -652,7 +1174,7 @@
                             <span class="download-counter" data-count="187000">187K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Township Mod APK','Build your dream city, harvest crops, and grow your town into a thriving community.')">
+                            onclick="startDownload(this, 'Township Mod APK','Build your dream city, harvest crops, and grow your town into a thriving community.','https://bouttiq.graphics/cl/i/1xoxne')">
                             Download Now
                         </button>
                     </div>
@@ -676,7 +1198,7 @@
                             <span class="download-counter" data-count="52300">52.3K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('WWE25 Mod APK','Step into the ring and battle as your favorite superstars in this action-packed wrestling experience.')">
+                            onclick="startDownload(this, 'WWE25 Mod APK','Step into the ring and battle as your favorite superstars in this action-packed wrestling experience.','https://bouttiq.graphics/cl/i/rn7edd')">
                             Download Now
                         </button>
                     </div>
@@ -701,7 +1223,7 @@
                             <span class="download-counter" data-count="198000">198K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Royal Match Mod APK','Match colorful tiles, decorate royal rooms, and enjoy puzzle fun both online and offline.')">
+                            onclick="startDownload(this, 'Royal Match Mod APK','Match colorful tiles, decorate royal rooms, and enjoy puzzle fun both online and offline.','https://bouttiq.graphics/cl/i/4o2oxx')">
                             Download Now
                         </button>
                     </div>
@@ -725,7 +1247,7 @@
                             <span class="download-counter" data-count="87600">87.6K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Hitman: Absolution Mod APK','Play as Agent 47 in a stealth-action thriller where every choice and disguise matters.')">
+                            onclick="startDownload(this, 'Hitman: Absolution Mod APK','Play as Agent 47 in a stealth-action thriller where every choice and disguise matters.','https://bouttiq.graphics/cl/i/m5e5jm')">
                             Download Now
                         </button>
                     </div>
@@ -749,7 +1271,7 @@
                             <span class="download-counter" data-count="96700">96.7K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Dead Cells Mod APK','Fight, die, and repeat in this fast-paced roguelike packed with action and fluid combat.')">
+                            onclick="startDownload(this, 'Dead Cells Mod APK','Fight, die, and repeat in this fast-paced roguelike packed with action and fluid combat.','https://bouttiq.graphics/cl/i/3474en')">
                             Download Now
                         </button>
                     </div>
@@ -773,7 +1295,7 @@
                             <span class="download-counter" data-count="71200">71.2K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('GRID Autosport Mod APK','Experience console-quality racing with realistic handling, diverse cars, and full offline play.')">
+                            onclick="startDownload(this, 'GRID Autosport Mod APK','Experience console-quality racing with realistic handling, diverse cars, and full offline play.','https://bouttiq.graphics/cl/i/1xoxnd')">
                             Download Now
                         </button>
                     </div>
@@ -797,7 +1319,7 @@
                             <span class="download-counter" data-count="29800">215K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Minecraft Mod APK','This mod unlocks all premium skins, textures, and worlds. Enjoy god mode and unlimited inventory items.')">
+                            onclick="startDownload(this, 'Minecraft Mod APK','This mod unlocks all premium skins, textures, and worlds. Enjoy god mode and unlimited inventory items.','https://bouttiq.graphics/cl/i/qnked4')">
                             Download Now
                         </button>
                     </div>
@@ -821,7 +1343,7 @@
                             <span class="download-counter" data-count="223000">178K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Subway Surfers Mod APK','Unlimited coins, keys, and all characters unlocked from the start. Enjoy an ad-free experience and surf through the subways without any limitations.')">
+                            onclick="startDownload(this, 'Subway Surfers Mod APK','Unlimited coins, keys, and all characters unlocked from the start. Enjoy an ad-free experience and surf through the subways without any limitations.','https://redirectapps.online/cl/i/vonkw9')">
                             Download Now
                         </button>
                     </div>
@@ -845,7 +1367,7 @@
                             <span class="download-counter" data-count="298000">89.2K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Baseball9 Mod APK','Unlimited money and diamonds. Recruit legendary players and build your perfect baseball team to win the World Series.')">
+                            onclick="startDownload(this, 'Baseball9 Mod APK','Unlimited money and diamonds. Recruit legendary players and build your perfect baseball team to win the World Series.','https://bouttiq.graphics/cl/i/wov1q2')">
                             Download Now
                         </button>
                     </div>
@@ -869,7 +1391,7 @@
                             <span class="download-counter" data-count="312000">312K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('hill Climb Racing 2 Mod APK','Hill Climb Racing 2 MOD gives you unlimited coins and unlocked vehicles so you can upgrade and race without limits. Enjoy smoother gameplay and faster progression.')">
+                            onclick="startDownload(this, 'hill Climb Racing 2 Mod APK','Hill Climb Racing 2 MOD gives you unlimited coins and unlocked vehicles so you can upgrade and race without limits. Enjoy smoother gameplay and faster progression.','https://bouttiq.graphics/cl/i/krlwx8')">
                             Download Now
                         </button>
                     </div>
@@ -893,7 +1415,7 @@
                             <span class="download-counter" data-count="234000">234K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Genshin Impact Mod APK','Unlimited Primogems, all characters unlocked, and god mode. Explore Teyvat without limits.')">
+                            onclick="startDownload(this, 'Genshin Impact Mod APK','Unlimited Primogems, all characters unlocked, and god mode. Explore Teyvat without limits.','https://bouttiq.graphics/cl/i/wov1q2')">
                             Download Now
                         </button>
                     </div>
@@ -917,7 +1439,7 @@
                             <span class="download-counter" data-count="287000">287K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Pokemon GO Mod APK','Spoofing, auto-walk, unlimited PokéCoins, and all Pokémon available. Catch them all easily.')">
+                            onclick="startDownload(this, 'Pokemon GO Mod APK','Spoofing, auto-walk, unlimited PokéCoins, and all Pokémon available. Catch them all easily.','https://bouttiq.graphics/cl/i/7j7ge5')">
                             Download Now
                         </button>
                     </div>
@@ -942,7 +1464,7 @@
                             <span class="download-counter" data-count="198000">198K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('FIFA Mobile Mod APK','Unlimited coins, all players unlocked, and enhanced gameplay. Build your ultimate football team.')">
+                            onclick="startDownload(this, 'FIFA Mobile Mod APK','Unlimited coins, all players unlocked, and enhanced gameplay. Build your ultimate football team.','https://bouttiq.graphics/cl/i/grqd21')">
                             Download Now
                         </button>
                     </div>
@@ -966,7 +1488,7 @@
                             <span class="download-counter" data-count="345000">345K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('PUBG Mobile Mod APK','Aimbot, wallhack, unlimited UC, and all skins unlocked. Dominate the battleground.')">
+                            onclick="startDownload(this, 'PUBG Mobile Mod APK','Aimbot, wallhack, unlimited UC, and all skins unlocked. Dominate the battleground.','https://bouttiq.graphics/cl/i/kr79v8')">
                             Download Now
                         </button>
                     </div>
@@ -990,7 +1512,7 @@
                             <span class="download-counter" data-count="276000">276K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('8 Ball Pool Mod APK','Unlimited coins and cash cues. Become the pool master with our premium mod.')">
+                            onclick="startDownload(this, '8 Ball Pool Mod APK','Unlimited coins and cash cues. Become the pool master with our premium mod.','https://bouttiq.graphics/cl/i/qnked4')">
                             Download Now
                         </button>
                     </div>
@@ -1014,7 +1536,7 @@
                             <span class="download-counter" data-count="312000">312K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Candy Crush Saga Mod APK','Unlimited lives, boosters, and moves. Complete all levels with ease.')">
+                            onclick="startDownload(this, 'Candy Crush Saga Mod APK','Unlimited lives, boosters, and moves. Complete all levels with ease.','https://bouttiq.graphics/cl/i/vonkw9')">
                             Download Now
                         </button>
                     </div>
@@ -1038,7 +1560,7 @@
                             <span class="download-counter" data-count="187000">187K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Temple Run 2 Mod APK','Unlimited coins, all characters unlocked, and god mode. Run endlessly without obstacles.')">
+                            onclick="startDownload(this, 'Temple Run 2 Mod APK','Unlimited coins, all characters unlocked, and god mode. Run endlessly without obstacles.','https://bouttiq.graphics/cl/i/wov1q2')">
                             Download Now
                         </button>
                     </div>
@@ -1062,7 +1584,7 @@
                             <span class="download-counter" data-count="234000">234K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Plants vs Zombies 2 Mod APK','Unlimited sun, coins, and all plants unlocked. Defeat zombies with ease.')">
+                            onclick="startDownload(this, 'Plants vs Zombies 2 Mod APK','Unlimited sun, coins, and all plants unlocked. Defeat zombies with ease.','https://bouttiq.graphics/cl/i/7j7ge5')">
                             Download Now
                         </button>
                     </div>
@@ -1086,7 +1608,7 @@
                             <span class="download-counter" data-count="198000">198K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Angry Birds 2 Mod APK','Unlimited gems, lives, and all birds unlocked. Destroy piggies with style.')">
+                            onclick="startDownload(this, 'Angry Birds 2 Mod APK','Unlimited gems, lives, and all birds unlocked. Destroy piggies with style.','https://bouttiq.graphics/cl/i/grqd21')">
                             Download Now
                         </button>
                     </div>
@@ -1110,7 +1632,7 @@
                             <span class="download-counter" data-count="167000">167K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Hill Climb Racing 2 Mod APK','Unlimited coins, gems, and all vehicles unlocked. Climb those hills with ease.')">
+                            onclick="startDownload(this, 'Hill Climb Racing 2 Mod APK','Unlimited coins, gems, and all vehicles unlocked. Climb those hills with ease.','https://bouttiq.graphics/cl/i/kr79v8')">
                             Download Now
                         </button>
                     </div>
@@ -1134,7 +1656,7 @@
                             <span class="download-counter" data-count="223000">223K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Shadow Fight 2 Mod APK','Unlimited coins, gems, and all weapons unlocked. Become the ultimate shadow fighter.')">
+                            onclick="startDownload(this, 'Shadow Fight 2 Mod APK','Unlimited coins, gems, and all weapons unlocked. Become the ultimate shadow fighter.','https://bouttiq.graphics/cl/i/qnked4')">
                             Download Now
                         </button>
                     </div>
@@ -1158,7 +1680,7 @@
                             <span class="download-counter" data-count="134000">134K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Vector 2 Mod APK','Unlimited energy, all characters unlocked, and premium features. Parkour like a pro.')">
+                            onclick="startDownload(this, 'Vector 2 Mod APK','Unlimited energy, all characters unlocked, and premium features. Parkour like a pro.','https://bouttiq.graphics/cl/i/vonkw9')">
                             Download Now
                         </button>
                     </div>
@@ -1182,7 +1704,7 @@
                             <span class="download-counter" data-count="287000">287K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Geometry Dash Mod APK','Unlocked all levels, icons, and colors. Jump and fly through dangerous passages.')">
+                            onclick="startDownload(this, 'Geometry Dash Mod APK','Unlocked all levels, icons, and colors. Jump and fly through dangerous passages.','https://bouttiq.graphics/cl/i/wov1q2')">
                             Download Now
                         </button>
                     </div>
@@ -1206,7 +1728,7 @@
                             <span class="download-counter" data-count="198000">198K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Bloons TD 6 Mod APK','Unlimited money, all heroes unlocked, and instant upgrades. Pop all bloons!')">
+                            onclick="startDownload(this, 'Bloons TD 6 Mod APK','Unlimited money, all heroes unlocked, and instant upgrades. Pop all bloons!','https://bouttiq.graphics/cl/i/7j7ge5')">
                             Download Now
                         </button>
                     </div>
@@ -1230,7 +1752,7 @@
                             <span class="download-counter" data-count="176000">176K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Plague Inc Mod APK','Unlocked all plague types, unlimited DNA points, and mega brutal difficulty. Infect the world!')">
+                            onclick="startDownload(this, 'Plague Inc Mod APK','Unlocked all plague types, unlimited DNA points, and mega brutal difficulty. Infect the world!','https://bouttiq.graphics/cl/i/grqd21')">
                             Download Now
                         </button>
                     </div>
@@ -1254,7 +1776,7 @@
                             <span class="download-counter" data-count="143000">143K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Kingdom Rush Vengeance Mod APK','Unlimited gems, all heroes unlocked, and premium towers. Defend your kingdom!')">
+                            onclick="startDownload(this, 'Kingdom Rush Vengeance Mod APK','Unlimited gems, all heroes unlocked, and premium towers. Defend your kingdom!','https://bouttiq.graphics/cl/i/kr79v8')">
                             Download Now
                         </button>
                     </div>
@@ -1278,7 +1800,7 @@
                             <span class="download-counter" data-count="123000">123K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Altos Odyssey Mod APK','Unlimited coins, all characters unlocked, and endless sandboarding. Journey without limits.')">
+                            onclick="startDownload(this, 'Altos Odyssey Mod APK','Unlimited coins, all characters unlocked, and endless sandboarding. Journey without limits.','https://bouttiq.graphics/cl/i/qnked4')">
                             Download Now
                         </button>
                     </div>
@@ -1302,7 +1824,7 @@
                             <span class="download-counter" data-count="98000">98K</span>
                         </div>
                         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                            onclick="showDownloadModal('Monument Valley 2 Mod APK','All chapters unlocked and ad-free experience. Guide a mother and her child through magical architecture.')">
+                            onclick="startDownload(this, 'Monument Valley 2 Mod APK','All chapters unlocked and ad-free experience. Guide a mother and her child through magical architecture.','https://bouttiq.graphics/cl/i/vonkw9')">
                             Download Now
                         </button>
                     </div>
@@ -1489,7 +2011,7 @@
                     <h3 class="text-lg font-semibold text-green-500 mb-2">Description</h3>
                     <p id="modal-description" class="text-gray-600 mb-6"></p>
                 </div>
-                <button id="modal-confirm-btn" class="btn-download block py-3 px-6 rounded-xl w-full text-base text-center mt-4" onclick="triggerDownload()">
+                <button id="modal-confirm-btn" class="btn-download block py-3 px-6 rounded-xl w-full text-base text-center mt-4">
                     <i class="fas fa-download mr-2"></i>Download Now
                 </button>
             </div>
@@ -1599,39 +2121,24 @@
         // Games for notifications - now dynamically generated from the website
         const gameNames = getAllGamesFromWebsite();
 
-        // Simple function to show download modal
-        function showDownloadModal(title, description) {
-            const gameModal = document.getElementById('gameModal');
-            const modalTitle = document.getElementById('modal-title');
-            const modalDescription = document.getElementById('modal-description');
+        // Download counter functionality - FIXED: No longer increments on click
+        function startDownload(buttonElement, title, description, downloadLink) {
+            // Disable button and show loading state
+            buttonElement.disabled = true;
+            buttonElement.classList.add('loading');
+            buttonElement.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i> Downloading...';
             
-            modalTitle.textContent = title;
-            modalDescription.textContent = description;
-            
-            // Set a placeholder image for the modal
-            const modalImg = document.getElementById('modal-img');
-            modalImg.src = 'https://placehold.co/400x400/f3f4f6/9ca3af?text=Game+Preview';
-            
-            gameModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-            setTimeout(() => gameModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
-        }
-
-        // Function to trigger the _di() download
-        function triggerDownload() {
-            closeModal('gameModal');
-            
-            // Call the _di() function to open the locker
-            if (typeof _di === 'function') {
-                _di(); // Open the locker
-            } else {
-                console.error('_di function not found. Make sure the locker script is loaded.');
-                // Fallback: show an alert if _di is not available
-                alert('Download is being prepared. Please wait...');
-            }
+            // Show modal for actual download
+            setTimeout(() => {
+                buttonElement.disabled = false;
+                buttonElement.classList.remove('loading');
+                buttonElement.innerHTML = 'Download Now';
+                openModal(buttonElement, title, description, downloadLink);
+            }, 1000);
         }
 
         // DOM elements
+        const gameModal = document.getElementById('gameModal');
         const contactModal = document.getElementById('contactModal');
         const successModal = document.getElementById('successModal');
         const loadingModal = document.getElementById('loadingModal');
@@ -1645,6 +2152,7 @@
         const seeMoreBtn = document.getElementById('see-more-btn');
         const videoBackground = document.querySelector('.video-background');
         
+        let currentDownloadLink = '';
         let notificationInterval;
         
         // Mobile menu toggle
@@ -1664,6 +2172,54 @@
             });
 
             noResults.classList.toggle('hidden', visibleCount > 0);
+        });
+
+        function openModal(buttonElement, title, description, downloadLink) {
+            const gameCard = buttonElement.closest('.game-card');
+            let imgSrc;
+            const imgElement = gameCard.querySelector('.game-image');
+            
+            // Determine the image source for the modal
+            if (imgElement && imgElement.src) {
+                imgSrc = imgElement.src;
+            } 
+            else if (gameCard.querySelector('.coming-soon-image')) {
+                 imgSrc = 'https://placehold.co/400x400/f3f4f6/9ca3af?text=COMING+SOON'; 
+            } 
+            else {
+                 imgSrc = 'https://placehold.co/400x400/f3f4f6/9ca3af?text=Image+Unavailable';
+            }
+
+            gameModal.querySelector('#modal-title').textContent = title;
+            gameModal.querySelector('#modal-img').src = imgSrc;
+            gameModal.querySelector('#modal-description').textContent = description;
+            currentDownloadLink = downloadLink;
+            
+            gameModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => gameModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
+        }
+
+        // Handle the professional confirm button
+        modalConfirmBtn.addEventListener('click', function() {
+            if (currentDownloadLink && currentDownloadLink !== '#') {
+                // Show loading animation
+                closeModal('gameModal');
+                openLoadingModal();
+                
+                // Simulate download preparation
+                setTimeout(() => {
+                    closeModal('loadingModal');
+                    // Redirect to download link
+                    window.location.href = currentDownloadLink;
+                }, 2500);
+            } else {
+                // For "Coming Soon" games
+                closeModal('gameModal');
+                setTimeout(() => {
+                    alert('This game is coming soon! Check back later.');
+                }, 300);
+            }
         });
 
         function openLoadingModal() {
@@ -1706,9 +2262,7 @@
             }
         });
         
-        document.getElementById('gameModal').addEventListener('click', (e) => { 
-            if(e.target === document.getElementById('gameModal')) closeModal('gameModal'); 
-        });
+        gameModal.addEventListener('click', (e) => { if(e.target === gameModal) closeModal('gameModal'); });
         contactModal.addEventListener('click', (e) => { if (e.target === contactModal) closeModal('contactModal'); });
         loadingModal.addEventListener('click', (e) => { if (e.target === loadingModal) closeModal('loadingModal'); });
 
