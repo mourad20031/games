@@ -691,16 +691,6 @@
         object-fit: cover;
     }
     
-    .video-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, rgba(34, 197, 94, 0.9) 0%, rgba(16, 185, 129, 0.9) 100%);
-        z-index: 1;
-    }
-    
     .video-content {
         position: relative;
         z-index: 2;
@@ -782,7 +772,6 @@
                 <source src="7914778-hd_1280_720_30fps.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="video-overlay"></div>
             <div class="video-content absolute inset-0 flex flex-col items-center justify-center text-center p-4">
                 <div class="hero-content animate">
                     <h2 class="hero-title text-3xl md:text-4xl font-extrabold text-white mb-4">Premium Modded Games</h2>
@@ -1187,41 +1176,6 @@
                     </button>
                 </div>
             </section>
-
-            <!-- All Games Section -->
-            <div id="all-mods-header" class="text-center my-8">
-                <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-2">All Available Modded Games</h2>
-                <p class="text-sm text-gray-500 max-w-2xl mx-auto">Premium modded games with unlimited features</p>
-            </div>
-
-            <!-- All Games Grid -->
-            <div id="games-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                <!-- All your existing games here (keeping the same structure) -->
-                <div class="game-card rounded-lg overflow-hidden flex flex-col" data-name="Brawl Stars Mod">
-                    <div class="relative">
-                        <span class="game-badge mod-badge">MOD</span>
-                        <span class="game-badge safe-badge">SAFE</span>
-                        <img src="https://i.postimg.cc/xCMLT5VZ/channels4-profile.jpg" alt="Brawl Stars Mod" class="game-image" loading="lazy">
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Brawl Stars Mod</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="267000">267K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Brawl Stars Mod APK','Private server with unlimited gems, coins, and boxes. Unlock and max out all brawlers instantly.')">Download Now</button>
-                    </div>
-                </div>
-                
-                <!-- Continue with all other games from your original code -->
-                <!-- I've kept the structure but removed most for brevity -->
-                <!-- Add all your 50+ games here following the same pattern -->
-                
-            </div>
 
             <!-- No Results Message -->
             <div id="no-results-message" class="hidden text-center py-8">
