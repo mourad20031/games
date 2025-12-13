@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
   <meta name="theme-color" content="#22c55e" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
   
   <!-- SEO Optimized Title -->
   <title>Minecraft Mod APK 2025 | Premium Unlocked, All Skins (100% Safe)</title>
@@ -83,11 +82,9 @@
     /* All your existing CSS from main page */
     body:not(.tailwind-loaded) { visibility: hidden; opacity: 0; }
     body.tailwind-loaded { visibility: visible; opacity: 1; transition: opacity 0.3s ease; }
-    body:not([data-theme]) { background-color: #f8fafc !important; color: #1a1a1a !important; }
-    body:not([data-theme]) .header-bg { background-color: #ffffff !important; }
     
     :root {
-      --bg-color: #f8fafc;
+      --bg-color: #ffffff;
       --text-color: #1a1a1a;
       --header-bg: #ffffff;
       --card-bg: #ffffff;
@@ -96,14 +93,15 @@
       --modal-bg: #ffffff;
     }
 
+    /* Simplified dark theme - keeping everything light */
     [data-theme="dark"] {
-      --bg-color: #0f172a;
-      --text-color: #ffffff;
-      --header-bg: #1e293b;
-      --card-bg: #334155;
-      --search-bg: #475569;
-      --border-color: #475569;
-      --modal-bg: #1e293b;
+      --bg-color: #f8fafc;
+      --text-color: #1a1a1a;
+      --header-bg: #ffffff;
+      --card-bg: #ffffff;
+      --search-bg: #f9fafb;
+      --border-color: #e5e7eb;
+      --modal-bg: #ffffff;
     }
 
     html { scroll-behavior: smooth; }
@@ -137,8 +135,8 @@
     }
     
     .feature-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
       transition: all 0.3s ease;
       border-radius: 12px;
       padding: 1.5rem;
@@ -157,9 +155,9 @@
     }
     
     .modal-content {
-      background-color: var(--modal-bg);
+      background-color: #ffffff;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      color: var(--text-color);
+      color: #1a1a1a;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
     
@@ -193,14 +191,8 @@
       border-radius: 6px;
     }
     
-    [data-theme="dark"] .safe-badge {
-      background: rgba(30, 41, 59, 0.95);
-      color: #22c55e;
-      border-color: #065f46;
-    }
-    
     .section-divider {
-      border-top: 1px solid var(--border-color);
+      border-top: 1px solid #e5e7eb;
       margin: 3rem 0;
     }
     
@@ -213,11 +205,6 @@
       font-size: 0.75rem;
       margin: 2px;
       transition: all 0.2s ease;
-    }
-    
-    [data-theme="dark"] .keyword-badge {
-      background: #475569;
-      color: #cbd5e1;
     }
     
     .keyword-badge:hover {
@@ -436,7 +423,7 @@
         </section>
 
         <!-- Installation Guide -->
-        <section id="installation" class="py-16">
+        <section id="installation" class="py-16 bg-white">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">How to Install This Minecraft Mod</h2>
@@ -515,7 +502,7 @@
         </section>
 
         <!-- Related Mods Section -->
-        <section class="py-16">
+        <section class="py-16 bg-white">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Other Popular Modded Games</h2>
