@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
   <meta name="theme-color" content="#22c55e" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
   
   <!-- SEO Optimized Title - Targeting all keywords -->
   <title>Clash Royale Mod APK 2025 | Unlimited Gems & Gold (100% Safe)</title>
@@ -83,11 +82,9 @@
     /* All your existing CSS from main page */
     body:not(.tailwind-loaded) { visibility: hidden; opacity: 0; }
     body.tailwind-loaded { visibility: visible; opacity: 1; transition: opacity 0.3s ease; }
-    body:not([data-theme]) { background-color: #f8fafc !important; color: #1a1a1a !important; }
-    body:not([data-theme]) .header-bg { background-color: #ffffff !important; }
     
     :root {
-      --bg-color: #f8fafc;
+      --bg-color: #ffffff;
       --text-color: #1a1a1a;
       --header-bg: #ffffff;
       --card-bg: #ffffff;
@@ -96,14 +93,15 @@
       --modal-bg: #ffffff;
     }
 
+    /* Simplified dark theme - keeping everything light */
     [data-theme="dark"] {
-      --bg-color: #0f172a;
-      --text-color: #ffffff;
-      --header-bg: #1e293b;
-      --card-bg: #334155;
-      --search-bg: #475569;
-      --border-color: #475569;
-      --modal-bg: #1e293b;
+      --bg-color: #f8fafc;
+      --text-color: #1a1a1a;
+      --header-bg: #ffffff;
+      --card-bg: #ffffff;
+      --search-bg: #f9fafb;
+      --border-color: #e5e7eb;
+      --modal-bg: #ffffff;
     }
 
     html { scroll-behavior: smooth; }
@@ -132,13 +130,9 @@
       box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
     }
     
-    .hero-gradient {
-      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-    }
-    
     .feature-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
       transition: all 0.3s ease;
       border-radius: 12px;
       padding: 1.5rem;
@@ -157,9 +151,9 @@
     }
     
     .modal-content {
-      background-color: var(--modal-bg);
+      background-color: #ffffff;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      color: var(--text-color);
+      color: #1a1a1a;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
     
@@ -193,14 +187,8 @@
       border-radius: 6px;
     }
     
-    [data-theme="dark"] .safe-badge {
-      background: rgba(30, 41, 59, 0.95);
-      color: #22c55e;
-      border-color: #065f46;
-    }
-    
     .section-divider {
-      border-top: 1px solid var(--border-color);
+      border-top: 1px solid #e5e7eb;
       margin: 3rem 0;
     }
     
@@ -213,11 +201,6 @@
       font-size: 0.75rem;
       margin: 2px;
       transition: all 0.2s ease;
-    }
-    
-    [data-theme="dark"] .keyword-badge {
-      background: #475569;
-      color: #cbd5e1;
     }
     
     .keyword-badge:hover {
@@ -270,20 +253,20 @@
   })();
 </script>
 
-    <!-- Header -->
-    <header class="header-bg sticky top-0 z-50">
+    <!-- Header - Updated to match Minecraft -->
+    <header class="header-bg sticky top-0 z-50 border-b border-gray-200">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="https://modzy.site" class="flex items-center">
                 <div class="text-lg font-bold text-gray-900 tracking-tight">
-                    <i class="fas fa-gamepad text-green-500"></i> Mod<span class="text-green-500">Games</span>
+                    <span class="text-gray-800">Mod</span><span class="text-gray-600">Games</span>
                 </div>
             </a>
             <nav class="hidden md:flex items-center space-x-6">
-                <a href="https://modzy.site" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">Home</a>
-                <a href="https://modzy.site#trending" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">All Games</a>
-                <a href="#features" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">Features</a>
-                <a href="#installation" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">Installation</a>
-                <a href="#faq" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">FAQ</a>
+                <a href="https://modzy.site" class="text-gray-600 hover:text-gray-900 transition text-sm font-medium">Home</a>
+                <a href="https://modzy.site#trending" class="text-gray-600 hover:text-gray-900 transition text-sm font-medium">All Games</a>
+                <a href="#features" class="text-gray-600 hover:text-gray-900 transition text-sm font-medium">Features</a>
+                <a href="#installation" class="text-gray-600 hover:text-gray-900 transition text-sm font-medium">Installation</a>
+                <a href="#faq" class="text-gray-600 hover:text-gray-900 transition text-sm font-medium">FAQ</a>
             </nav>
             <div class="flex items-center space-x-4">
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -301,26 +284,26 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <div class="flex flex-col p-4">
-                <a href="https://modzy.site" class="py-3 px-4 text-gray-700 hover:text-green-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Home</a>
-                <a href="https://modzy.site#trending" class="py-3 px-4 text-gray-700 hover:text-green-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">All Games</a>
-                <a href="#features" class="py-3 px-4 text-gray-700 hover:text-green-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Features</a>
-                <a href="#installation" class="py-3 px-4 text-gray-700 hover:text-green-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Installation</a>
-                <a href="#faq" class="py-3 px-4 text-gray-700 hover:text-green-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">FAQ</a>
+                <a href="https://modzy.site" class="py-3 px-4 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Home</a>
+                <a href="https://modzy.site#trending" class="py-3 px-4 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition text-sm font-medium">All Games</a>
+                <a href="#features" class="py-3 px-4 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Features</a>
+                <a href="#installation" class="py-3 px-4 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Installation</a>
+                <a href="#faq" class="py-3 px-4 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition text-sm font-medium">FAQ</a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero-gradient py-12">
+        <!-- Hero Section - Updated to match Minecraft -->
+        <section class="bg-white py-12 border-b border-gray-200">
             <div class="container mx-auto px-4">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
                     <div class="lg:w-1/2 text-center lg:text-left">
-                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-white/20 text-white text-sm font-medium mb-4">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-4">
                             <i class="fas fa-fire mr-2"></i> TRENDING MOD OF 2025
                         </div>
-                        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Clash Royale Mod APK</h1>
-                        <p class="text-xl text-white/90 mb-6">Unlimited Gems, Gold & All Cards Unlocked. Experience the ultimate <span class="font-semibold">modded clash royale</span> game with private servers!</p>
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Clash Royale Mod APK</h1>
+                        <p class="text-xl text-gray-700 mb-6">Unlimited Gems, Gold & All Cards Unlocked. Experience the ultimate <span class="font-semibold">modded clash royale</span> game with private servers!</p>
                         
                         <div class="flex flex-wrap gap-2 mb-6">
                             <!-- Keyword badges showing all targeted keywords -->
@@ -335,22 +318,22 @@
                             <button onclick="startDownloadMain()" class="btn-download py-4 px-8 rounded-xl text-lg font-semibold inline-flex items-center justify-center">
                                 <i class="fas fa-download mr-3"></i>Download Clash Royale Mod APK
                             </button>
-                            <a href="#features" class="py-4 px-8 rounded-xl border-2 border-white text-white hover:bg-white/10 transition text-lg font-semibold inline-flex items-center justify-center">
+                            <a href="#features" class="py-4 px-8 rounded-xl border-2 border-gray-800 text-gray-800 hover:bg-gray-50 transition text-lg font-semibold inline-flex items-center justify-center">
                                 <i class="fas fa-info-circle mr-3"></i>View Features
                             </a>
                         </div>
                         
-                        <div class="mt-8 flex items-center justify-center lg:justify-start space-x-6 text-white">
+                        <div class="mt-8 flex items-center justify-center lg:justify-start space-x-6 text-gray-700">
                             <div class="text-center">
                                 <div class="text-2xl font-bold">5.0</div>
                                 <div class="text-sm opacity-80">Rating</div>
                             </div>
-                            <div class="h-8 w-px bg-white/30"></div>
+                            <div class="h-8 w-px bg-gray-300"></div>
                             <div class="text-center">
                                 <div class="text-2xl font-bold">127K+</div>
                                 <div class="text-sm opacity-80">Downloads</div>
                             </div>
-                            <div class="h-8 w-px bg-white/30"></div>
+                            <div class="h-8 w-px bg-gray-300"></div>
                             <div class="text-center">
                                 <div class="text-2xl font-bold">2025</div>
                                 <div class="text-sm opacity-80">Latest Version</div>
@@ -364,13 +347,13 @@
                             <span class="safe-badge">100% SAFE</span>
                             <img src="https://i.postimg.cc/yxYq9xXV/unnamed.png" alt="Clash Royale Mod APK" class="rounded-2xl shadow-2xl w-full max-w-md mx-auto">
                         </div>
-                        <div class="mt-6 bg-white/10 backdrop-blur-sm rounded-xl p-4 text-white">
+                        <div class="mt-6 bg-gray-50 rounded-xl p-4 border border-gray-200">
                             <div class="flex items-center mb-2">
-                                <i class="fas fa-shield-alt text-green-300 mr-2"></i>
-                                <span class="font-semibold">Safety Status:</span>
-                                <span class="ml-2 text-green-300 font-bold">Verified & Secure</span>
+                                <i class="fas fa-shield-alt text-green-500 mr-2"></i>
+                                <span class="font-semibold text-gray-800">Safety Status:</span>
+                                <span class="ml-2 text-green-600 font-bold">Verified & Secure</span>
                             </div>
-                            <p class="text-sm opacity-90">This <strong>clash royale mod</strong> has been tested and verified to be free from malware and viruses.</p>
+                            <p class="text-sm text-gray-600">This <strong>clash royale mod</strong> has been tested and verified to be free from malware and viruses.</p>
                         </div>
                     </div>
                 </div>
@@ -446,7 +429,7 @@
         </section>
 
         <!-- Installation Guide -->
-        <section id="installation" class="py-16">
+        <section id="installation" class="py-16 bg-white">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">How to Install This Clash Royale Mod</h2>
@@ -525,7 +508,7 @@
         </section>
 
         <!-- Related Mods Section -->
-        <section class="py-16">
+        <section class="py-16 bg-white">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Other Popular Modded Games</h2>
@@ -533,7 +516,7 @@
                 </div>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <a href="https://modzy.site" class="feature-card hover:no-underline">
+                    <a href="/brawl-stars-mod-apk" class="feature-card hover:no-underline">
                         <img src="https://i.postimg.cc/xCMLT5VZ/channels4-profile.jpg" alt="Brawl Stars Mod" class="w-full h-40 object-cover rounded-lg mb-4">
                         <h3 class="text-lg font-bold mb-2">Brawl Stars Mod</h3>
                         <p class="text-gray-600 text-sm">Unlimited gems, coins, and all brawlers unlocked.</p>
@@ -563,25 +546,25 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer - Updated to match Minecraft -->
     <footer class="header-bg border-t border-gray-100 py-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="md:col-span-2">
                     <h3 class="text-lg font-bold text-gray-900 mb-4">
-                        <i class="fas fa-gamepad text-green-500"></i> Mod<span class="text-green-500">Games</span>
+                        <span class="text-gray-800">Mod</span><span class="text-gray-600">Games</span>
                     </h3>
                     <p class="text-gray-600 text-sm mb-4">
                         Your trusted source for premium modded games. Download the best <strong>clash royale mod apk</strong> and other modded games, all tested for safety and performance.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-500 hover:text-green-500 transition">
+                        <a href="#" class="text-gray-500 hover:text-gray-800 transition">
                             <i class="fab fa-twitter text-lg"></i>
                         </a>
-                        <a href="#" class="text-gray-500 hover:text-green-500 transition">
+                        <a href="#" class="text-gray-500 hover:text-gray-800 transition">
                             <i class="fab fa-discord text-lg"></i>
                         </a>
-                        <a href="#" class="text-gray-500 hover:text-green-500 transition">
+                        <a href="#" class="text-gray-500 hover:text-gray-800 transition">
                             <i class="fab fa-telegram text-lg"></i>
                         </a>
                     </div>
@@ -589,19 +572,19 @@
                 <div>
                     <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
                     <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
-                        <a href="https://modzy.site" class="hover:text-green-500 transition">Home</a>
-                        <a href="#features" class="hover:text-green-500 transition">Clash Royale Mod Features</a>
-                        <a href="#installation" class="hover:text-green-500 transition">Installation Guide</a>
-                        <a href="#faq" class="hover:text-green-500 transition">FAQ</a>
+                        <a href="https://modzy.site" class="hover:text-gray-800 transition">Home</a>
+                        <a href="#features" class="hover:text-gray-800 transition">Clash Royale Mod Features</a>
+                        <a href="#installation" class="hover:text-gray-800 transition">Installation Guide</a>
+                        <a href="#faq" class="hover:text-gray-800 transition">FAQ</a>
                     </div>
                 </div>
                 <div>
                     <h4 class="font-semibold text-gray-900 mb-4">Legal</h4>
                     <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
-                        <a href="#" class="hover:text-green-500 transition">Privacy Policy</a>
-                        <a href="#" class="hover:text-green-500 transition">Terms of Service</a>
-                        <a href="#" class="hover:text-green-500 transition">Cookie Policy</a>
-                        <a href="#" class="hover:text-green-500 transition">DMCA</a>
+                        <a href="#" class="hover:text-gray-800 transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-gray-800 transition">Terms of Service</a>
+                        <a href="#" class="hover:text-gray-800 transition">Cookie Policy</a>
+                        <a href="#" class="hover:text-gray-800 transition">DMCA</a>
                     </div>
                 </div>
             </div>
@@ -612,7 +595,7 @@
                     © 2024 ModGames. All Rights Reserved. Clash Royale is a trademark of Supercell. This <strong>clash royale mod</strong> is for educational purposes only. We are not affiliated with Supercell.
                 </p>
                 <p class="text-gray-400 text-xs text-center mt-2">
-                      clash royale mod apk • clash royale mod game • modded clash royale • mod apk clash royale • royale clash mod
+                    clash royale mod apk • clash royale mod game • modded clash royale • mod apk clash royale • royale clash mod
                 </p>
             </div>
         </div>
