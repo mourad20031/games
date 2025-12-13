@@ -139,18 +139,23 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
     
-/* Video section placeholder - FIXED: Solid black background */
-.video-section {
-  background: #000000;
-  min-height: 400px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Make light mode also use black background */
-[data-theme="light"] .video-section {
-  background: #000000;
-}
+    /* VIDEO SECTION FIX: Remove black background before video loads */
+    .video-section {
+      background: transparent; /* Changed from black to transparent */
+      min-height: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .video-section video {
+      background: transparent;
+    }
+    
+    /* Make sure video loads without black background */
+    [data-theme="light"] .video-section,
+    [data-theme="dark"] .video-section {
+      background: transparent;
+    }
     
     /* Game card basic structure */
     .game-card {
@@ -685,7 +690,7 @@
       animation: fade-in-up 0.5s ease-out;
     }
     
-    /* Video Section */
+    /* Video Section - FIXED: No black background before video loads */
     .video-section video {
       position: absolute;
       top: 0;
@@ -693,13 +698,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      background: transparent; /* Ensure no black background */
     }
     
     .video-content {
       position: relative;
       z-index: 2;
     }
-    
     
     /* Prevent icon flash */
     .fas,
@@ -713,7 +718,7 @@
       opacity: 1;
     }
     
-    /* Social media icon styles */
+    /* Social media icon styles - UPDATED: Only Twitter, Facebook, Instagram */
     .social-icon {
       transition: all 0.3s ease;
     }
@@ -742,6 +747,11 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+    }
+    
+    /* Twitter icon color (for both X and classic Twitter) */
+    .fa-twitter {
+      color: #1DA1F2;
     }
   </style>
   
@@ -817,10 +827,10 @@
   </header>
 
   <main>
-    <!-- Video Section - FIXED: No green background -->
+    <!-- Video Section - FIXED: No black background before video loads -->
     <section id="video-section" class="relative w-full video-section">
       <video autoplay muted loop playsinline preload="metadata" 
-       poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI0MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDQwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMwMDAwMDAiLz48L3N2Zz4=">
+       poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI0MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDQwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9InRyYW5zcGFyZW50Ii8+PC9zdmc+=">
         <source src="7914778-hd_1280_720_30fps.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -1342,7 +1352,7 @@
     </div>
   </section>
 
-  <!-- Footer - UPDATED: Added X/Twitter, Facebook, Instagram -->
+  <!-- Footer - FIXED: Updated social media icons - Only Twitter, Facebook, Instagram -->
   <footer class="header-bg border-t border-gray-100 py-8">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -1354,9 +1364,9 @@
             Your trusted source for premium modded games. All our mods are thoroughly tested for safety and performance.
           </p>
           <div class="flex space-x-4">
-            <!-- X/Twitter -->
-            <a href="#" class="social-icon text-gray-500 hover:text-black transition" aria-label="Follow us on X/Twitter" title="Follow us on X/Twitter">
-              <i class="fab fa-x-twitter text-lg loaded"></i>
+            <!-- Twitter -->
+            <a href="#" class="social-icon text-gray-500 hover:text-[#1DA1F2] transition" aria-label="Follow us on Twitter" title="Follow us on Twitter">
+              <i class="fab fa-twitter text-lg loaded"></i>
             </a>
             <!-- Facebook -->
             <a href="#" class="social-icon text-gray-500 hover:text-[#1877F2] transition" aria-label="Follow us on Facebook" title="Follow us on Facebook">
@@ -1365,14 +1375,6 @@
             <!-- Instagram -->
             <a href="#" class="social-icon text-gray-500 hover:opacity-90 transition" aria-label="Follow us on Instagram" title="Follow us on Instagram">
               <i class="fab fa-instagram text-lg loaded"></i>
-            </a>
-            <!-- Discord -->
-            <a href="#" class="social-icon text-gray-500 hover:text-[#5865F2] transition" aria-label="Join our Discord" title="Join our Discord">
-              <i class="fab fa-discord text-lg loaded"></i>
-            </a>
-            <!-- Telegram -->
-            <a href="#" class="social-icon text-gray-500 hover:text-[#26A5E4] transition" aria-label="Join our Telegram" title="Join our Telegram">
-              <i class="fab fa-telegram text-lg loaded"></i>
             </a>
           </div>
         </div>
