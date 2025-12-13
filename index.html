@@ -139,12 +139,16 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
     
-    /* Video section placeholder to prevent jump */
+    /* Video section placeholder - FIXED: Removed green background */
     .video-section {
-      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       min-height: 400px;
       position: relative;
       overflow: hidden;
+    }
+    
+    [data-theme="light"] .video-section {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     }
     
     /* Game card basic structure */
@@ -695,6 +699,25 @@
       z-index: 2;
     }
     
+    /* Video poster styling - FIXED: Dark background */
+    .video-poster {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    [data-theme="light"] .video-poster {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    }
+    
     /* Prevent icon flash */
     .fas,
     .fab {
@@ -705,6 +728,37 @@
     .fas.loaded,
     .fab.loaded {
       opacity: 1;
+    }
+    
+    /* Social media icon styles */
+    .social-icon {
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      transform: translateY(-3px);
+    }
+    
+    /* X/Twitter icon color */
+    .fa-x-twitter {
+      color: #000000;
+    }
+    
+    [data-theme="dark"] .fa-x-twitter {
+      color: #ffffff;
+    }
+    
+    /* Facebook icon color */
+    .fa-facebook {
+      color: #1877F2;
+    }
+    
+    /* Instagram icon color */
+    .fa-instagram {
+      background: linear-gradient(45deg, #405DE6, #5B51D8, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
   </style>
   
@@ -780,9 +834,9 @@
   </header>
 
   <main>
-    <!-- Video Section -->
+    <!-- Video Section - FIXED: No green background -->
     <section id="video-section" class="relative w-full video-section">
-      <video autoplay muted loop playsinline preload="metadata" poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI0MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDQwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMyMmM1NWUiLz48L3N2Zz4=">
+      <video autoplay muted loop playsinline preload="metadata" poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI0MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDQwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMxRTEyOUIiLz48L3N2Zz4=">
         <source src="7914778-hd_1280_720_30fps.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -1304,7 +1358,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer - UPDATED: Added X/Twitter, Facebook, Instagram -->
   <footer class="header-bg border-t border-gray-100 py-8">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -1316,13 +1370,24 @@
             Your trusted source for premium modded games. All our mods are thoroughly tested for safety and performance.
           </p>
           <div class="flex space-x-4">
-            <a href="#" class="text-gray-500 hover:text-green-500 transition" aria-label="Follow us on Twitter">
-              <i class="fab fa-twitter text-lg loaded"></i>
+            <!-- X/Twitter -->
+            <a href="#" class="social-icon text-gray-500 hover:text-black transition" aria-label="Follow us on X/Twitter" title="Follow us on X/Twitter">
+              <i class="fab fa-x-twitter text-lg loaded"></i>
             </a>
-            <a href="#" class="text-gray-500 hover:text-green-500 transition" aria-label="Join our Discord">
+            <!-- Facebook -->
+            <a href="#" class="social-icon text-gray-500 hover:text-[#1877F2] transition" aria-label="Follow us on Facebook" title="Follow us on Facebook">
+              <i class="fab fa-facebook text-lg loaded"></i>
+            </a>
+            <!-- Instagram -->
+            <a href="#" class="social-icon text-gray-500 hover:opacity-90 transition" aria-label="Follow us on Instagram" title="Follow us on Instagram">
+              <i class="fab fa-instagram text-lg loaded"></i>
+            </a>
+            <!-- Discord -->
+            <a href="#" class="social-icon text-gray-500 hover:text-[#5865F2] transition" aria-label="Join our Discord" title="Join our Discord">
               <i class="fab fa-discord text-lg loaded"></i>
             </a>
-            <a href="#" class="text-gray-500 hover:text-green-500 transition" aria-label="Join our Telegram">
+            <!-- Telegram -->
+            <a href="#" class="social-icon text-gray-500 hover:text-[#26A5E4] transition" aria-label="Join our Telegram" title="Join our Telegram">
               <i class="fab fa-telegram text-lg loaded"></i>
             </a>
           </div>
