@@ -306,15 +306,33 @@
                         <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Minecraft Mod APK</h1>
                         <p class="text-xl text-gray-700 mb-6">Unlock unlimited building potential with enhanced tools, custom mobs, and hybrid gameplay. Transform your Minecraft experience with advanced construction features and endless resources.</p>
                         
-                        <!-- Removed keyword badges section - Too similar to other pages -->
-                        
                         <div class="flex flex-col sm:flex-row gap-4">
                             <button onclick="window.location.href='https://bouttiq.graphics/cl/i/qnked4'" class="btn-download py-4 px-8 rounded-xl text-lg font-semibold inline-flex items-center justify-center">
-                                <i class="fas fa-download mr-3"></i>Download Minecraft Mod APK
+                                <i class="fas fa-download mr-3"></i>Download Now
                             </button>
                             <a href="#building-tools" class="py-4 px-8 rounded-xl border-2 border-gray-800 text-gray-800 hover:bg-gray-50 transition text-lg font-semibold inline-flex items-center justify-center">
                                 <i class="fas fa-hammer mr-3"></i>View Building Tools
                             </a>
+                        </div>
+                        
+                        <!-- Share Buttons -->
+                        <div class="mt-6">
+                            <p class="text-gray-600 mb-3 text-sm font-medium">Share with friends:</p>
+                            <div class="flex items-center justify-center lg:justify-start space-x-3">
+                                <button onclick="shareOnWhatsApp()" class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center hover:bg-green-200 transition" title="Share on WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button onclick="shareOnFacebook()" class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center hover:bg-blue-200 transition" title="Share on Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </button>
+                                <button onclick="shareOnInstagram()" class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center hover:bg-pink-200 transition" title="Share on Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </button>
+                                <button onclick="copyLink()" class="w-10 h-10 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center hover:bg-gray-200 transition" title="Copy Link">
+                                    <i class="fas fa-link"></i>
+                                </button>
+                                <div id="copyMessage" class="hidden text-green-600 text-sm font-medium ml-2">Link copied!</div>
+                            </div>
                         </div>
                         
                         <div class="mt-8 flex items-center justify-center lg:justify-start space-x-6 text-gray-700">
@@ -539,7 +557,7 @@
                 <!-- Main Download CTA -->
                 <div class="text-center mt-12">
                     <button onclick="window.location.href='https://bouttiq.graphics/cl/i/qnked4'" class="btn-download py-4 px-12 rounded-xl text-xl font-semibold inline-flex items-center justify-center mx-auto">
-                        <i class="fas fa-download mr-3"></i>Download Minecraft Mod APK Now
+                        <i class="fas fa-download mr-3"></i>Download Now
                     </button>
                     <p class="text-gray-500 mt-4 text-sm">Version: 1.20.5 Mod • Size: 185MB • Android 6.0+ • Updated: December 2025</p>
                 </div>
@@ -624,6 +642,13 @@
                         <h3 class="text-xl font-bold mb-3">What's different about this mod compared to other Minecraft mods?</h3>
                         <p class="text-gray-600">This mod focuses on enhancing the core building and survival experience rather than adding unrelated content. Features like the AI building assistant, precision placement tools, hybrid gameplay mode, and collaborative building systems are unique to our version. We prioritize performance optimization to ensure smooth gameplay even with massive constructions.</p>
                     </div>
+                </div>
+                
+                <!-- Final Download CTA -->
+                <div class="text-center mt-12">
+                    <button onclick="window.location.href='https://bouttiq.graphics/cl/i/qnked4'" class="btn-download py-4 px-12 rounded-xl text-xl font-semibold inline-flex items-center justify-center mx-auto">
+                        <i class="fas fa-download mr-3"></i>Download Now
+                    </button>
                 </div>
             </div>
         </section>
@@ -736,7 +761,7 @@
                 <p class="text-gray-600 mb-6">Your enhanced building experience begins here. The download will start automatically.</p>
                 
                 <button onclick="window.location.href='https://bouttiq.graphics/cl/i/qnked4'" class="btn-download block py-4 px-6 rounded-xl w-full text-lg text-center mb-4">
-                    <i class="fas fa-download mr-2"></i>Download v1.20.5 (185MB)
+                    <i class="fas fa-download mr-2"></i>Download Now (185MB)
                 </button>
                 
                 <div class="bg-gray-50 rounded-lg p-4 text-left">
@@ -793,6 +818,55 @@
         if (menuBtn && mobileMenu) {
             menuBtn.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Share Functions
+        function shareOnWhatsApp() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("Check out this Minecraft Mod APK with unlimited resources and enhanced building tools! 🏗️");
+            window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
+        }
+
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+        }
+
+        function shareOnInstagram() {
+            // Instagram doesn't have direct sharing API, so we'll open the app or show message
+            alert("To share on Instagram, copy the link and paste it in your Instagram post or story!");
+            copyLink();
+        }
+
+        function copyLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                const copyMessage = document.getElementById('copyMessage');
+                copyMessage.classList.remove('hidden');
+                copyMessage.textContent = "Link copied!";
+                
+                // Hide message after 3 seconds
+                setTimeout(() => {
+                    copyMessage.classList.add('hidden');
+                }, 3000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement("textarea");
+                textArea.value = url;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand("copy");
+                document.body.removeChild(textArea);
+                
+                const copyMessage = document.getElementById('copyMessage');
+                copyMessage.classList.remove('hidden');
+                copyMessage.textContent = "Link copied!";
+                
+                setTimeout(() => {
+                    copyMessage.classList.add('hidden');
+                }, 3000);
             });
         }
 
