@@ -257,72 +257,46 @@
     /* Redirect Overlay Styles */
     .redirect-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.95);
-      backdrop-filter: blur(10px);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      height: 80%;
+      max-width: 1000px;
+      max-height: 700px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
       z-index: 9999;
       display: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      border: 2px solid #22c55e;
+      overflow: hidden;
     }
     
     .redirect-overlay.active {
       display: block;
-      opacity: 1;
     }
     
-    .overlay-header {
-      position: absolute;
+    .overlay-bg {
+      position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 10000;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(3px);
+      z-index: 9998;
+      display: none;
     }
     
-    .overlay-title {
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-    }
-    
-    .close-overlay {
-      background: #ef4444;
-      color: white;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      font-size: 20px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s ease;
-    }
-    
-    .close-overlay:hover {
-      background: #dc2626;
+    .overlay-bg.active {
+      display: block;
     }
     
     .overlay-iframe {
-      position: absolute;
-      top: 70px;
-      left: 20px;
-      right: 20px;
-      bottom: 20px;
-      width: calc(100% - 40px);
-      height: calc(100% - 90px);
+      width: 100%;
+      height: 100%;
       border: none;
-      border-radius: 10px;
-      background: white;
     }
   </style>
   
@@ -343,13 +317,8 @@
 </script>
 
     <!-- Redirect Overlay -->
+    <div class="overlay-bg" id="overlayBg"></div>
     <div class="redirect-overlay" id="redirectOverlay">
-      <div class="overlay-header">
-        <div class="overlay-title">Secure Download</div>
-        <button class="close-overlay" id="closeOverlay">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
       <iframe src="" class="overlay-iframe" id="redirectFrame" allowfullscreen></iframe>
     </div>
 
@@ -911,19 +880,14 @@
 
         // Redirect Overlay Functionality
         const redirectOverlay = document.getElementById('redirectOverlay');
+        const overlayBg = document.getElementById('overlayBg');
         const redirectFrame = document.getElementById('redirectFrame');
-        const closeOverlay = document.getElementById('closeOverlay');
         
         function showOverlay(url) {
             redirectFrame.src = url;
             redirectOverlay.classList.add('active');
+            overlayBg.classList.add('active');
             document.body.style.overflow = 'hidden';
-        }
-        
-        function hideOverlay() {
-            redirectOverlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
-            redirectFrame.src = '';
         }
         
         // Add event listeners to all download buttons
@@ -934,21 +898,21 @@
             });
         });
         
-        if (closeOverlay) {
-            closeOverlay.addEventListener('click', hideOverlay);
-        }
-        
-        // Close overlay when clicking outside the iframe
-        redirectOverlay.addEventListener('click', function(e) {
-            if (e.target === redirectOverlay) {
-                hideOverlay();
-            }
+        // Close overlay when clicking on background
+        overlayBg.addEventListener('click', function() {
+            redirectOverlay.classList.remove('active');
+            overlayBg.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            redirectFrame.src = '';
         });
         
         // Close overlay with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && redirectOverlay.classList.contains('active')) {
-                hideOverlay();
+                redirectOverlay.classList.remove('active');
+                overlayBg.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                redirectFrame.src = '';
             }
         });
     </script>
