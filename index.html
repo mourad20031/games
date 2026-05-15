@@ -66,7 +66,7 @@
     .game-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; overflow: hidden; position: relative; transition: all 0.3s ease; opacity: 0; transform: translateY(20px); width: 220px !important; flex-shrink: 0; }
     .game-card.animate { opacity: 1; transform: translateY(0); }
     .game-card:hover { transform: translateY(-6px); box-shadow: 0 12px 24px rgba(34, 197, 94, 0.15); border-color: #22c55e; }
-    .btn-download { background: linear-gradient(135deg, #22c55e, #16a34a); color: #ffffff; font-weight: 600; transition: all 0.3s ease; }
+    .btn-download { background: linear-gradient(135deg, #22c55e, #16a34a); color: #ffffff; font-weight: 600; transition: all 0.3s ease; cursor: pointer; border: none; }
     .btn-download:hover { transform: scale(1.02); box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3); }
     .game-badge { position: absolute; top: 8px; font-size: 0.6rem; font-weight: 800; padding: 4px 8px; border-radius: 6px; z-index: 10; letter-spacing: 0.5px; text-transform: uppercase; }
     .mod-badge { left: 8px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; }
@@ -86,6 +86,40 @@
     .faq-question { padding: 16px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: #6b7280; }
     .faq-answer.open { max-height: 200px; padding-bottom: 16px; }
+    
+    /* Redirect Overlay Styles (Content Locker Exact) */
+    .redirect-overlay {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      height: 80%;
+      max-width: 1000px;
+      max-height: 700px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+      display: none;
+      border: 2px solid #22c55e;
+      overflow: hidden;
+    }
+    .redirect-overlay.active { display: block; }
+    .overlay-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(3px);
+      z-index: 9998;
+      display: none;
+    }
+    .overlay-bg.active { display: block; }
+    .overlay-iframe { width: 100%; height: 100%; border: none; }
+    
     .modal-bg { background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; }
     .modal-bg.active { display: flex; }
     .modal-content { background-color: var(--modal-bg); border-radius: 16px; max-width: 90%; width: 500px; max-height: 90vh; overflow-y: auto; }
@@ -99,9 +133,6 @@
     .theme-toggle { background: none; border: none; cursor: pointer; padding: 0.5rem; border-radius: 50%; transition: background-color 0.3s ease; width: 40px; height: 40px; color: var(--text-color); }
     .theme-icon { width: 20px; height: 20px; }
     .theme-icon.hidden { display: none; }
-    .loading-dots { display: flex; gap: 4px; justify-content: center; }
-    .loading-dots div { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; animation: loading-dots 1.4s ease infinite both; }
-    @keyframes loading-dots { 0%,80%,100% { transform: scale(0.8); opacity: 0.5; } 40% { transform: scale(1); opacity: 1; } }
   </style>
   
   <!-- Tailwind CSS -->
@@ -127,11 +158,16 @@
   })();
 </script>
 
+  <!-- Redirect Overlay (Content Locker) -->
+  <div class="overlay-bg" id="overlayBg"></div>
+  <div class="redirect-overlay" id="redirectOverlay">
+    <iframe src="" class="overlay-iframe" id="redirectFrame" allowfullscreen></iframe>
+  </div>
+
   <!-- Header -->
   <header class="header-bg sticky top-0 z-50 border-b border-gray-200">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <a href="https://modzy.site" class="flex items-center gap-2">
-        <!-- Website text logo (not the game logo) -->
         <span class="text-lg font-bold text-gray-900 tracking-tight">Mod<span class="text-green-500">Games</span></span>
       </a>
       <nav class="hidden md:flex items-center space-x-6">
@@ -182,25 +218,33 @@
       <section id="trending" class="pt-2">
         <div class="text-center mb-8"><h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">Trending Modded Games</h2><p class="section-subtitle text-gray-500">Most popular mods right now</p></div>
         <div class="carousel-container"><button class="carousel-nav prev"><i class="fas fa-chevron-left"></i></button><div class="game-carousel">
-          <div class="game-card rounded-xl" data-name="Clash Royale Mod"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/yxYq9xXV/unnamed.png" alt="Clash Royale Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Clash Royale Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>127K</div><a href="/clash-royale-mod-apk" class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center block">Download</a></div></div>
-          <div class="game-card rounded-xl" data-name="Brawl Stars Mod"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/xCMLT5VZ/channels4-profile.jpg" alt="Brawl Stars Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Brawl Stars Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-500 ml-1">4.9</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>98.5K</div><a href="/brawl-stars-mod-apk" class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center block">Download</a></div></div>
-          <div class="game-card rounded-xl" data-name="Minecraft Mod"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/1tndxdcZ/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.avif" alt="Minecraft Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Minecraft Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>215K</div><a href="/minecraft-mod-apk" class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center block">Download</a></div></div>
-          <div class="game-card rounded-xl" data-name="Subway Surfers Mod"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/yNbL1Tvr/5900ed3c1d60b6f8e108a233d11cf94c3636ecef9687f571767ebf7b6e2b0b74-200.webp" alt="Subway Surfers Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Subway Surfers Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-500 ml-1">4.8</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>178K</div><a href="/subway-surfers-mod-apk" class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center block">Download</a></div></div>
-          <!-- Township Mod with its dedicated game logo -->
-          <div class="game-card rounded-xl" data-name="Township Mod"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/pXCNyHkt/township-logo.avif" alt="Township Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Township Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>156K</div><a href="/township-mod-apk" class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center block">Download</a></div></div>
+          <!-- Clash Royale Mod - Original redirect link -->
+          <div class="game-card rounded-xl" data-name="Clash Royale Mod" data-redirect="https://bouttiq.graphics/cl/i/grqd21"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/yxYq9xXV/unnamed.png" alt="Clash Royale Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Clash Royale Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>127K</div><button class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center download-btn">Download</button></div></div>
+          <!-- Brawl Stars Mod -->
+          <div class="game-card rounded-xl" data-name="Brawl Stars Mod" data-redirect="https://bouttiq.graphics/cl/i/grqd21"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/xCMLT5VZ/channels4-profile.jpg" alt="Brawl Stars Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Brawl Stars Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-500 ml-1">4.9</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>98.5K</div><button class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center download-btn">Download</button></div></div>
+          <!-- Minecraft Mod -->
+          <div class="game-card rounded-xl" data-name="Minecraft Mod" data-redirect="https://bouttiq.graphics/cl/i/grqd21"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/1tndxdcZ/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.avif" alt="Minecraft Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Minecraft Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>215K</div><button class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center download-btn">Download</button></div></div>
+          <!-- Subway Surfers Mod -->
+          <div class="game-card rounded-xl" data-name="Subway Surfers Mod" data-redirect="https://bouttiq.graphics/cl/i/grqd21"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/yNbL1Tvr/5900ed3c1d60b6f8e108a233d11cf94c3636ecef9687f571767ebf7b6e2b0b74-200.webp" alt="Subway Surfers Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Subway Surfers Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-500 ml-1">4.8</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>178K</div><button class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center download-btn">Download</button></div></div>
+          <!-- Township Mod with its dedicated redirect link "township-mod" -->
+          <div class="game-card rounded-xl" data-name="Township Mod" data-redirect="township-mod"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/pXCNyHkt/township-logo.avif" alt="Township Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Township Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>156K</div><button class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center download-btn">Download</button></div></div>
         </div><button class="carousel-nav next"><i class="fas fa-chevron-right"></i></button></div>
       </section>
 
-      <!-- Most Downloaded Mods (Larger cards + Township with its game logo) -->
+      <!-- Most Downloaded Mods -->
       <section id="most-downloaded" class="py-12">
         <div class="text-center mb-8"><h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">Most Downloaded Mods</h2><p class="section-subtitle text-gray-500">Community favorites with highest downloads</p></div>
         <div class="carousel-container"><button class="carousel-nav prev"><i class="fas fa-chevron-left"></i></button><div class="game-carousel">
-          <!-- Township Mod - Using the provided image as game logo -->
-          <div class="game-card rounded-xl" data-name="Township Mod"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">🔥 TOP</span><img src="https://i.postimg.cc/pXCNyHkt/township-logo.avif" alt="Township Mod Logo" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Township Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>156K+</div><a href="/township-mod-apk" class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center block">Download</a></div></div>
-          <div class="game-card rounded-xl" data-name="Royal Match Mod"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/ZKj0kwMK/royale-mtch.jpg" alt="Royal Match Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Royal Match Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>198K</div><a href="/royal-match-mod-apk" class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center block">Download</a></div></div>
-          <div class="game-card rounded-xl" data-name="Clash Royale Mod"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/yxYq9xXV/unnamed.png" alt="Clash Royale Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Clash Royale Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>127K</div><a href="/clash-royale-mod-apk" class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center block">Download</a></div></div>
-          <div class="game-card rounded-xl" data-name="Minecraft Mod"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/1tndxdcZ/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.avif" alt="Minecraft Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Minecraft Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>215K</div><a href="/minecraft-mod-apk" class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center block">Download</a></div></div>
-          <div class="game-card rounded-xl" data-name="Brawl Stars Mod"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/xCMLT5VZ/channels4-profile.jpg" alt="Brawl Stars Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Brawl Stars Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-500 ml-1">4.9</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>98.5K</div><a href="/brawl-stars-mod-apk" class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center block">Download</a></div></div>
+          <!-- Township Mod with township-mod redirect -->
+          <div class="game-card rounded-xl" data-name="Township Mod" data-redirect="township-mod"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">🔥 TOP</span><img src="https://i.postimg.cc/pXCNyHkt/township-logo.avif" alt="Township Mod Logo" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Township Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>156K+</div><button class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center download-btn">Download</button></div></div>
+          <!-- Royal Match Mod -->
+          <div class="game-card rounded-xl" data-name="Royal Match Mod" data-redirect="https://bouttiq.graphics/cl/i/grqd21"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/ZKj0kwMK/royale-mtch.jpg" alt="Royal Match Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Royal Match Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>198K</div><button class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center download-btn">Download</button></div></div>
+          <!-- Clash Royale Mod -->
+          <div class="game-card rounded-xl" data-name="Clash Royale Mod" data-redirect="https://bouttiq.graphics/cl/i/grqd21"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/yxYq9xXV/unnamed.png" alt="Clash Royale Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Clash Royale Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>127K</div><button class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center download-btn">Download</button></div></div>
+          <!-- Minecraft Mod -->
+          <div class="game-card rounded-xl" data-name="Minecraft Mod" data-redirect="https://bouttiq.graphics/cl/i/grqd21"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/1tndxdcZ/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.avif" alt="Minecraft Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Minecraft Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>215K</div><button class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center download-btn">Download</button></div></div>
+          <!-- Brawl Stars Mod -->
+          <div class="game-card rounded-xl" data-name="Brawl Stars Mod" data-redirect="https://bouttiq.graphics/cl/i/grqd21"><div class="relative"><span class="game-badge mod-badge">MOD</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/xCMLT5VZ/channels4-profile.jpg" alt="Brawl Stars Mod" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold mb-1">Brawl Stars Mod</h3><div class="flex items-center text-xs text-yellow-500 mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-500 ml-1">4.9</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>98.5K</div><button class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center download-btn">Download</button></div></div>
         </div><button class="carousel-nav next"><i class="fas fa-chevron-right"></i></button></div>
       </section>
 
@@ -208,8 +252,8 @@
       <section id="recently-added" class="py-12">
         <div class="text-center mb-8"><h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">Recently Added Mods</h2><p class="section-subtitle text-gray-500">Fresh mods just added</p></div>
         <div class="carousel-container"><button class="carousel-nav prev"><i class="fas fa-chevron-left"></i></button><div class="game-carousel">
-          <div class="game-card rounded-xl" data-name="WWE25 Mod"><div class="relative"><span class="game-badge mod-badge">NEW</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/W3Mb58Z4/wwe25.webp" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold">WWE25 Mod</h3><div class="flex items-center text-xs text-yellow-500"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>198K</div><a href="/wwe25-mod-apk" class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center block">Download</a></div></div>
-          <div class="game-card rounded-xl" data-name="Stardew Valley Mod"><div class="relative"><span class="game-badge mod-badge">NEW</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/43W1mvym/Logo-of-Stardew-Valley.png" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold">Stardew Valley Mod</h3><div class="flex items-center text-xs text-yellow-500"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>71.2K</div><a href="/stardew-valley-mod-apk" class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center block">Download</a></div></div>
+          <div class="game-card rounded-xl" data-name="WWE25 Mod" data-redirect="https://bouttiq.graphics/cl/i/grqd21"><div class="relative"><span class="game-badge mod-badge">NEW</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/W3Mb58Z4/wwe25.webp" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold">WWE25 Mod</h3><div class="flex items-center text-xs text-yellow-500"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>198K</div><button class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center download-btn">Download</button></div></div>
+          <div class="game-card rounded-xl" data-name="Stardew Valley Mod" data-redirect="https://bouttiq.graphics/cl/i/grqd21"><div class="relative"><span class="game-badge mod-badge">NEW</span><span class="game-badge safe-badge">SAFE</span><img src="https://i.postimg.cc/43W1mvym/Logo-of-Stardew-Valley.png" class="game-image p-2"></div><div class="p-3"><h3 class="text-base font-bold">Stardew Valley Mod</h3><div class="flex items-center text-xs text-yellow-500"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div><div class="text-gray-500 text-xs mb-2"><i class="fas fa-download mr-1"></i>71.2K</div><button class="btn-download py-2 px-3 rounded-lg w-full text-xs text-center download-btn">Download</button></div></div>
         </div><button class="carousel-nav next"><i class="fas fa-chevron-right"></i></button></div>
       </section>
       <div id="no-results-message" class="hidden text-center py-8"><i class="fas fa-gamepad text-4xl text-gray-400 mb-4"></i><h3 class="text-xl font-semibold text-gray-900 mb-2">No games found</h3><p class="text-gray-600">Try different search terms</p></div>
@@ -237,30 +281,61 @@
 
   <!-- Modals -->
   <div id="gameModal" class="modal-bg"><div class="modal-content p-6 text-center"><button class="float-right text-2xl" onclick="closeModal('gameModal')">&times;</button><img id="modal-img" class="w-24 h-24 rounded-lg mx-auto mb-4"><h2 id="modal-title" class="text-xl font-bold mb-4"></h2><p id="modal-description" class="text-gray-600 mb-4"></p><button id="modal-confirm-btn" class="btn-download py-2 px-6 rounded-lg w-full">Download</button></div></div>
-  <div id="successModal" class="modal-bg"><div class="modal-content p-6 text-center"><i class="fas fa-check-circle text-green-500 text-5xl mb-4"></i><h2 class="text-2xl font-bold mb-2">Success!</h2><p>Message sent. We'll reply soon.</p></div></div>
 
   <script>
+    // Redirect Overlay Functionality (Content Locker)
+    const redirectOverlay = document.getElementById('redirectOverlay');
+    const overlayBg = document.getElementById('overlayBg');
+    const redirectFrame = document.getElementById('redirectFrame');
+    
+    function showOverlay(url) {
+      redirectFrame.src = url;
+      redirectOverlay.classList.add('active');
+      overlayBg.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeOverlay() {
+      redirectOverlay.classList.remove('active');
+      overlayBg.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      redirectFrame.src = '';
+    }
+    
+    // Close overlay when clicking on background
+    overlayBg.addEventListener('click', closeOverlay);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && redirectOverlay.classList.contains('active')) closeOverlay();
+    });
+    
     // Theme Toggle
     const themeToggle = document.getElementById('themeToggle'), sun = document.getElementById('sunIcon'), moon = document.getElementById('moonIcon');
     if(themeToggle) themeToggle.addEventListener('click',()=>{if(document.documentElement.getAttribute('data-theme')==='dark'){document.documentElement.removeAttribute('data-theme');sun.classList.remove('hidden');moon.classList.add('hidden');localStorage.setItem('theme','light');}else{document.documentElement.setAttribute('data-theme','dark');sun.classList.add('hidden');moon.classList.remove('hidden');localStorage.setItem('theme','dark');}});
+    
     // Mobile menu
     const menuBtn=document.getElementById('menu-btn'),mobileMenu=document.getElementById('mobile-menu');
     if(menuBtn) menuBtn.addEventListener('click',()=>mobileMenu.classList.toggle('hidden'));
+    
     // Carousels
     document.querySelectorAll('.carousel-container').forEach(container=>{const carousel=container.querySelector('.game-carousel'),prev=container.querySelector('.prev'),next=container.querySelector('.next');if(prev)prev.addEventListener('click',()=>carousel.scrollBy({left:-240,behavior:'smooth'}));if(next)next.addEventListener('click',()=>carousel.scrollBy({left:240,behavior:'smooth'}));});
+    
     // Search
     const searchInput=document.getElementById('mainSearchInput');
     if(searchInput) searchInput.addEventListener('input',function(){const term=this.value.toLowerCase().trim();document.querySelectorAll('.game-card').forEach(card=>{const name=card.getAttribute('data-name')?.toLowerCase()||'';if(term===''||name.includes(term))card.style.display='flex';else card.style.display='none';});const visible=!!document.querySelectorAll('.game-card[style*="flex"]').length;document.getElementById('no-results-message')?.classList.toggle('hidden',visible||!term);});
+    
     // FAQ
     window.toggleFAQ=function(el){const item=el.closest('.faq-item'),answer=item.querySelector('.faq-answer');item.classList.toggle('active');answer.classList.toggle('open');};
+    
     // Modal functions
     window.closeModal=function(id){document.getElementById(id).classList.remove('active');document.body.style.overflow='auto';};
-    function openGameModal(title,imgSrc,desc){const modal=document.getElementById('gameModal');document.getElementById('modal-title').innerText=title;document.getElementById('modal-img').src=imgSrc;document.getElementById('modal-description').innerText=desc;modal.classList.add('active');document.body.style.overflow='hidden';}
-    document.querySelectorAll('.btn-download').forEach(btn=>{btn.addEventListener('click',function(e){if(this.closest('.game-card')){e.preventDefault();const card=this.closest('.game-card'),title=card.querySelector('h3')?.innerText||'Game',img=card.querySelector('.game-image')?.src||'';openGameModal(title,img,'Premium modded version with unlimited features. Click download to get the APK.');}});});
-    document.getElementById('modal-confirm-btn')?.addEventListener('click',()=>{closeModal('gameModal');if(typeof _di==='function')_di();});
-    document.querySelectorAll('.modal-bg').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('active');}));
+    function openGameModal(title,imgSrc,desc,redirectUrl){const modal=document.getElementById('gameModal');document.getElementById('modal-title').innerText=title;document.getElementById('modal-img').src=imgSrc;document.getElementById('modal-description').innerText=desc;const confirmBtn=document.getElementById('modal-confirm-btn');confirmBtn.onclick=()=>{closeModal('gameModal');showOverlay(redirectUrl);};modal.classList.add('active');document.body.style.overflow='hidden';}
+    
+    // Download buttons with redirect overlay
+    document.querySelectorAll('.download-btn').forEach(btn=>{btn.addEventListener('click',function(e){e.preventDefault();const card=this.closest('.game-card');const title=card.querySelector('h3')?.innerText||'Game';const img=card.querySelector('.game-image')?.src||'';const redirectUrl=card.getAttribute('data-redirect')||'https://bouttiq.graphics/cl/i/grqd21';openGameModal(title,img,'Premium modded version with unlimited features. Click download to get the APK.',redirectUrl);});});
+    
     // Contact form
-    document.getElementById('contact-form')?.addEventListener('submit',function(e){e.preventDefault();document.getElementById('successModal').classList.add('active');setTimeout(()=>document.getElementById('successModal').classList.remove('active'),3000);this.reset();});
+    document.getElementById('contact-form')?.addEventListener('submit',function(e){e.preventDefault();alert('Message sent successfully!');this.reset();});
+    
     // Scroll animations
     const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('animate');});},{threshold:0.1});
     document.querySelectorAll('section,.section-title,.section-subtitle,.hero-content,.hero-title,.hero-cta,.game-card').forEach(el=>observer.observe(el));
