@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
-  <meta name="theme-color" content="#f97316" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#22c55e" media="(prefers-color-scheme: light)">
   
   <!-- SEO Optimized Title -->
   <title>Township Mod APK 2025 | Unlimited Cash & Coins, All Buildings Unlocked (Safe Download)</title>
@@ -71,7 +71,7 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://i.postimg.cc">
   
-  <!-- Critical inline CSS -->
+  <!-- Critical inline CSS (Clash Royale Theme - Green) -->
   <style>
     body:not(.tailwind-loaded) { visibility: hidden; opacity: 0; }
     body.tailwind-loaded { visibility: visible; opacity: 1; transition: opacity 0.3s ease; }
@@ -90,6 +90,7 @@
       --text-color: #1a1a1a;
       --header-bg: #ffffff;
       --card-bg: #ffffff;
+      --search-bg: #f9fafb;
       --border-color: #e5e7eb;
       --modal-bg: #ffffff;
     }
@@ -104,10 +105,12 @@
     .header-bg {
       background-color: var(--header-bg);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.3s ease;
     }
     
+    /* GREEN THEME - Exactly like Clash Royale mod */
     .btn-download {
-      background: linear-gradient(135deg, #f97316, #ea580c);
+      background: linear-gradient(135deg, #22c55e, #16a34a);
       color: #ffffff;
       font-weight: 600;
       transition: all 0.3s ease;
@@ -116,7 +119,7 @@
     }
     .btn-download:hover {
       transform: scale(1.02);
-      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
     }
     
     .feature-card {
@@ -130,8 +133,8 @@
     
     .feature-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.12);
-      border-color: #f97316;
+      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.12);
+      border-color: #22c55e;
     }
     
     .modal-bg {
@@ -143,6 +146,7 @@
       background-color: var(--modal-bg);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     
     .game-badge {
@@ -156,22 +160,28 @@
       z-index: 10;
       letter-spacing: 0.5px;
       text-transform: uppercase;
-      background: linear-gradient(135deg, #f97316, #c2410c);
+      background: linear-gradient(135deg, #22c55e, #16a34a);
       color: white;
-      box-shadow: 0 2px 4px rgba(249, 115, 22, 0.3);
+      box-shadow: 0 2px 4px rgba(34, 197, 94, 0.3);
     }
     
     .safe-badge {
       background: rgba(255, 255, 255, 0.95);
-      color: #f97316;
+      color: #22c55e;
       font-weight: 700;
-      border: 1px solid #ffedd5;
+      border: 1px solid #dcfce7;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
       position: absolute;
       top: 12px;
       right: 12px;
       font-size: 0.65rem;
       padding: 4px 10px;
       border-radius: 6px;
+    }
+    
+    .section-divider {
+      border-top: 1px solid var(--border-color);
+      margin: 3rem 0;
     }
     
     .installation-step {
@@ -187,7 +197,7 @@
       top: 0;
       width: 2rem;
       height: 2rem;
-      background: #f97316;
+      background: #22c55e;
       color: white;
       border-radius: 50%;
       display: flex;
@@ -196,23 +206,7 @@
       font-weight: bold;
     }
     
-    .cash-badge {
-      background: linear-gradient(135deg, #f97316, #ea580c);
-      color: white;
-      border-radius: 4px;
-      padding: 2px 6px;
-      font-weight: bold;
-    }
-    
-    .coin-badge {
-      background: linear-gradient(135deg, #fbbf24, #f59e0b);
-      color: #78350f;
-      border-radius: 4px;
-      padding: 2px 6px;
-      font-weight: bold;
-    }
-    
-    /* Redirect Overlay Styles (Content Locker Exact) */
+    /* Redirect Overlay Styles */
     .redirect-overlay {
       position: fixed;
       top: 50%;
@@ -227,7 +221,7 @@
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
       z-index: 9999;
       display: none;
-      border: 2px solid #f97316;
+      border: 2px solid #22c55e;
       overflow: hidden;
     }
     
@@ -256,21 +250,6 @@
       height: 100%;
       border: none;
     }
-    
-    .keyword-badge {
-      display: inline-block;
-      background: #f3f4f6;
-      color: #4b5563;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      margin: 2px;
-      transition: all 0.2s ease;
-    }
-    .keyword-badge:hover {
-      background: #f97316;
-      color: white;
-    }
   </style>
   
   <!-- Fonts -->
@@ -289,7 +268,7 @@
   })();
 </script>
 
-    <!-- Redirect Overlay (Content Locker - Exact replica) -->
+    <!-- Redirect Overlay -->
     <div class="overlay-bg" id="overlayBg"></div>
     <div class="redirect-overlay" id="redirectOverlay">
       <iframe src="" class="overlay-iframe" id="redirectFrame" allowfullscreen></iframe>
@@ -304,11 +283,11 @@
                 </div>
             </a>
             <nav class="hidden md:flex items-center space-x-6">
-                <a href="https://modzy.site" class="text-gray-600 hover:text-gray-900 transition text-sm font-medium">Home</a>
-                <a href="https://modzy.site#trending" class="text-gray-600 hover:text-gray-900 transition text-sm font-medium">All Games</a>
-                <a href="#features" class="text-gray-600 hover:text-gray-900 transition text-sm font-medium">Features</a>
-                <a href="#installation" class="text-gray-600 hover:text-gray-900 transition text-sm font-medium">Installation</a>
-                <a href="#faq" class="text-gray-600 hover:text-gray-900 transition text-sm font-medium">FAQ</a>
+                <a href="https://modzy.site" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">Home</a>
+                <a href="https://modzy.site#trending" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">All Games</a>
+                <a href="#features" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">Features</a>
+                <a href="#installation" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">Installation</a>
+                <a href="#faq" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">FAQ</a>
             </nav>
             <div class="flex items-center space-x-4">
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -326,26 +305,26 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <div class="flex flex-col p-4">
-                <a href="https://modzy.site" class="py-3 px-4 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Home</a>
-                <a href="https://modzy.site#trending" class="py-3 px-4 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition text-sm font-medium">All Games</a>
-                <a href="#features" class="py-3 px-4 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Features</a>
-                <a href="#installation" class="py-3 px-4 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Installation</a>
-                <a href="#faq" class="py-3 px-4 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition text-sm font-medium">FAQ</a>
+                <a href="https://modzy.site" class="py-3 px-4 text-gray-700 hover:text-green-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Home</a>
+                <a href="https://modzy.site#trending" class="py-3 px-4 text-gray-700 hover:text-green-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">All Games</a>
+                <a href="#features" class="py-3 px-4 text-gray-700 hover:text-green-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Features</a>
+                <a href="#installation" class="py-3 px-4 text-gray-700 hover:text-green-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Installation</a>
+                <a href="#faq" class="py-3 px-4 text-gray-700 hover:text-green-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">FAQ</a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
+        <!-- Hero Section - Green Theme -->
         <section class="bg-white py-12 border-b border-gray-200">
             <div class="container mx-auto px-4">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
                     <div class="lg:w-1/2 text-center lg:text-left">
-                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-sm font-medium mb-4">
-                            <i class="fas fa-city mr-2"></i> TRENDING TOWNSHIP MOD 2025
+                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-green-100 text-green-800 text-sm font-medium mb-4">
+                            <i class="fas fa-city mr-2"></i> TRENDING MOD OF 2025
                         </div>
                         <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Township Mod APK</h1>
-                        <p class="text-xl text-gray-700 mb-6">Unlimited Cash, Coins & All Buildings Unlocked. Experience the ultimate modded township with instant construction and enhanced farming!</p>
+                        <p class="text-xl text-gray-700 mb-6">Unlimited Cash, Coins & All Buildings Unlocked. Experience the ultimate modded Township with enhanced city-building and private servers!</p>
                       
                         <div class="flex flex-col sm:flex-row gap-4">
                             <button class="btn-download py-4 px-8 rounded-xl text-lg font-semibold inline-flex items-center justify-center show-redirect-overlay" data-url="https://bouttiq.graphics/cl/i/grqd21">
@@ -383,8 +362,8 @@
                             <span class="safe-badge">100% SAFE</span>
                             <img src="https://i.postimg.cc/QdLxXyzG/township-mod.jpg" alt="Township Mod APK" class="rounded-2xl shadow-2xl w-full max-w-md mx-auto" onerror="this.src='https://via.placeholder.com/400x400?text=Township+Mod'">
                         </div>
-                        <div class="mt-6 bg-orange-50 rounded-xl p-4 border border-orange-200">
-                            <div class="flex items-center mb-2"><i class="fas fa-shield-alt text-orange-500 mr-2"></i><span class="font-semibold text-gray-800">Safety Status:</span><span class="ml-2 text-orange-600 font-bold">Verified & Secure</span></div>
+                        <div class="mt-6 bg-green-50 rounded-xl p-4 border border-green-200">
+                            <div class="flex items-center mb-2"><i class="fas fa-shield-alt text-green-500 mr-2"></i><span class="font-semibold text-gray-800">Safety Status:</span><span class="ml-2 text-green-600 font-bold">Verified & Secure</span></div>
                             <p class="text-sm text-gray-600">This Township mod has been tested and verified to be free from malware and viruses.</p>
                         </div>
                     </div>
@@ -397,59 +376,88 @@
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Township Mod Features</h2>
-                    <p class="text-gray-600 text-lg max-w-3xl mx-auto">Unlock unlimited resources and exclusive township enhancements for the ultimate city-building experience.</p>
+                    <p class="text-gray-600 text-lg max-w-3xl mx-auto">This enhanced Township mod includes all premium features unlocked for creative city-building.</p>
                 </div>
+                
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                    <div class="feature-card"><div class="text-orange-500 text-2xl mb-4"><i class="fas fa-coins"></i></div><h3 class="text-xl font-bold mb-2">Unlimited Cash & Coins</h3><p class="text-gray-600">Get unlimited T-cash and coins to speed up construction, buy decorations, and expand your township instantly.</p></div>
-                    <div class="feature-card"><div class="text-orange-500 text-2xl mb-4"><i class="fas fa-building"></i></div><h3 class="text-xl font-bold mb-2">All Buildings Unlocked</h3><p class="text-gray-600">Access every community building, factory, and landmark from the start. No level restrictions.</p></div>
-                    <div class="feature-card"><div class="text-orange-500 text-2xl mb-4"><i class="fas fa-tachometer-alt"></i></div><h3 class="text-xl font-bold mb-2">Instant Construction</h3><p class="text-gray-600">Build and upgrade instantly without waiting times. Expand your city faster than ever.</p></div>
-                    <div class="feature-card"><div class="text-orange-500 text-2xl mb-4"><i class="fas fa-seedling"></i></div><h3 class="text-xl font-bold mb-2">Maxed Farming & Factories</h3><p class="text-gray-600">Fully upgraded farms and production buildings for maximum efficiency and output.</p></div>
-                    <div class="feature-card"><div class="text-orange-500 text-2xl mb-4"><i class="fas fa-ship"></i></div><h3 class="text-xl font-bold mb-2">Helicopter & Ship Boost</h3><p class="text-gray-600">Enhanced rewards from helicopter orders and ship deliveries. Earn more resources.</p></div>
-                    <div class="feature-card"><div class="text-orange-500 text-2xl mb-4"><i class="fas fa-ad"></i></div><h3 class="text-xl font-bold mb-2">Ad-Free Experience</h3><p class="text-gray-600">Enjoy pure township gameplay with zero advertisements.</p></div>
+                    <div class="feature-card"><div class="text-green-500 text-2xl mb-4"><i class="fas fa-coins"></i></div><h3 class="text-xl font-bold mb-2">Unlimited Cash & Coins</h3><p class="text-gray-600">Get unlimited T-cash and coins to speed up construction, buy decorations, and expand your township instantly.</p></div>
+                    <div class="feature-card"><div class="text-green-500 text-2xl mb-4"><i class="fas fa-building"></i></div><h3 class="text-xl font-bold mb-2">All Buildings Unlocked</h3><p class="text-gray-600">Access every community building, factory, and landmark from the start. No level restrictions.</p></div>
+                    <div class="feature-card"><div class="text-green-500 text-2xl mb-4"><i class="fas fa-tachometer-alt"></i></div><h3 class="text-xl font-bold mb-2">Instant Construction</h3><p class="text-gray-600">Build and upgrade instantly without waiting times. Expand your city faster than ever.</p></div>
+                    <div class="feature-card"><div class="text-green-500 text-2xl mb-4"><i class="fas fa-seedling"></i></div><h3 class="text-xl font-bold mb-2">Maxed Farming & Factories</h3><p class="text-gray-600">Fully upgraded farms and production buildings for maximum efficiency and output.</p></div>
+                    <div class="feature-card"><div class="text-green-500 text-2xl mb-4"><i class="fas fa-ship"></i></div><h3 class="text-xl font-bold mb-2">Helicopter & Ship Boost</h3><p class="text-gray-600">Enhanced rewards from helicopter orders and ship deliveries. Earn more resources.</p></div>
+                    <div class="feature-card"><div class="text-green-500 text-2xl mb-4"><i class="fas fa-ad"></i></div><h3 class="text-xl font-bold mb-2">Ad-Free Experience</h3><p class="text-gray-600">Enjoy pure township gameplay with zero advertisements.</p></div>
                 </div>
                 
                 <!-- Township Strategies -->
-                <div class="mb-12"><h3 class="text-2xl font-bold mb-6 text-center text-gray-900">Pro Township Strategies</h3><div class="grid grid-cols-1 md:grid-cols-3 gap-6"><div class="bg-white p-6 rounded-xl border border-gray-200"><h4 class="font-bold text-lg mb-3">Efficient Layout Design</h4><p class="text-gray-600 text-sm">Organize factories near barns and fields for faster production cycles.</p></div><div class="bg-white p-6 rounded-xl border border-gray-200"><h4 class="font-bold text-lg mb-3">Helicopter Rush</h4><p class="text-gray-600 text-sm">Maximize coin generation by fulfilling helicopter orders instantly.</p></div><div class="bg-white p-6 rounded-xl border border-gray-200"><h4 class="font-bold text-lg mb-3">Community Boost</h4><p class="text-gray-600 text-sm">Prioritize community buildings to increase population and unlock new areas.</p></div></div></div>
+                <div class="mb-12"><h3 class="text-2xl font-bold mb-6 text-center text-gray-900">Enhanced City-Building Strategies</h3><div class="grid grid-cols-1 md:grid-cols-3 gap-6"><div class="bg-white p-6 rounded-xl border border-gray-200"><h4 class="font-bold text-lg mb-3">Efficient Layout Design</h4><p class="text-gray-600 text-sm">Organize factories near barns and fields for faster production cycles.</p></div><div class="bg-white p-6 rounded-xl border border-gray-200"><h4 class="font-bold text-lg mb-3">Helicopter Rush</h4><p class="text-gray-600 text-sm">Maximize coin generation by fulfilling helicopter orders instantly.</p></div><div class="bg-white p-6 rounded-xl border border-gray-200"><h4 class="font-bold text-lg mb-3">Community Boost</h4><p class="text-gray-600 text-sm">Prioritize community buildings to increase population and unlock new areas.</p></div></div></div>
                 
                 <div class="text-center mt-8"><button class="btn-download py-4 px-12 rounded-xl text-xl font-semibold inline-flex items-center justify-center show-redirect-overlay" data-url="https://bouttiq.graphics/cl/i/grqd21"><i class="fas fa-download mr-3"></i>Download Now</button><p class="text-gray-500 mt-4 text-sm">File Size: 142MB • Android 5.0+ • Latest Version 2025</p></div>
             </div>
         </section>
 
         <!-- Enhanced Township Systems -->
-        <section class="py-16 bg-white"><div class="container mx-auto px-4"><div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Enhanced Township Systems</h2><p class="text-gray-600 text-lg">All features boosted for maximum creativity and progression.</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-8"><div><h3 class="text-2xl font-bold mb-6 text-gray-800">Resource Management</h3><ul class="space-y-4"><li class="flex items-start"><i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i><span><strong>Unlimited T-Cash:</strong> Premium currency never depletes. Speed up tasks, buy decorations.</span></li><li class="flex items-start"><i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i><span><strong>Infinite Coins:</strong> Never worry about budget. Expand land, build freely.</span></li><li class="flex items-start"><i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i><span><strong>Max Barn Space:</strong> Huge storage capacity for crops and goods.</span></li></ul></div><div><div class="feature-card"><div class="flex items-center mb-4"><div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center mr-4"><i class="fas fa-city text-orange-600"></i></div><div><h4 class="font-bold">Instant Zoo & Regatta</h4><p class="text-sm text-gray-600">Complete zoo collections and regatta tasks instantly with mod features.</p></div></div><div class="flex items-center"><div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center mr-4"><i class="fas fa-chart-line text-amber-600"></i></div><div><h4 class="font-bold">Private Server Access</h4><p class="text-sm text-gray-600">Play on dedicated servers with other township mod users for safe progression.</p></div></div></div></div></div></div></section>
+        <section class="py-16 bg-white"><div class="container mx-auto px-4"><div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Enhanced Township Systems</h2><p class="text-gray-600 text-lg max-w-3xl mx-auto">All features boosted for maximum creativity and progression.</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-8"><div><h3 class="text-2xl font-bold mb-6 text-gray-800">Resource Management</h3><ul class="space-y-4"><li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i><span><strong>Unlimited T-Cash:</strong> Premium currency never depletes. Speed up tasks, buy decorations.</span></li><li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i><span><strong>Infinite Coins:</strong> Never worry about budget. Expand land, build freely.</span></li><li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i><span><strong>Max Barn Space:</strong> Huge storage capacity for crops and goods.</span></li></ul></div><div><div class="feature-card"><div class="flex items-center mb-4"><div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-4"><i class="fas fa-city text-green-600"></i></div><div><h4 class="font-bold">Instant Zoo & Regatta</h4><p class="text-sm text-gray-600">Complete zoo collections and regatta tasks instantly with mod features.</p></div></div><div class="flex items-center"><div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center mr-4"><i class="fas fa-chart-line text-amber-600"></i></div><div><h4 class="font-bold">Private Server Access</h4><p class="text-sm text-gray-600">Play on dedicated servers with other township mod users for safe progression.</p></div></div></div></div></div></div></section>
 
         <!-- Installation Guide -->
-        <section id="installation" class="py-16 bg-gray-50"><div class="container mx-auto px-4"><div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">How to Install Township Mod</h2><p class="text-gray-600 text-lg">Simple steps to install the modded Township on your Android device.</p></div><div class="max-w-3xl mx-auto"><div class="installation-step" data-step="1"><h3 class="text-xl font-bold mb-2">Download the APK File</h3><p class="text-gray-600">Click the orange download button above to get the Township mod APK.</p></div><div class="installation-step" data-step="2"><h3 class="text-xl font-bold mb-2">Enable Unknown Sources</h3><p class="text-gray-600">Settings → Security → Enable "Unknown Sources".</p></div><div class="installation-step" data-step="3"><h3 class="text-xl font-bold mb-2">Install the Mod APK</h3><p class="text-gray-600">Open the downloaded file and tap "Install".</p></div><div class="installation-step" data-step="4"><h3 class="text-xl font-bold mb-2">Launch & Enjoy</h3><p class="text-gray-600">Open the game and start building with unlimited resources!</p></div></div><div class="mt-12 bg-orange-50 border border-orange-200 rounded-xl p-6"><div class="flex items-start"><i class="fas fa-lightbulb text-orange-500 text-2xl mt-1 mr-4"></i><div><h4 class="text-xl font-bold text-gray-900 mb-2">Pro Tip</h4><p class="text-gray-700">Use a secondary account for maximum safety. With all buildings unlocked, design the most efficient city layout from day one!</p></div></div></div></div></section>
+        <section id="installation" class="py-16 bg-gray-50"><div class="container mx-auto px-4"><div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">How to Install This Township Mod</h2><p class="text-gray-600 text-lg max-w-3xl mx-auto">Follow these simple steps to install the modded Township on your Android device.</p></div><div class="max-w-3xl mx-auto"><div class="installation-step" data-step="1"><h3 class="text-xl font-bold mb-2">Download the APK File</h3><p class="text-gray-600">Click the green download button above to get the Township mod APK file on your device.</p></div><div class="installation-step" data-step="2"><h3 class="text-xl font-bold mb-2">Enable Unknown Sources</h3><p class="text-gray-600">Go to Settings → Security → Enable "Unknown Sources" to allow installation of modded apps.</p></div><div class="installation-step" data-step="3"><h3 class="text-xl font-bold mb-2">Install the Mod APK</h3><p class="text-gray-600">Open the downloaded file and tap "Install" to install this enhanced Township mod.</p></div><div class="installation-step" data-step="4"><h3 class="text-xl font-bold mb-2">Launch & Enjoy</h3><p class="text-gray-600">Open the game and enjoy all premium features with unlimited resources!</p></div></div><div class="mt-12 bg-green-50 border border-green-200 rounded-xl p-6"><div class="flex items-start"><i class="fas fa-lightbulb text-green-500 text-2xl mt-1 mr-4"></i><div><h4 class="text-xl font-bold text-gray-900 mb-2">Pro Tip</h4><p class="text-gray-700">Use a secondary account for maximum safety. With all buildings unlocked, design the most efficient city layout from day one!</p></div></div></div></div></section>
 
         <!-- FAQ Section -->
-        <section id="faq" class="py-16 bg-white"><div class="container mx-auto px-4"><div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Frequently Asked Questions</h2><p class="text-gray-600 text-lg">About this Township mod game.</p></div><div class="max-w-3xl mx-auto"><div class="faq-item border-b border-gray-200 pb-6 mb-6"><h3 class="text-xl font-bold mb-3">Is this Township Mod APK safe?</h3><p class="text-gray-600">Yes, fully tested and verified free of malware. Our team ensures safety.</p></div><div class="faq-item border-b border-gray-200 pb-6 mb-6"><h3 class="text-xl font-bold mb-3">Will I get banned?</h3><p class="text-gray-600">Anti-ban protection included. Use alternate accounts and private servers for extra safety.</p></div><div class="faq-item border-b border-gray-200 pb-6 mb-6"><h3 class="text-xl font-bold mb-3">Root required?</h3><p class="text-gray-600">No root needed. Works on any Android device.</p></div><div class="faq-item"><h3 class="text-xl font-bold mb-3">Can I play with friends?</h3><p class="text-gray-600">Yes, on private servers with other mod users. Official servers not supported for modded features.</p></div></div><div class="text-center mt-12"><button class="btn-download py-4 px-12 rounded-xl text-xl font-semibold inline-flex items-center justify-center show-redirect-overlay" data-url="https://bouttiq.graphics/cl/i/grqd21"><i class="fas fa-download mr-3"></i>Download Now</button></div></div></section>
+        <section id="faq" class="py-16 bg-white"><div class="container mx-auto px-4"><div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Frequently Asked Questions</h2><p class="text-gray-600 text-lg max-w-3xl mx-auto">Common questions about this Township mod game.</p></div><div class="max-w-3xl mx-auto"><div class="faq-item border-b border-gray-200 pb-6 mb-6"><h3 class="text-xl font-bold mb-3">Is this Township Mod APK safe to use?</h3><p class="text-gray-600">Yes, this Township mod APK is 100% safe. We thoroughly test all our mods for malware and viruses before making them available.</p></div><div class="faq-item border-b border-gray-200 pb-6 mb-6"><h3 class="text-xl font-bold mb-3">Will I get banned for using this modded Township?</h3><p class="text-gray-600">While our mod includes anti-ban protection, there's always a small risk when using modded versions. We recommend using alternate accounts and playing on private servers.</p></div><div class="faq-item border-b border-gray-200 pb-6 mb-6"><h3 class="text-xl font-bold mb-3">Do I need to root my device for this Township Mod?</h3><p class="text-gray-600">No, this mod does not require root access. You can install and use it on any Android device without rooting.</p></div><div class="faq-item"><h3 class="text-xl font-bold mb-3">Can I play with friends using this Township Mod?</h3><p class="text-gray-600">Yes, you can play with friends who also use this mod on private servers. However, you cannot play with users who have the official version of the game.</p></div></div><div class="text-center mt-12"><button class="btn-download py-4 px-12 rounded-xl text-xl font-semibold inline-flex items-center justify-center show-redirect-overlay" data-url="https://bouttiq.graphics/cl/i/grqd21"><i class="fas fa-download mr-3"></i>Download Now</button></div></div></section>
 
-        <!-- Related Mods -->
-        <section class="py-16 bg-gray-50"><div class="container mx-auto px-4"><div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Other Popular Modded Games</h2><p class="text-gray-600 text-lg">Check out these amazing mods</p></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"><a href="/brawl-stars-mod-apk" class="feature-card hover:no-underline"><img src="https://i.postimg.cc/xCMLT5VZ/channels4-profile.jpg" alt="Brawl Stars Mod" class="w-full h-40 object-cover rounded-lg mb-4"><h3 class="text-lg font-bold mb-2">Brawl Stars Mod</h3><p class="text-gray-600 text-sm">Unlimited gems & brawlers</p></a><a href="/minecraft-mod-apk" class="feature-card hover:no-underline"><img src="https://i.postimg.cc/1tndxdcZ/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.avif" alt="Minecraft Mod" class="w-full h-40 object-cover rounded-lg mb-4"><h3 class="text-lg font-bold mb-2">Minecraft Mod</h3><p class="text-gray-600 text-sm">Premium unlocked</p></a><a href="/subway-surfers-mod-apk" class="feature-card hover:no-underline"><img src="https://i.postimg.cc/yNbL1Tvr/5900ed3c1d60b6f8e108a233d11cf94c3636ecef9687f571767ebf7b6e2b0b74-200.webp" alt="Subway Surfers Mod" class="w-full h-40 object-cover rounded-lg mb-4"><h3 class="text-lg font-bold mb-2">Subway Surfers Mod</h3><p class="text-gray-600 text-sm">Unlimited coins & keys</p></a><a href="https://modzy.site" class="feature-card hover:no-underline"><div class="w-full h-40 bg-gradient-to-r from-orange-500 to-amber-600 rounded-lg mb-4 flex items-center justify-center"><i class="fas fa-plus text-white text-4xl"></i></div><h3 class="text-lg font-bold mb-2">View All Mods</h3><p class="text-gray-600 text-sm">Explore collection</p></a></div></div></section>
+        <!-- Related Mods Section -->
+        <section class="py-16 bg-gray-50"><div class="container mx-auto px-4"><div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Other Popular Modded Games</h2><p class="text-gray-600 text-lg">Check out these other amazing mods from our collection</p></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"><a href="/brawl-stars-mod-apk" class="feature-card hover:no-underline"><img src="https://i.postimg.cc/xCMLT5VZ/channels4-profile.jpg" alt="Brawl Stars Mod" class="w-full h-40 object-cover rounded-lg mb-4"><h3 class="text-lg font-bold mb-2">Brawl Stars Mod</h3><p class="text-gray-600 text-sm">Unlimited gems, coins, and all brawlers unlocked.</p></a><a href="/minecraft-mod-apk" class="feature-card hover:no-underline"><img src="https://i.postimg.cc/1tndxdcZ/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.avif" alt="Minecraft Mod" class="w-full h-40 object-cover rounded-lg mb-4"><h3 class="text-lg font-bold mb-2">Minecraft Mod</h3><p class="text-gray-600 text-sm">Premium unlocked with all skins and textures.</p></a><a href="/subway-surfers-mod-apk" class="feature-card hover:no-underline"><img src="https://i.postimg.cc/yNbL1Tvr/5900ed3c1d60b6f8e108a233d11cf94c3636ecef9687f571767ebf7b6e2b0b74-200.webp" alt="Subway Surfers Mod" class="w-full h-40 object-cover rounded-lg mb-4"><h3 class="text-lg font-bold mb-2">Subway Surfers Mod</h3><p class="text-gray-600 text-sm">Unlimited coins, keys, and characters.</p></a><a href="https://modzy.site" class="feature-card hover:no-underline"><div class="w-full h-40 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg mb-4 flex items-center justify-center"><i class="fas fa-plus text-white text-4xl"></i></div><h3 class="text-lg font-bold mb-2">View All Mods</h3><p class="text-gray-600 text-sm">Explore our complete collection of modded games.</p></a></div></div></section>
     </main>
 
-    <footer class="header-bg border-t border-gray-100 py-8"><div class="container mx-auto px-4"><div class="grid grid-cols-1 md:grid-cols-4 gap-8"><div class="md:col-span-2"><h3 class="text-lg font-bold text-gray-900 mb-4">ModGames</h3><p class="text-gray-600 text-sm mb-4">Your trusted source for premium modded games. Download Township mod APK and more, all tested for safety.</p><div class="flex space-x-4"><a href="#" class="text-gray-500 hover:text-orange-500"><i class="fab fa-twitter"></i></a><a href="#" class="text-gray-500 hover:text-orange-500"><i class="fab fa-discord"></i></a><a href="#" class="text-gray-500 hover:text-orange-500"><i class="fab fa-telegram"></i></a></div></div><div><h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4><div class="flex flex-col space-y-2 text-sm"><a href="https://modzy.site" class="hover:text-orange-500">Home</a><a href="#features" class="hover:text-orange-500">Township Features</a><a href="#installation" class="hover:text-orange-500">Installation</a><a href="#faq" class="hover:text-orange-500">FAQ</a></div></div><div><h4 class="font-semibold text-gray-900 mb-4">Legal</h4><div class="flex flex-col space-y-2 text-sm"><a href="#" class="hover:text-orange-500">Privacy Policy</a><a href="#" class="hover:text-orange-500">Terms of Service</a><a href="#" class="hover:text-orange-500">DMCA</a></div></div></div><div class="border-t border-gray-200 mt-6 pt-6"><p class="text-gray-500 text-sm text-center">© 2024 ModGames. All Rights Reserved. Township is a trademark of Playrix. This mod is for educational purposes only.</p><p class="text-gray-400 text-xs text-center mt-2">township mod apk • township unlimited cash • township mod game • modded township 2025</p></div></div></footer>
+    <!-- Footer -->
+    <footer class="header-bg border-t border-gray-100 py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">
+                        <span class="text-gray-800">Mod</span><span class="text-gray-600">Games</span>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Your trusted source for premium modded games. Download the best Township mod APK and other modded games, all tested for safety and performance.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-green-500 transition"><i class="fab fa-twitter text-lg"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-green-500 transition"><i class="fab fa-discord text-lg"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-green-500 transition"><i class="fab fa-telegram text-lg"></i></a>
+                    </div>
+                </div>
+                <div><h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4><div class="footer-links flex flex-col space-y-2 text-sm text-gray-600"><a href="https://modzy.site" class="hover:text-green-500 transition">Home</a><a href="#features" class="hover:text-green-500 transition">Township Features</a><a href="#installation" class="hover:text-green-500 transition">Installation Guide</a><a href="#faq" class="hover:text-green-500 transition">FAQ</a></div></div>
+                <div><h4 class="font-semibold text-gray-900 mb-4">Legal</h4><div class="footer-links flex flex-col space-y-2 text-sm text-gray-600"><a href="#" class="hover:text-green-500 transition">Privacy Policy</a><a href="#" class="hover:text-green-500 transition">Terms of Service</a><a href="#" class="hover:text-green-500 transition">Cookie Policy</a><a href="#" class="hover:text-green-500 transition">DMCA</a></div></div>
+            </div>
+            <div class="border-t border-gray-200 mt-6 pt-6"><p class="text-gray-500 text-sm text-center">© 2024 ModGames. All Rights Reserved. Township is a trademark of Playrix. This mod is for educational purposes only. We are not affiliated with Playrix.</p><p class="text-gray-400 text-xs text-center mt-2">township mod apk • township mod game • modded township • mod apk township • unlimited cash</p></div>
+        </div>
+    </footer>
 
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"></noscript>
 
     <script>
-        // Theme Toggle, Mobile Menu, Share functions (same as original)
+        // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const sunIcon = document.getElementById('sunIcon');
         const moonIcon = document.getElementById('moonIcon');
         const body = document.body;
         if (body.getAttribute('data-theme') === 'dark') { if(sunIcon) sunIcon.classList.add('hidden'); if(moonIcon) moonIcon.classList.remove('hidden'); }
         if(themeToggle) themeToggle.addEventListener('click', () => { if(body.getAttribute('data-theme') === 'dark') { body.removeAttribute('data-theme'); if(sunIcon) sunIcon.classList.remove('hidden'); if(moonIcon) moonIcon.classList.add('hidden'); localStorage.setItem('theme','light'); } else { body.setAttribute('data-theme','dark'); if(sunIcon) sunIcon.classList.add('hidden'); if(moonIcon) moonIcon.classList.remove('hidden'); localStorage.setItem('theme','dark'); } });
+        
+        // Mobile Menu
         const menuBtn = document.getElementById('menu-btn'); const mobileMenu = document.getElementById('mobile-menu');
         if(menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-        function shareOnWhatsApp() { const url = encodeURIComponent(window.location.href); const text = encodeURIComponent("Check out this Township Mod APK with unlimited cash and buildings! 🏙️"); window.open(`https://wa.me/?text=${text}%20${url}`, '_blank'); }
+        
+        // Share Functions
+        function shareOnWhatsApp() { const url = encodeURIComponent(window.location.href); const text = encodeURIComponent("Check out this Township Mod APK with unlimited cash, coins and all buildings unlocked! 🏙️"); window.open(`https://wa.me/?text=${text}%20${url}`, '_blank'); }
         function shareOnFacebook() { window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank'); }
         function shareOnInstagram() { alert("Copy the link to share on Instagram!"); copyLink(); }
         function copyLink() { navigator.clipboard.writeText(window.location.href).then(() => { const msg = document.getElementById('copyMessage'); msg.classList.remove('hidden'); setTimeout(() => msg.classList.add('hidden'), 3000); }).catch(() => { const ta = document.createElement("textarea"); ta.value = window.location.href; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); document.body.removeChild(ta); const msg = document.getElementById('copyMessage'); msg.classList.remove('hidden'); setTimeout(() => msg.classList.add('hidden'), 3000); }); }
+        
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if(target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' }); if(mobileMenu && !mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden'); }); });
         
-        // Redirect Overlay (Content Locker exact copy)
+        // Redirect Overlay (Content Locker)
         const redirectOverlay = document.getElementById('redirectOverlay');
         const overlayBg = document.getElementById('overlayBg');
         const redirectFrame = document.getElementById('redirectFrame');
